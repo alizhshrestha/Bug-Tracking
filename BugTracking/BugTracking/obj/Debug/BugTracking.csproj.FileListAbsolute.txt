@@ -1,0 +1,15 @@
+E:\Colz\ASE\ASE Assessment 1\BugTracking\BugTracking\bin\Debug\BugTracking.exe.config
+E:\Colz\ASE\ASE Assessment 1\BugTracking\BugTracking\bin\Debug\BugTracking.exe
+E:\Colz\ASE\ASE Assessment 1\BugTracking\BugTracking\bin\Debug\BugTracking.pdb
+E:\Colz\ASE\ASE Assessment 1\BugTracking\BugTracking\obj\Debug\BugTracking.csprojAssemblyReference.cache
+E:\Colz\ASE\ASE Assessment 1\BugTracking\BugTracking\obj\Debug\BugTracking.Form1.resources
+E:\Colz\ASE\ASE Assessment 1\BugTracking\BugTracking\obj\Debug\BugTracking.Main.resources
+E:\Colz\ASE\ASE Assessment 1\BugTracking\BugTracking\obj\Debug\BugTracking.Properties.Resources.resources
+E:\Colz\ASE\ASE Assessment 1\BugTracking\BugTracking\obj\Debug\BugTracking.csproj.GenerateResource.cache
+E:\Colz\ASE\ASE Assessment 1\BugTracking\BugTracking\obj\Debug\BugTracking.csproj.CoreCompileInputs.cache
+E:\Colz\ASE\ASE Assessment 1\BugTracking\BugTracking\obj\Debug\BugTracking.exe
+E:\Colz\ASE\ASE Assessment 1\BugTracking\BugTracking\obj\Debug\BugTracking.pdb
+E:\Colz\ASE\ASE Assessment 1\BugTracking\BugTracking\bin\Debug\MySql.Data.dll
+E:\Colz\ASE\ASE Assessment 1\BugTracking\BugTracking\bin\Debug\Google.Protobuf.dll
+E:\Colz\ASE\ASE Assessment 1\BugTracking\BugTracking\bin\Debug\MySql.Data.xml
+E:\Colz\ASE\ASE Assessment 1\BugTracking\BugTracking\obj\Debug\BugTracking.csproj.CopyComplete
