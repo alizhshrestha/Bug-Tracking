@@ -10,15 +10,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace BugTracking
 {
     public partial class Form1 : Form
     {
         //SqlConnection mySqlConnection;
-
+        MySqlConnection con = new MySqlConnection(@"Data Source=localhost;port=3306;Initial Catalog=bug_tracking; User Id=root; password=''");
+        int i;
         public Form1()
         {
-            /*InitializeComponent();
+            InitializeComponent();
+            /*
             String[] myData = new string[100];
             
 
@@ -54,10 +57,31 @@ namespace BugTracking
 
         private void btn_login_Click(object sender, EventArgs e)
         {
+            i = 0;
 
-            Main main = new Main();
-            main.Show();
-            this.Hide();
+            con.Open();
+            MySqlCommand cmd = con.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select * from login where username='"+txt_username.Text+"' and password='"+txt_password.Text+"'";
+            cmd.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+            da.Fill(dt);
+            i = Convert.ToInt32(dt.Rows.Count.ToString());
+
+            if (i==0)
+            {
+                lbl_invalid.Text = "you have entered invalid username and password";
+            }
+            else
+            {
+                this.Hide();
+                Main main = new Main();
+                main.Show();
+            }
+
+            con.Close();
+
         }
 
         private void btn_exit_Click(object sender, EventArgs e)

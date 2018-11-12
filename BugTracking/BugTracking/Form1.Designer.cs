@@ -37,6 +37,7 @@
             this.lbl_login = new System.Windows.Forms.Label();
             this.lbl_username = new System.Windows.Forms.Label();
             this.lbl_password = new System.Windows.Forms.Label();
+            this.lbl_invalid = new System.Windows.Forms.Label();
             this.login_panel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -86,11 +87,17 @@
             resources.ApplyResources(this.lbl_password, "lbl_password");
             this.lbl_password.Name = "lbl_password";
             // 
+            // lbl_invalid
+            // 
+            resources.ApplyResources(this.lbl_invalid, "lbl_invalid");
+            this.lbl_invalid.Name = "lbl_invalid";
+            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Aqua;
+            this.Controls.Add(this.lbl_invalid);
             this.Controls.Add(this.lbl_password);
             this.Controls.Add(this.lbl_username);
             this.Controls.Add(this.login_panel);
@@ -115,6 +122,7 @@
         private System.Windows.Forms.Label lbl_username;
         private System.Windows.Forms.Label lbl_password;
         private System.Windows.Forms.Label lbl_login;
+        private System.Windows.Forms.Label lbl_invalid;
     }
 }
 
