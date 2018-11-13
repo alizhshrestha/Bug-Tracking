@@ -12,9 +12,13 @@ namespace BugTracking
 {
     public partial class Register_form : Form
     {
+        validation validation;
+
         #region Constructor
         public Register_form()
         {
+            validation = new validation();
+
             InitializeComponent();
         }
         #endregion
@@ -34,8 +38,6 @@ namespace BugTracking
         /// <param name="e"></param>
         private void Register_form_Load(object sender, EventArgs e)
         {
-            lbl_validate.Hide();
-            lbl_validate.ForeColor = Color.Red;
             cmb_sex.DropDownHeight = 50;
             setComboSexItems();
             setComboRoleItems();
@@ -79,20 +81,22 @@ namespace BugTracking
         {
             
             ///sequentially validates forms if there is improper value or textbox is blank
-            if (validateUserInfo(txt_first_name, "FIRST NAME", lbl_validate) == true)
+            if (validation.validateUserInfo(txt_first_name, "FIRST NAME", lbl_validate) == true)
             {
-                if (validateUserInfo(txt_last_name, "LAST NAME", lbl_validate) == true)
+                if (validation.validateUserInfo(txt_last_name, "LAST NAME", lbl_validate) == true)
                 {
-                    if (validateUserInfo(txt_address, "ADDRESS", lbl_validate) == true)
+                    if (validation.validateUserInfo(txt_address, "ADDRESS", lbl_validate) == true)
                     {
-                        if (validateUserloginInfo(txt_username, "Username", lbl_validate) == true)
+                        if (validation.validateUserloginInfo(txt_username, "Username", lbl_validate) == true)
                         {
-                            if (validateUserloginInfo(txt_password, "Password", lbl_validate) == true)
+                            if (validation.validateUserloginInfo(txt_password, "Password", lbl_validate) == true)
                             {
                                 MessageBox.Show("YOU HAVE BEEN SUCCESSFULLY REGISTERED");
                                 this.Close();
-                                Login_form login_frm = new Login_form();
-                                login_frm.Show();
+                                Bug_report bug_report = new Bug_report();
+                                bug_report.Show();
+                                //Login_form login_frm = new Login_form();
+                                //login_frm.Show();
                             }
                         }
                     }
@@ -101,46 +105,6 @@ namespace BugTracking
         }
         #endregion
 
-        #region Validation methods
-
-        /// <summary>
-        /// validates common user info
-        /// </summary>
-        /// <param name="txt"></param>
-        /// <param name="label"></param>
-        /// <returns></returns>
-        private bool validateUserInfo(TextBox txt, String label, Label lbl_validate)
-        {
-            string value = txt.Text;
-            if (string.IsNullOrWhiteSpace(value) || value.Any(Char.IsDigit))
-            {
-                lbl_validate.Text = "PLEASE ENTER VALID "+label;
-                lbl_validate.Show();
-                txt.Select();
-                return false;
-            }
-            return true;
-        }
-
-        /// <summary>
-        /// validates login credential info
-        /// </summary>
-        /// <param name="txt"></param>
-        /// <param name="label"></param>
-        /// <returns></returns>
-        private bool validateUserloginInfo(TextBox txt, String label, Label lbl_validate)
-        {
-            string value = txt.Text;
-            if (string.IsNullOrWhiteSpace(value))
-            {
-                lbl_validate.Text = "PLEASE ENTER VALID " + label;
-                lbl_validate.Show();
-                txt.Select();
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
+        
     }
 }

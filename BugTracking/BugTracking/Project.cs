@@ -12,45 +12,35 @@ namespace BugTracking
 {
     public partial class Project : Form
     {
+        validation validation;//defined validation class
+
+        #region constructor
         public Project()
         {
+            validation = new validation();//initialized validation class
             InitializeComponent();
         }
+        #endregion
 
         private void Project_Load(object sender, EventArgs e)
         {
 
         }
 
-        /// <summary>
-        /// validates common user info
-        /// </summary>
-        /// <param name="txt"></param>
-        /// <param name="label"></param>
-        /// <returns></returns>
-        private bool validateProjectInfo(TextBox txt, String label, Label lbl_validate)
-        {
-            string value = txt.Text;
-            if (string.IsNullOrWhiteSpace(value) || value.Any(Char.IsDigit))
-            {
-                lbl_validate.Text = "PLEASE ENTER VALID " + label;
-                lbl_validate.Show();
-                txt.Select();
-                return false;
-            }
-            return true;
-        }
-
+        #region button submit event
         private void btn_submit_Click(object sender, EventArgs e)
         {
-            if (validateProjectInfo(txt_project_name, "PROJECT NAME", lbl_validate)==true)
+            //Validates if information is correct or not
+            if (validation.validateUserInfo(txt_project_name, "PROJECT NAME", lbl_validate)==true)
             {
-                if (validateProjectInfo(txt_arthur, "ARTHUR NAME", lbl_validate) == true)
+                if (validation.validateUserInfo(txt_arthur, "ARTHUR NAME", lbl_validate) == true)
                 {
                     MessageBox.Show("Successfully submited");
                 }
             }
             
         }
+
+        #endregion
     }
 }

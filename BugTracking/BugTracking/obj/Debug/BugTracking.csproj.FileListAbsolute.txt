@@ -30,3 +30,4 @@ E:\Colz\ASE\ASE_Assessment_1\BugTracking\BugTracking\obj\Debug\BugTracking.pdb
 E:\Colz\ASE\ASE_Assessment_1\BugTracking\BugTracking\obj\Debug\BugTracking.Login_form.resources
 E:\Colz\ASE\ASE_Assessment_1\BugTracking\BugTracking\obj\Debug\BugTracking.Register_form.resources
 E:\Colz\ASE\ASE_Assessment_1\BugTracking\BugTracking\obj\Debug\BugTracking.Project.resources
+E:\Colz\ASE\ASE_Assessment_1\BugTracking\BugTracking\obj\Debug\BugTracking.Bug_report.resources
