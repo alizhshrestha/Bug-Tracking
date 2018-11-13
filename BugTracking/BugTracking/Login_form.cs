@@ -13,12 +13,12 @@ using System.Windows.Forms;
 
 namespace BugTracking
 {
-    public partial class Form1 : Form
+    public partial class Login_form : Form
     {
         //SqlConnection mySqlConnection;
         MySqlConnection con = new MySqlConnection(@"Data Source=localhost;port=3306;Initial Catalog=bug_tracking; User Id=root; password=''");
         int i;
-        public Form1()
+        public Login_form()
         {
             InitializeComponent();
             /*
@@ -84,9 +84,11 @@ namespace BugTracking
 
         }
 
-        private void btn_exit_Click(object sender, EventArgs e)
+        private void btn_register_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
+            Register_form register_form = new Register_form();
+            register_form.Show();
         }
     }
 }

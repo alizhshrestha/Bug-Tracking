@@ -1,6 +1,6 @@
 ﻿namespace BugTracking
 {
-    partial class Form1
+    partial class Login_form
     {
         /// <summary>
         /// Required designer variable.
@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login_form));
             this.btn_login = new System.Windows.Forms.Button();
-            this.btn_exit = new System.Windows.Forms.Button();
             this.txt_username = new System.Windows.Forms.TextBox();
             this.txt_password = new System.Windows.Forms.TextBox();
             this.login_panel = new System.Windows.Forms.Panel();
@@ -38,6 +37,7 @@
             this.lbl_username = new System.Windows.Forms.Label();
             this.lbl_password = new System.Windows.Forms.Label();
             this.lbl_invalid = new System.Windows.Forms.Label();
+            this.btn_register = new System.Windows.Forms.Button();
             this.login_panel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,13 +47,6 @@
             this.btn_login.Name = "btn_login";
             this.btn_login.UseVisualStyleBackColor = true;
             this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
-            // 
-            // btn_exit
-            // 
-            resources.ApplyResources(this.btn_exit, "btn_exit");
-            this.btn_exit.Name = "btn_exit";
-            this.btn_exit.UseVisualStyleBackColor = true;
-            this.btn_exit.Click += new System.EventHandler(this.btn_exit_Click);
             // 
             // txt_username
             // 
@@ -92,20 +85,27 @@
             resources.ApplyResources(this.lbl_invalid, "lbl_invalid");
             this.lbl_invalid.Name = "lbl_invalid";
             // 
-            // Form1
+            // btn_register
+            // 
+            resources.ApplyResources(this.btn_register, "btn_register");
+            this.btn_register.Name = "btn_register";
+            this.btn_register.UseVisualStyleBackColor = true;
+            this.btn_register.Click += new System.EventHandler(this.btn_register_Click);
+            // 
+            // Login_form
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Aqua;
+            this.Controls.Add(this.btn_register);
             this.Controls.Add(this.lbl_invalid);
             this.Controls.Add(this.lbl_password);
             this.Controls.Add(this.lbl_username);
             this.Controls.Add(this.login_panel);
             this.Controls.Add(this.txt_password);
             this.Controls.Add(this.txt_username);
-            this.Controls.Add(this.btn_exit);
             this.Controls.Add(this.btn_login);
-            this.Name = "Form1";
+            this.Name = "Login_form";
             this.login_panel.ResumeLayout(false);
             this.login_panel.PerformLayout();
             this.ResumeLayout(false);
@@ -115,7 +115,6 @@
 
         #endregion
         private System.Windows.Forms.Button btn_login;
-        private System.Windows.Forms.Button btn_exit;
         private System.Windows.Forms.TextBox txt_username;
         private System.Windows.Forms.TextBox txt_password;
         private System.Windows.Forms.Panel login_panel;
@@ -123,6 +122,7 @@
         private System.Windows.Forms.Label lbl_password;
         private System.Windows.Forms.Label lbl_login;
         private System.Windows.Forms.Label lbl_invalid;
+        private System.Windows.Forms.Button btn_register;
     }
 }
 
