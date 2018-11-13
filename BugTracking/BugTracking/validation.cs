@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace BugTracking
 {
-    class validation
+    class Validation
     {
         #region Validation methods
 

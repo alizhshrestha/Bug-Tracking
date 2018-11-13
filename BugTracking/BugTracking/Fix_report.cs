@@ -10,43 +10,46 @@ using System.Windows.Forms;
 
 namespace BugTracking
 {
-    public partial class Bug_report : Form
+    public partial class Fix_report : Form
     {
-        Validation validate;//defined validation class
-        #region constructor
-        public Bug_report()
+        Validation validate; //declares validation class
+
+        #region Constructor
+        public Fix_report()
         {
             InitializeComponent();
-            validate = new Validation();//initialized validation class
+            validate = new Validation();
         }
         #endregion
 
-        private void label8_Click(object sender, EventArgs e)
+
+        #region Form Load
+        private void Fix_report_Load(object sender, EventArgs e)
         {
-
+            cmb_role.Items.Add("Programmer");
+            cmb_role.Items.Add("Tester");
+            cmb_role.Items.Add("Developer");
+            cmb_role.Text = "Programmer";
         }
+        #endregion
 
-        private void Bug_report_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        #region Button Update click event
+        #region Button Update Click event
         private void btn_update_Click(object sender, EventArgs e)
         {
+            //validates fix report information
             if (validate.validateUserInfo(txt_project_name, "PROJECT NAME", lbl_validate) == true)
             {
-                if (validate.validateUserInfo(txt_bug_title, "BUG TITLE", lbl_validate) == true)
+                if (validate.validateUserInfo(txt_bug, "BUG TITLE", lbl_validate) == true)
                 {
-                    if (validate.validateUserInfo(txt_arthur, "ARTHUR NAME", lbl_validate) == true)
+                    if (validate.validateUserInfo(txt_source_file, "SOURCE FILE", lbl_validate) == true)
                     {
-                        if (validate.validateUserInfo(txt_source_file, "SOURCE FILE", lbl_validate) == true)
+                        if (validate.validateUserInfo(txt_class_name, "CLASS NAME", lbl_validate) == true)
                         {
-                            if (validate.validateUserInfo(txt_class_name, "CLASS NAME", lbl_validate) == true)
+                            if (validate.validateUserInfo(txt_code_line, "CODE LINE", lbl_validate) == true)
                             {
                                 if (validate.validateUserInfo(txt_method_line, "METHOD LINE", lbl_validate) == true)
                                 {
-                                    if (validate.validateUserInfo(txt_code_line, "CODE LINE", lbl_validate) == true)
+                                    if (validate.validateUserInfo(txt_fixer, "FIXER NAME", lbl_validate) == true)
                                     {
                                         MessageBox.Show("OK");
                                     }
@@ -58,5 +61,6 @@ namespace BugTracking
             }
         }
         #endregion
+
     }
 }

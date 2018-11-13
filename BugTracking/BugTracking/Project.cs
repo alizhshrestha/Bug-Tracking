@@ -12,12 +12,12 @@ namespace BugTracking
 {
     public partial class Project : Form
     {
-        validation validation;//defined validation class
+        Validation validation;//defined validation class
 
         #region constructor
         public Project()
         {
-            validation = new validation();//initialized validation class
+            validation = new Validation();//initialized validation class
             InitializeComponent();
         }
         #endregion

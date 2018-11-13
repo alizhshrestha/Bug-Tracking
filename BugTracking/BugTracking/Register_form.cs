@@ -12,12 +12,12 @@ namespace BugTracking
 {
     public partial class Register_form : Form
     {
-        validation validation;
+        Validation validation;
 
         #region Constructor
         public Register_form()
         {
-            validation = new validation();
+            validation = new Validation();
 
             InitializeComponent();
         }

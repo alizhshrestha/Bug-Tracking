@@ -81,8 +81,10 @@ namespace BugTracking
             else
             {
                 this.Hide();
-                Project project = new Project();
-                project.Show();
+                Fix_report fix_report = new Fix_report();
+                fix_report.Show();
+                //Project project = new Project();
+                //project.Show();
             }
 
             con.Close();
