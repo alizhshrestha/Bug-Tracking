@@ -15,9 +15,11 @@ namespace BugTracking
 {
     public partial class Login_form : Form
     {
-        //SqlConnection mySqlConnection;
+        //location of the mysqlconnection linked
         MySqlConnection con = new MySqlConnection(@"Data Source=localhost;port=3306;Initial Catalog=bug_tracking; User Id=root; password=''");
-        int i;
+        int i;//variable defined
+
+        #region constructor
         public Login_form()
         {
             InitializeComponent();
@@ -49,14 +51,17 @@ namespace BugTracking
             }
             */
         }
+        #endregion  
 
         private void label2_Click(object sender, EventArgs e)
         {
 
         }
 
+        #region Button Login click event
         private void btn_login_Click(object sender, EventArgs e)
         {
+
             i = 0;
 
             con.Open();
@@ -76,19 +81,22 @@ namespace BugTracking
             else
             {
                 this.Hide();
-                Main main = new Main();
-                main.Show();
+                Project project = new Project();
+                project.Show();
             }
 
             con.Close();
 
         }
+        #endregion
 
+        #region Button register click
         private void btn_register_Click(object sender, EventArgs e)
         {
             this.Hide();
             Register_form register_form = new Register_form();
             register_form.Show();
         }
+        #endregion
     }
 }
