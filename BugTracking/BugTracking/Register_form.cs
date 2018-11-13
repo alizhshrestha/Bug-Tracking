@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -91,12 +92,30 @@ namespace BugTracking
                         {
                             if (validation.validateUserloginInfo(txt_password, "Password", lbl_validate) == true)
                             {
-                                MessageBox.Show("YOU HAVE BEEN SUCCESSFULLY REGISTERED");
+                                //data connection and data transfer
+                                string connString = "Data Source=localhost;port=3306;Initial Catalog=bug_tracking; User Id=root; password=''";
+                                MySqlConnection conn = new MySqlConnection(connString);
+                                MySqlCommand command = conn.CreateCommand();
+                                command.CommandText = "insert into register (first_name, last_name, sex, address, username, password, role) values('" + txt_first_name.Text + "','" + txt_last_name.Text + "','" + cmb_sex.Text + "'," +
+                                    "'" + txt_address.Text + "','" + txt_username.Text + "','" + txt_password.Text + "','" + cmb_role.Text + "');insert into login (username, password) values('" + txt_username.Text + "','" + txt_password.Text + "')";
+
+                                try
+                                {
+                                    conn.Open();
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show(ex.Message);
+                                }
+
+                                command.ExecuteNonQuery();
+
+
+                                MessageBox.Show("successfully registered");
+
                                 this.Close();
-                                Bug_report bug_report = new Bug_report();
-                                bug_report.Show();
-                                //Login_form login_frm = new Login_form();
-                                //login_frm.Show();
+                                Login_form login_frm = new Login_form();
+                                login_frm.Show();
                             }
                         }
                     }
@@ -105,6 +124,6 @@ namespace BugTracking
         }
         #endregion
 
-        
+
     }
 }

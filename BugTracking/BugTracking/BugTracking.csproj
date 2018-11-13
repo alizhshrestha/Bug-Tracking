@@ -59,6 +59,12 @@
     <Compile Include="Fix_report.Designer.cs">
       <DependentUpon>Fix_report.cs</DependentUpon>
     </Compile>
+    <Compile Include="List_of_project.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="List_of_project.Designer.cs">
+      <DependentUpon>List_of_project.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login_form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,12 +91,21 @@
     <Compile Include="Register_form.Designer.cs">
       <DependentUpon>Register_form.cs</DependentUpon>
     </Compile>
+    <Compile Include="User_list.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User_list.Designer.cs">
+      <DependentUpon>User_list.cs</DependentUpon>
+    </Compile>
     <Compile Include="Validation.cs" />
     <EmbeddedResource Include="Bug_report.resx">
       <DependentUpon>Bug_report.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fix_report.resx">
       <DependentUpon>Fix_report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="List_of_project.resx">
+      <DependentUpon>List_of_project.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login_form.resx">
       <DependentUpon>Login_form.cs</DependentUpon>
@@ -112,6 +127,9 @@
     </Compile>
     <EmbeddedResource Include="Register_form.resx">
       <DependentUpon>Register_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User_list.resx">
+      <DependentUpon>User_list.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
