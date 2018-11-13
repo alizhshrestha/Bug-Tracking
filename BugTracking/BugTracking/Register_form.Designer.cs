@@ -43,6 +43,7 @@
             this.txt_username = new System.Windows.Forms.TextBox();
             this.cmb_sex = new System.Windows.Forms.ComboBox();
             this.cmb_role = new System.Windows.Forms.ComboBox();
+            this.lbl_validate = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbl_first_name
@@ -58,17 +59,18 @@
             // 
             this.txt_first_name.Location = new System.Drawing.Point(166, 29);
             this.txt_first_name.Name = "txt_first_name";
-            this.txt_first_name.Size = new System.Drawing.Size(121, 20);
+            this.txt_first_name.Size = new System.Drawing.Size(205, 20);
             this.txt_first_name.TabIndex = 1;
             // 
             // btn_submit
             // 
-            this.btn_submit.Location = new System.Drawing.Point(166, 286);
+            this.btn_submit.Location = new System.Drawing.Point(166, 300);
             this.btn_submit.Name = "btn_submit";
             this.btn_submit.Size = new System.Drawing.Size(121, 23);
             this.btn_submit.TabIndex = 2;
             this.btn_submit.Text = "SUBMIT";
             this.btn_submit.UseVisualStyleBackColor = true;
+            this.btn_submit.Click += new System.EventHandler(this.btn_submit_Click);
             // 
             // lbl_last_name
             // 
@@ -128,28 +130,28 @@
             // 
             this.txt_address.Location = new System.Drawing.Point(166, 136);
             this.txt_address.Name = "txt_address";
-            this.txt_address.Size = new System.Drawing.Size(121, 20);
+            this.txt_address.Size = new System.Drawing.Size(205, 20);
             this.txt_address.TabIndex = 9;
             // 
             // txt_password
             // 
             this.txt_password.Location = new System.Drawing.Point(166, 204);
             this.txt_password.Name = "txt_password";
-            this.txt_password.Size = new System.Drawing.Size(121, 20);
+            this.txt_password.Size = new System.Drawing.Size(205, 20);
             this.txt_password.TabIndex = 12;
             // 
             // txt_last_name
             // 
             this.txt_last_name.Location = new System.Drawing.Point(166, 68);
             this.txt_last_name.Name = "txt_last_name";
-            this.txt_last_name.Size = new System.Drawing.Size(121, 20);
+            this.txt_last_name.Size = new System.Drawing.Size(205, 20);
             this.txt_last_name.TabIndex = 13;
             // 
             // txt_username
             // 
             this.txt_username.Location = new System.Drawing.Point(166, 172);
             this.txt_username.Name = "txt_username";
-            this.txt_username.Size = new System.Drawing.Size(121, 20);
+            this.txt_username.Size = new System.Drawing.Size(205, 20);
             this.txt_username.TabIndex = 15;
             // 
             // cmb_sex
@@ -157,22 +159,32 @@
             this.cmb_sex.FormattingEnabled = true;
             this.cmb_sex.Location = new System.Drawing.Point(166, 104);
             this.cmb_sex.Name = "cmb_sex";
-            this.cmb_sex.Size = new System.Drawing.Size(121, 21);
+            this.cmb_sex.Size = new System.Drawing.Size(205, 21);
             this.cmb_sex.TabIndex = 16;
+            this.cmb_sex.SelectedIndexChanged += new System.EventHandler(this.cmb_sex_SelectedIndexChanged);
             // 
             // cmb_role
             // 
             this.cmb_role.FormattingEnabled = true;
             this.cmb_role.Location = new System.Drawing.Point(166, 235);
             this.cmb_role.Name = "cmb_role";
-            this.cmb_role.Size = new System.Drawing.Size(121, 21);
+            this.cmb_role.Size = new System.Drawing.Size(205, 21);
             this.cmb_role.TabIndex = 17;
+            // 
+            // lbl_validate
+            // 
+            this.lbl_validate.AutoSize = true;
+            this.lbl_validate.Location = new System.Drawing.Point(163, 270);
+            this.lbl_validate.Name = "lbl_validate";
+            this.lbl_validate.Size = new System.Drawing.Size(0, 13);
+            this.lbl_validate.TabIndex = 18;
             // 
             // Register_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(313, 335);
+            this.ClientSize = new System.Drawing.Size(383, 335);
+            this.Controls.Add(this.lbl_validate);
             this.Controls.Add(this.cmb_role);
             this.Controls.Add(this.cmb_sex);
             this.Controls.Add(this.txt_username);
@@ -190,6 +202,7 @@
             this.Controls.Add(this.lbl_first_name);
             this.Name = "Register_form";
             this.Text = "Register_form";
+            this.Load += new System.EventHandler(this.Register_form_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -212,5 +225,6 @@
         private System.Windows.Forms.TextBox txt_username;
         private System.Windows.Forms.ComboBox cmb_sex;
         private System.Windows.Forms.ComboBox cmb_role;
+        private System.Windows.Forms.Label lbl_validate;
     }
 }
