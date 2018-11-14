@@ -59,6 +59,12 @@ namespace BugTracking.View
             
         }
 
+        private void userToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            User_list user_list = new User_list();
+            user_list.ShowDialog();
+        }
+
         //panel_item.Refresh();
         //Project project = new Project();
         //project.TopLevel = false;

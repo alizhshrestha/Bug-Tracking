@@ -96,8 +96,8 @@ namespace BugTracking
                                 string connString = "Data Source=localhost;port=3306;Initial Catalog=bug_tracking; User Id=root; password=''";
                                 MySqlConnection conn = new MySqlConnection(connString);
                                 MySqlCommand command = conn.CreateCommand();
-                                command.CommandText = "insert into register (first_name, last_name, sex, address, username, password, role) values('" + txt_first_name.Text + "','" + txt_last_name.Text + "','" + cmb_sex.Text + "'," +
-                                    "'" + txt_address.Text + "','" + txt_username.Text + "','" + txt_password.Text + "','" + cmb_role.Text + "');insert into login (username, password) values('" + txt_username.Text + "','" + txt_password.Text + "')";
+                                command.CommandText = "insert into User (first_name, last_name, sex, address, username, password, role) values('" + txt_first_name.Text + "','" + txt_last_name.Text + "','" + cmb_sex.Text + "'," +
+                                    "'" + txt_address.Text + "','" + txt_username.Text + "','" + txt_password.Text + "','" + cmb_role.Text + "')";
 
                                 try
                                 {

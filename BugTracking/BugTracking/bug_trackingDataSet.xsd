@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="bug_trackingDataSet" targetNamespace="http://tempuri.org/bug_trackingDataSet.xsd" xmlns:mstns="http://tempuri.org/bug_trackingDataSet.xsd" xmlns="http://tempuri.org/bug_trackingDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="bug_trackingConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="bug_trackingConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.BugTracking.Properties.Settings.GlobalReference.Default.bug_trackingConnectionString" Provider="MySql.Data.MySqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="bugTableAdapter" GeneratorDataComponentClassName="bugTableAdapter" Name="bug" UserDataComponentName="bugTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="bug_trackingConnectionString (Settings)" DbObjectName="bug_tracking.bug" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `id`, `bug_title`, `source_file`, `class`, `method_line`, `code_line`, `project_id` FROM `bug`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="bug_fixTableAdapter" GeneratorDataComponentClassName="bug_fixTableAdapter" Name="bug_fix" UserDataComponentName="bug_fixTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="bug_trackingConnectionString (Settings)" DbObjectName="bug_tracking.bug_fix" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `id`, `fixer_name`, `bug_id` FROM `bug_fix`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="projectTableAdapter" GeneratorDataComponentClassName="projectTableAdapter" Name="project" UserDataComponentName="projectTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="bug_trackingConnectionString (Settings)" DbObjectName="bug_tracking.project" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `id`, `project_name`, `start_date`, `end_date`, `arthur`, `user_id` FROM `project`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="userTableAdapter" GeneratorDataComponentClassName="userTableAdapter" Name="user" UserDataComponentName="userTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="bug_trackingConnectionString (Settings)" DbObjectName="bug_tracking.`user`" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `id`, `first_name`, `last_name`, `address`, `sex`, `username`, `password`, `role` FROM `user`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="bug_trackingDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="bug_trackingDataSet" msprop:Generator_UserDSName="bug_trackingDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="bug" msprop:Generator_TableClassName="bugDataTable" msprop:Generator_TableVarName="tablebug" msprop:Generator_TablePropName="bug" msprop:Generator_RowDeletingName="bugRowDeleting" msprop:Generator_RowChangingName="bugRowChanging" msprop:Generator_RowEvHandlerName="bugRowChangeEventHandler" msprop:Generator_RowDeletedName="bugRowDeleted" msprop:Generator_UserTableName="bug" msprop:Generator_RowChangedName="bugRowChanged" msprop:Generator_RowEvArgName="bugRowChangeEvent" msprop:Generator_RowClassName="bugRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="bug_fix" msprop:Generator_TableClassName="bug_fixDataTable" msprop:Generator_TableVarName="tablebug_fix" msprop:Generator_TablePropName="bug_fix" msprop:Generator_RowDeletingName="bug_fixRowDeleting" msprop:Generator_RowChangingName="bug_fixRowChanging" msprop:Generator_RowEvHandlerName="bug_fixRowChangeEventHandler" msprop:Generator_RowDeletedName="bug_fixRowDeleted" msprop:Generator_UserTableName="bug_fix" msprop:Generator_RowChangedName="bug_fixRowChanged" msprop:Generator_RowEvArgName="bug_fixRowChangeEvent" msprop:Generator_RowClassName="bug_fixRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="project" msprop:Generator_TableClassName="projectDataTable" msprop:Generator_TableVarName="tableproject" msprop:Generator_TablePropName="project" msprop:Generator_RowDeletingName="projectRowDeleting" msprop:Generator_RowChangingName="projectRowChanging" msprop:Generator_RowEvHandlerName="projectRowChangeEventHandler" msprop:Generator_RowDeletedName="projectRowDeleted" msprop:Generator_UserTableName="project" msprop:Generator_RowChangedName="projectRowChanged" msprop:Generator_RowEvArgName="projectRowChangeEvent" msprop:Generator_RowClassName="projectRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="user" msprop:Generator_TableClassName="userDataTable" msprop:Generator_TableVarName="tableuser" msprop:Generator_TablePropName="user" msprop:Generator_RowDeletingName="userRowDeleting" msprop:Generator_RowChangingName="userRowChanging" msprop:Generator_RowEvHandlerName="userRowChangeEventHandler" msprop:Generator_RowDeletedName="userRowDeleted" msprop:Generator_UserTableName="user" msprop:Generator_RowChangedName="userRowChanged" msprop:Generator_RowEvArgName="userRowChangeEvent" msprop:Generator_RowClassName="userRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -48,6 +48,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "Bug_fix_list";
             this.Text = "Bug_fix_list";
+            this.Load += new System.EventHandler(this.Bug_fix_list_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 

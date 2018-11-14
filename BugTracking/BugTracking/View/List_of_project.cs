@@ -16,5 +16,10 @@ namespace BugTracking
         {
             InitializeComponent();
         }
+
+        private void List_of_project_Load(object sender, EventArgs e)
+        {
+            loadData.loadUserData("select * from project;", data_view_project_list);
+        }
     }
 }

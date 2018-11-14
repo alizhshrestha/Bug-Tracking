@@ -16,5 +16,10 @@ namespace BugTracking.View
         {
             InitializeComponent();
         }
+
+        private void Bug_list_Load(object sender, EventArgs e)
+        {
+            loadData.loadUserData("select * from bug;", dataGridView1);
+        }
     }
 }

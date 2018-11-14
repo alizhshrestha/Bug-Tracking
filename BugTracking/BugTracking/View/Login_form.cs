@@ -68,7 +68,7 @@ namespace BugTracking
             con.Open();
             MySqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "select * from login where username='"+txt_username.Text+"' and password='"+txt_password.Text+"'";
+            cmd.CommandText = "select * from User where username='"+txt_username.Text+"' and password='"+txt_password.Text+"'";
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
             MySqlDataAdapter da = new MySqlDataAdapter(cmd);

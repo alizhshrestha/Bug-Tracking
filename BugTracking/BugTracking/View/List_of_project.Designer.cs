@@ -28,33 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.project_list_data_view = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.project_list_data_view)).BeginInit();
+            this.data_view_project_list = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.data_view_project_list)).BeginInit();
             this.SuspendLayout();
             // 
-            // project_list_data_view
+            // data_view_project_list
             // 
-            this.project_list_data_view.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.project_list_data_view.Location = new System.Drawing.Point(12, 12);
-            this.project_list_data_view.Name = "project_list_data_view";
-            this.project_list_data_view.Size = new System.Drawing.Size(776, 386);
-            this.project_list_data_view.TabIndex = 0;
+            this.data_view_project_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.data_view_project_list.Location = new System.Drawing.Point(12, 12);
+            this.data_view_project_list.Name = "data_view_project_list";
+            this.data_view_project_list.Size = new System.Drawing.Size(776, 386);
+            this.data_view_project_list.TabIndex = 0;
             // 
             // List_of_project
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.project_list_data_view);
+            this.Controls.Add(this.data_view_project_list);
             this.Name = "List_of_project";
             this.Text = "List_of_project";
-            ((System.ComponentModel.ISupportInitialize)(this.project_list_data_view)).EndInit();
+            this.Load += new System.EventHandler(this.List_of_project_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.data_view_project_list)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView project_list_data_view;
+        private System.Windows.Forms.DataGridView data_view_project_list;
     }
 }
