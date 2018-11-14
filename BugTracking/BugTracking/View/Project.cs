@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -35,6 +36,28 @@ namespace BugTracking
             {
                 if (validation.validateUserInfo(txt_arthur, "ARTHUR NAME", lbl_validate) == true)
                 {
+                    //data connection and data transfer
+                    string connString = "Data Source=localhost;port=3306;Initial Catalog=bug_tracking; User Id=root; password=''";
+                    MySqlConnection conn = new MySqlConnection(connString);
+                    MySqlCommand command = conn.CreateCommand();
+                    command.CommandText = "insert into project_list (project_name, start_date, end_date, arthur, login_id)";
+                    try
+                    {
+                        conn.Open();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+
+                    command.ExecuteNonQuery();
+
+
+                    MessageBox.Show("successfully project created");
+
+                    this.Close();
+                    Login_form login_frm = new Login_form();
+                    login_frm.Show();
                     MessageBox.Show("Successfully submited");
                 }
             }

@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using BugTracking.View;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -81,8 +82,10 @@ namespace BugTracking
             else
             {
                 this.Hide();
-                Fix_report fix_report = new Fix_report();
-                fix_report.Show();
+                Dashboard dashboard = new Dashboard();
+                dashboard.Show();
+                //Fix_report fix_report = new Fix_report();
+                //fix_report.Show();
                 //Project project = new Project();
                 //project.Show();
             }

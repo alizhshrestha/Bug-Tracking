@@ -47,28 +47,47 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bug_report.cs">
+    <Compile Include="View\Bug_fix_list.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Bug_report.Designer.cs">
+    <Compile Include="View\Bug_fix_list.Designer.cs">
+      <DependentUpon>Bug_fix_list.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Bug_list.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Bug_list.Designer.cs">
+      <DependentUpon>Bug_list.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Bug_report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Bug_report.Designer.cs">
       <DependentUpon>Bug_report.cs</DependentUpon>
     </Compile>
-    <Compile Include="Fix_report.cs">
+    <Compile Include="Class1.cs" />
+    <Compile Include="View\Dashboard\Admin_dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Fix_report.Designer.cs">
+    <Compile Include="View\Dashboard\Admin_dashboard.Designer.cs">
+      <DependentUpon>Admin_dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Fix_report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Fix_report.Designer.cs">
       <DependentUpon>Fix_report.cs</DependentUpon>
     </Compile>
-    <Compile Include="List_of_project.cs">
+    <Compile Include="View\List_of_project.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="List_of_project.Designer.cs">
+    <Compile Include="View\List_of_project.Designer.cs">
       <DependentUpon>List_of_project.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login_form.cs">
+    <Compile Include="View\Login_form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login_form.Designer.cs">
+    <Compile Include="View\Login_form.Designer.cs">
       <DependentUpon>Login_form.cs</DependentUpon>
     </Compile>
     <Compile Include="Main.cs">
@@ -78,42 +97,51 @@
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
-    <Compile Include="Project.cs">
+    <Compile Include="View\Project.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Project.Designer.cs">
+    <Compile Include="View\Project.Designer.cs">
       <DependentUpon>Project.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Register_form.cs">
+    <Compile Include="View\Register_form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Register_form.Designer.cs">
+    <Compile Include="View\Register_form.Designer.cs">
       <DependentUpon>Register_form.cs</DependentUpon>
     </Compile>
-    <Compile Include="User_list.cs">
+    <Compile Include="View\User_list.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="User_list.Designer.cs">
+    <Compile Include="View\User_list.Designer.cs">
       <DependentUpon>User_list.cs</DependentUpon>
     </Compile>
     <Compile Include="Validation.cs" />
-    <EmbeddedResource Include="Bug_report.resx">
+    <EmbeddedResource Include="View\Bug_fix_list.resx">
+      <DependentUpon>Bug_fix_list.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Bug_list.resx">
+      <DependentUpon>Bug_list.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Bug_report.resx">
       <DependentUpon>Bug_report.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Fix_report.resx">
+    <EmbeddedResource Include="View\Dashboard\Admin_dashboard.resx">
+      <DependentUpon>Admin_dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Fix_report.resx">
       <DependentUpon>Fix_report.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="List_of_project.resx">
+    <EmbeddedResource Include="View\List_of_project.resx">
       <DependentUpon>List_of_project.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login_form.resx">
+    <EmbeddedResource Include="View\Login_form.resx">
       <DependentUpon>Login_form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Project.resx">
+    <EmbeddedResource Include="View\Project.resx">
       <DependentUpon>Project.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -125,10 +153,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Register_form.resx">
+    <EmbeddedResource Include="View\Register_form.resx">
       <DependentUpon>Register_form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User_list.resx">
+    <EmbeddedResource Include="View\User_list.resx">
       <DependentUpon>User_list.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -143,6 +171,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controller\" />
+    <Folder Include="Model\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
