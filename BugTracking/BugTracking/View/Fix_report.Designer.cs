@@ -176,7 +176,7 @@
             this.btn_update.Name = "btn_update";
             this.btn_update.Size = new System.Drawing.Size(100, 23);
             this.btn_update.TabIndex = 16;
-            this.btn_update.Text = "Update";
+            this.btn_update.Text = "SUBMIT";
             this.btn_update.UseVisualStyleBackColor = true;
             this.btn_update.Click += new System.EventHandler(this.btn_update_Click);
             // 
@@ -186,8 +186,9 @@
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(100, 23);
             this.btn_back.TabIndex = 17;
-            this.btn_back.Text = "Back";
+            this.btn_back.Text = "BACK";
             this.btn_back.UseVisualStyleBackColor = true;
+            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
             // 
             // cmb_role
             // 

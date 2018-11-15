@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using BugTracking.View;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -78,6 +79,8 @@ namespace BugTracking
 
                                         conn.Close();
                                         MessageBox.Show("OK");
+
+                                        
                                     }
                                 }
                             }
@@ -85,6 +88,10 @@ namespace BugTracking
                     }
                 }
             }
+            this.Close();
+            Bug_list bug_list = new Bug_list();
+            bug_list.ShowDialog();
+            
         }
         #endregion
     }

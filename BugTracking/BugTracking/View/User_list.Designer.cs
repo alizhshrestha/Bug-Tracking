@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.bnt_edit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -41,11 +42,21 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
+            // bnt_edit
+            // 
+            this.bnt_edit.Location = new System.Drawing.Point(318, 409);
+            this.bnt_edit.Name = "bnt_edit";
+            this.bnt_edit.Size = new System.Drawing.Size(75, 23);
+            this.bnt_edit.TabIndex = 1;
+            this.bnt_edit.Text = "EDIT";
+            this.bnt_edit.UseVisualStyleBackColor = true;
+            // 
             // User_list
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1032, 450);
+            this.Controls.Add(this.bnt_edit);
             this.Controls.Add(this.dataGridView1);
             this.Name = "User_list";
             this.Text = "User_list";
@@ -58,5 +69,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button bnt_edit;
     }
 }
