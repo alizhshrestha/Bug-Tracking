@@ -28,9 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pnl_menu_item = new System.Windows.Forms.Panel();
-            this.form_panel = new System.Windows.Forms.Panel();
             this.MenuStripItem = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,37 +36,15 @@
             this.bugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fixToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bugToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.fixToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel1.SuspendLayout();
+            this.form_panel = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnl_menu_item = new System.Windows.Forms.Panel();
             this.MenuStripItem.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.pnl_menu_item);
-            this.panel1.Controls.Add(this.form_panel);
-            this.panel1.Controls.Add(this.MenuStripItem);
-            this.panel1.Location = new System.Drawing.Point(3, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(483, 411);
-            this.panel1.TabIndex = 0;
-            // 
-            // pnl_menu_item
-            // 
-            this.pnl_menu_item.Location = new System.Drawing.Point(0, 27);
-            this.pnl_menu_item.Name = "pnl_menu_item";
-            this.pnl_menu_item.Size = new System.Drawing.Size(480, 381);
-            this.pnl_menu_item.TabIndex = 2;
-            // 
-            // form_panel
-            // 
-            this.form_panel.AutoSize = true;
-            this.form_panel.Location = new System.Drawing.Point(0, 27);
-            this.form_panel.Name = "form_panel";
-            this.form_panel.Size = new System.Drawing.Size(0, 0);
-            this.form_panel.TabIndex = 1;
             // 
             // MenuStripItem
             // 
@@ -139,26 +114,51 @@
             this.listToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.listToolStripMenuItem.Text = "List";
             // 
+            // userToolStripMenuItem
+            // 
+            this.userToolStripMenuItem.Name = "userToolStripMenuItem";
+            this.userToolStripMenuItem.Size = new System.Drawing.Size(97, 22);
+            this.userToolStripMenuItem.Text = "User";
+            this.userToolStripMenuItem.Click += new System.EventHandler(this.userToolStripMenuItem_Click);
+            // 
             // bugToolStripMenuItem1
             // 
             this.bugToolStripMenuItem1.Name = "bugToolStripMenuItem1";
-            this.bugToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.bugToolStripMenuItem1.Size = new System.Drawing.Size(97, 22);
             this.bugToolStripMenuItem1.Text = "Bug";
             this.bugToolStripMenuItem1.Click += new System.EventHandler(this.bugToolStripMenuItem1_Click);
             // 
             // fixToolStripMenuItem1
             // 
             this.fixToolStripMenuItem1.Name = "fixToolStripMenuItem1";
-            this.fixToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.fixToolStripMenuItem1.Size = new System.Drawing.Size(97, 22);
             this.fixToolStripMenuItem1.Text = "Fix";
             this.fixToolStripMenuItem1.Click += new System.EventHandler(this.fixToolStripMenuItem1_Click);
             // 
-            // userToolStripMenuItem
+            // form_panel
             // 
-            this.userToolStripMenuItem.Name = "userToolStripMenuItem";
-            this.userToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.userToolStripMenuItem.Text = "User";
-            this.userToolStripMenuItem.Click += new System.EventHandler(this.userToolStripMenuItem_Click);
+            this.form_panel.AutoSize = true;
+            this.form_panel.Location = new System.Drawing.Point(0, 27);
+            this.form_panel.Name = "form_panel";
+            this.form_panel.Size = new System.Drawing.Size(0, 0);
+            this.form_panel.TabIndex = 1;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.pnl_menu_item);
+            this.panel1.Controls.Add(this.form_panel);
+            this.panel1.Controls.Add(this.MenuStripItem);
+            this.panel1.Location = new System.Drawing.Point(3, 2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(483, 411);
+            this.panel1.TabIndex = 0;
+            // 
+            // pnl_menu_item
+            // 
+            this.pnl_menu_item.Location = new System.Drawing.Point(0, 27);
+            this.pnl_menu_item.Name = "pnl_menu_item";
+            this.pnl_menu_item.Size = new System.Drawing.Size(480, 381);
+            this.pnl_menu_item.TabIndex = 2;
             // 
             // Dashboard
             // 
@@ -170,18 +170,16 @@
             this.Name = "Dashboard";
             this.Text = "Dashboard";
             this.Load += new System.EventHandler(this.Dashboard_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.MenuStripItem.ResumeLayout(false);
             this.MenuStripItem.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel form_panel;
         private System.Windows.Forms.MenuStrip MenuStripItem;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newProjectToolStripMenuItem;
@@ -190,9 +188,11 @@
         private System.Windows.Forms.ToolStripMenuItem bugToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fixToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem userToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bugToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem fixToolStripMenuItem1;
+        private System.Windows.Forms.Panel form_panel;
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel pnl_menu_item;
-        private System.Windows.Forms.ToolStripMenuItem userToolStripMenuItem;
     }
 }

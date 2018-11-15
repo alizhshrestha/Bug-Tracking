@@ -10,12 +10,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+//libgit2sharp
 
 
 namespace BugTracking
 {
     public partial class Login_form : Form
     {
+        int login_id;
+
         //location of the mysqlconnection linked
         MySqlConnection con = new MySqlConnection(@"Data Source=localhost;port=3306;Initial Catalog=bug_tracking; User Id=root; password=''");
         int i;//variable defined
@@ -81,8 +84,28 @@ namespace BugTracking
             }
             else
             {
+                con.Close();
+
+                con.Open();
+                using (con)
+                {
+                    MySqlCommand command = new MySqlCommand("select id from user where username = '" + txt_username.Text + "'", con);
+                    MySqlDataReader reader = command.ExecuteReader();
+                    using (reader)
+                    {
+                        while (reader.Read())
+                        {
+                            int id = (int)reader["id"];
+                            login_id = id;
+                        }
+                    }
+
+                }
+                con.Close();
+
+
                 this.Hide();
-                Dashboard dashboard = new Dashboard();
+                Dashboard dashboard = new Dashboard(this.login_id);
                 dashboard.Show();
                 //Fix_report fix_report = new Fix_report();
                 //fix_report.Show();
@@ -90,8 +113,9 @@ namespace BugTracking
                 //project.Show();
             }
 
-            con.Close();
+            
 
+            
         }
         #endregion
 
@@ -103,5 +127,10 @@ namespace BugTracking
             register_form.Show();
         }
         #endregion
+
+        private void Login_form_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

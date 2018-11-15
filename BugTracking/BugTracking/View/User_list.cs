@@ -26,6 +26,10 @@ namespace BugTracking
         private void User_list_Load(object sender, EventArgs e)
         {
             loadData.loadUserData("select * from user;", dataGridView1);
+            User_list user_list = new User_list();
+            Console.ReadLine();
         }
+
+       
     }
 }

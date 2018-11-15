@@ -12,16 +12,20 @@ namespace BugTracking.View
 {
     public partial class Dashboard : Form
     {
+        int login_id;
 
-        public Dashboard()
+        public Dashboard(int login_id)
         {
+            this.login_id = login_id;
             InitializeComponent();
         }
 
         private void newProjectToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Project project = new Project();
-            project.ShowDialog();
+
+            Project project = new Project(this.login_id);
+            //project.MdiParent = this;
+            project.Show();
         }
 
         private void listProjectToolStripMenuItem_Click(object sender, EventArgs e)

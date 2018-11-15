@@ -106,6 +106,7 @@
             this.Controls.Add(this.txt_username);
             this.Controls.Add(this.btn_login);
             this.Name = "Login_form";
+            this.Load += new System.EventHandler(this.Login_form_Load);
             this.login_panel.ResumeLayout(false);
             this.login_panel.PerformLayout();
             this.ResumeLayout(false);
