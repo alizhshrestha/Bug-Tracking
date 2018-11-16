@@ -39,6 +39,7 @@
             this.btn_submit = new System.Windows.Forms.Button();
             this.eventLog1 = new System.Diagnostics.EventLog();
             this.lbl_validate = new System.Windows.Forms.Label();
+            this.btn_update = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -128,11 +129,22 @@
             this.lbl_validate.Size = new System.Drawing.Size(0, 13);
             this.lbl_validate.TabIndex = 11;
             // 
+            // btn_update
+            // 
+            this.btn_update.Location = new System.Drawing.Point(257, 207);
+            this.btn_update.Name = "btn_update";
+            this.btn_update.Size = new System.Drawing.Size(84, 34);
+            this.btn_update.TabIndex = 12;
+            this.btn_update.Text = "UPDATE";
+            this.btn_update.UseVisualStyleBackColor = true;
+            this.btn_update.Click += new System.EventHandler(this.btn_update_Click);
+            // 
             // Project
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(395, 253);
+            this.Controls.Add(this.btn_update);
             this.Controls.Add(this.lbl_validate);
             this.Controls.Add(this.btn_submit);
             this.Controls.Add(this.dtme_end);
@@ -165,5 +177,6 @@
         private System.Windows.Forms.Button btn_submit;
         private System.Diagnostics.EventLog eventLog1;
         private System.Windows.Forms.Label lbl_validate;
+        private System.Windows.Forms.Button btn_update;
     }
 }

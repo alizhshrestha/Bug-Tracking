@@ -30,14 +30,15 @@ namespace BugTracking.View
                     {
                         int id = (int)reader["id"];
                         this.bug_id = id;
-                        MessageBox.Show(Convert.ToString(this.bug_id));
+                        
                     }
                 }
             }
             conn.Close();
 
             this.Close();
-            Bug_report bug_report = new Bug_report(bug_title, source_file, class_name, method_line, code_line, project_id, bug_id);
+            MessageBox.Show(Convert.ToString(this.bug_id));
+            Bug_report bug_report = new Bug_report(bug_title, source_file, class_name, method_line, code_line, project_id, bug_id, true);
             bug_report.ShowDialog();
         }
 

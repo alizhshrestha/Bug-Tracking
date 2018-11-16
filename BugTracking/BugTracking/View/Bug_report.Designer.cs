@@ -48,6 +48,7 @@
             this.btn_update = new System.Windows.Forms.Button();
             this.btn_back = new System.Windows.Forms.Button();
             this.lbl_validate = new System.Windows.Forms.Label();
+            this.btn_submit = new System.Windows.Forms.Button();
             this.pnl_bug_info.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -200,7 +201,7 @@
             // 
             // btn_update
             // 
-            this.btn_update.Location = new System.Drawing.Point(144, 390);
+            this.btn_update.Location = new System.Drawing.Point(145, 390);
             this.btn_update.Name = "btn_update";
             this.btn_update.Size = new System.Drawing.Size(75, 23);
             this.btn_update.TabIndex = 16;
@@ -225,11 +226,22 @@
             this.lbl_validate.Size = new System.Drawing.Size(0, 13);
             this.lbl_validate.TabIndex = 18;
             // 
+            // btn_submit
+            // 
+            this.btn_submit.Location = new System.Drawing.Point(64, 390);
+            this.btn_submit.Name = "btn_submit";
+            this.btn_submit.Size = new System.Drawing.Size(75, 23);
+            this.btn_submit.TabIndex = 19;
+            this.btn_submit.Text = "SUBMIT";
+            this.btn_submit.UseVisualStyleBackColor = true;
+            this.btn_submit.Click += new System.EventHandler(this.btn_submit_Click);
+            // 
             // Bug_report
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(360, 450);
+            this.Controls.Add(this.btn_submit);
             this.Controls.Add(this.lbl_validate);
             this.Controls.Add(this.btn_back);
             this.Controls.Add(this.btn_update);
@@ -273,5 +285,6 @@
         private System.Windows.Forms.Button btn_update;
         private System.Windows.Forms.Button btn_back;
         private System.Windows.Forms.Label lbl_validate;
+        private System.Windows.Forms.Button btn_submit;
     }
 }

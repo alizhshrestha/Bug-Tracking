@@ -13,14 +13,50 @@ namespace BugTracking
 {
     public partial class Project : Form
     {
-        int login_id, project_id;
-        String project_name ;
+        int login_id, project_id, user_id;
+        String project_name, start_date, end_date, arthur ;
+        Boolean updateFlag;
+
+        private void btn_update_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(Convert.ToString(this.project_id));
+            String update_query = "Update project set project_name='"+txt_project_name.Text+"', start_date='"+dtme_start.Text+"', end_date='"+dtme_end.Text+"', arthur='"+txt_arthur.Text+"' where id='"+this.project_id+"'";
+            MySqlConnection conn = DbConnection.connectToDb();
+            MySqlCommand command = new MySqlCommand(update_query, conn);
+            try
+            {
+                conn.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            command.ExecuteNonQuery();
+            MessageBox.Show("Updated successfully!!");
+        }
+
         Validation validation;//defined validation class
 
         #region constructor
         public Project(int login_id)
         {
             this.login_id = login_id;
+            updateFlag = false;
+            validation = new Validation();//initialized validation class
+            InitializeComponent();
+            MessageBox.Show(Convert.ToString(login_id));
+        }
+
+        public Project(int project_id, string project_name, string start_date, string end_date, string arthur, int user_id, Boolean updateFlag)
+        {
+            this.project_id = project_id;
+            this.updateFlag = updateFlag;
+            this.project_name = project_name;
+            this.start_date = start_date;
+            this.end_date = end_date;
+            this.arthur = arthur;
+            this.user_id = user_id;
             validation = new Validation();//initialized validation class
             InitializeComponent();
             MessageBox.Show(Convert.ToString(login_id));
@@ -29,7 +65,15 @@ namespace BugTracking
 
         private void Project_Load(object sender, EventArgs e)
         {
-
+            if (updateFlag==true)
+            {
+                btn_submit.Hide();
+                btn_update.Show();
+            }
+            txt_project_name.Text = this.project_name;
+            dtme_start.Text = this.start_date;
+            dtme_end.Text = this.end_date;
+            txt_arthur.Text = this.arthur;
         }
 
         #region button submit event

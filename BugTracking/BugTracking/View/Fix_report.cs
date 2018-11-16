@@ -29,7 +29,7 @@ namespace BugTracking
         #region Constructor
         public Fix_report(string bug_title, string source_file, string class_name, string method_line, string code_line,int project_id, int bug_id)
         {
-            txt_project_name.ReadOnly = true;
+            //txt_project_name.ReadOnly = true;
             this.bug_title = bug_title;
             this.source_file = source_file;
             this.class_name = class_name;
