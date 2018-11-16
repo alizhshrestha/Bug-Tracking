@@ -14,10 +14,47 @@ namespace BugTracking
     public partial class Register_form : Form
     {
         Validation validation;
+        string first_name, last_name, address, sex, username, password, role;
+        int user_id;
+
+        private void btn_update_Click(object sender, EventArgs e)
+        {
+            String update_query = "Update user set first_name='"+txt_first_name.Text+ "', last_name='" + txt_last_name.Text + "', address='" + txt_address.Text + "', sex='" + cmb_sex.Text + "', username='" + txt_username.Text + "', password='" + txt_password.Text + "', role='" + cmb_role.Text + "' where id='"+this.user_id+"'";
+            MySqlConnection conn = DbConnection.connectToDb();
+            MySqlCommand command = new MySqlCommand(update_query, conn);
+            try
+            {
+                conn.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            command.ExecuteNonQuery();
+            MessageBox.Show("Updated successfully!!");
+            conn.Close();
+        }
 
         #region Constructor
         public Register_form()
         {
+            validation = new Validation();
+
+            InitializeComponent();
+        }
+
+        public Register_form(int user_id, string first_name, string last_name, string address, string sex, string username, string password, string role)
+        {
+            //btn_update.Show();
+            this.user_id = user_id;
+            this.first_name = first_name;
+            this.last_name = last_name;
+            this.address = address;
+            this.sex = sex;
+            this.username = username;
+            this.password = password;
+            this.role = role;
             validation = new Validation();
 
             InitializeComponent();
@@ -42,6 +79,14 @@ namespace BugTracking
             cmb_sex.DropDownHeight = 50;
             setComboSexItems();
             setComboRoleItems();
+            //btn_update.Hide();
+            txt_first_name.Text = this.first_name;
+            txt_last_name.Text = this.last_name;
+            txt_address.Text = this.address;
+            cmb_sex.Text = this.sex;
+            txt_username.Text = this.username;
+            txt_password.Text = this.password;
+            cmb_role.Text = this.role;
         }
         #endregion
 

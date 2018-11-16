@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,6 +21,11 @@ namespace BugTracking
         private void List_of_project_Load(object sender, EventArgs e)
         {
             loadData.loadUserData("select * from project;", data_view_project_list);
+        }
+
+        private void btn_update_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

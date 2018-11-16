@@ -21,5 +21,10 @@ namespace BugTracking.View
         {
             loadData.loadUserData("select * from bug_fix;", dataGridView1);
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
