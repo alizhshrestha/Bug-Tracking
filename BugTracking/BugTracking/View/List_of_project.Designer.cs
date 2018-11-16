@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.data_view_project_list = new System.Windows.Forms.DataGridView();
+            this.btn_edit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.data_view_project_list)).BeginInit();
             this.SuspendLayout();
             // 
@@ -40,11 +41,21 @@
             this.data_view_project_list.Size = new System.Drawing.Size(776, 386);
             this.data_view_project_list.TabIndex = 0;
             // 
+            // btn_edit
+            // 
+            this.btn_edit.Location = new System.Drawing.Point(279, 415);
+            this.btn_edit.Name = "btn_edit";
+            this.btn_edit.Size = new System.Drawing.Size(75, 23);
+            this.btn_edit.TabIndex = 1;
+            this.btn_edit.Text = "EDIT";
+            this.btn_edit.UseVisualStyleBackColor = true;
+            // 
             // List_of_project
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_edit);
             this.Controls.Add(this.data_view_project_list);
             this.Name = "List_of_project";
             this.Text = "List_of_project";
@@ -57,5 +68,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView data_view_project_list;
+        private System.Windows.Forms.Button btn_edit;
     }
 }

@@ -81,12 +81,13 @@ namespace BugTracking
             if (i==0)
             {
                 lbl_invalid.Text = "you have entered invalid username and password";
+                con.Close();
             }
             else
             {
-                con.Close();
+                
 
-                con.Open();
+                //con.Open();
                 using (con)
                 {
                     MySqlCommand command = new MySqlCommand("select id from user where username = '" + txt_username.Text + "'", con);

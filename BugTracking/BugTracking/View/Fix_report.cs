@@ -29,6 +29,7 @@ namespace BugTracking
         #region Constructor
         public Fix_report(string bug_title, string source_file, string class_name, string method_line, string code_line,int project_id, int bug_id)
         {
+            txt_project_name.ReadOnly = true;
             this.bug_title = bug_title;
             this.source_file = source_file;
             this.class_name = class_name;
@@ -56,7 +57,7 @@ namespace BugTracking
             cmb_role.Items.Add("Developer");
             cmb_role.Text = "Programmer";
 
-            
+            txt_project_name.ReadOnly = true;
             txt_bug.Text = bug_title;
             txt_source_file.Text = source_file;
             txt_class_name.Text = class_name;
@@ -109,6 +110,15 @@ namespace BugTracking
                                         conn.Open();
                                         command.ExecuteNonQuery();
                                         conn.Close();
+
+                                        
+                                        String update_status_query = "update bug set fixed = true where id = '"+this.bug_id+"'";
+                                        MySqlConnection conn2 = DbConnection.connectToDb();
+                                        MySqlCommand command2 = new MySqlCommand(update_status_query, conn2);
+                                        conn2.Open();
+                                        command2.ExecuteNonQuery();
+                                        MessageBox.Show("status fixed" + Convert.ToString(this.bug_id));
+                                        conn2.Close();
 
                                         this.Close();
                                         Bug_fix_list bug_fix_list = new Bug_fix_list();
