@@ -46,7 +46,7 @@
             // 
             // btn_fix
             // 
-            this.btn_fix.Location = new System.Drawing.Point(237, 317);
+            this.btn_fix.Location = new System.Drawing.Point(346, 317);
             this.btn_fix.Name = "btn_fix";
             this.btn_fix.Size = new System.Drawing.Size(103, 23);
             this.btn_fix.TabIndex = 1;
@@ -56,7 +56,7 @@
             // 
             // btn_update
             // 
-            this.btn_update.Location = new System.Drawing.Point(371, 317);
+            this.btn_update.Location = new System.Drawing.Point(455, 317);
             this.btn_update.Name = "btn_update";
             this.btn_update.Size = new System.Drawing.Size(103, 23);
             this.btn_update.TabIndex = 2;

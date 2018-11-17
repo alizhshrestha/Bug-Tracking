@@ -70,6 +70,10 @@ namespace BugTracking
                 btn_submit.Hide();
                 btn_update.Show();
             }
+            else
+            {
+                btn_update.Hide();
+            }
             txt_project_name.Text = this.project_name;
             dtme_start.Text = this.start_date;
             dtme_end.Text = this.end_date;

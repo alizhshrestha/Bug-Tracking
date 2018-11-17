@@ -1,4 +1,5 @@
 ﻿using BugTracking.View;
+using BugTracking.View.Dashboard;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -106,8 +107,10 @@ namespace BugTracking
 
 
                 this.Hide();
-                Dashboard dashboard = new Dashboard(this.login_id);
-                dashboard.Show();
+                //Admin_dashboard admin_dashboard = new Admin_dashboard(login_id);
+                //admin_dashboard.ShowDialog();
+                User_dashboard user_dashboard = new User_dashboard(login_id);
+                user_dashboard.Show();
                 //Fix_report fix_report = new Fix_report();
                 //fix_report.Show();
                 //Project project = new Project();

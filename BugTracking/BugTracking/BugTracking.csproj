@@ -78,6 +78,12 @@
       <DependentUpon>Bug_report.cs</DependentUpon>
     </Compile>
     <Compile Include="Class1.cs" />
+    <Compile Include="View\Dashboard\User_dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Dashboard\User_dashboard.Designer.cs">
+      <DependentUpon>User_dashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Dashboard\Admin_dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Dashboard\Admin_dashboard.resx">
       <DependentUpon>Admin_dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Dashboard\User_dashboard.resx">
+      <DependentUpon>User_dashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Fix_report.resx">
       <DependentUpon>Fix_report.cs</DependentUpon>

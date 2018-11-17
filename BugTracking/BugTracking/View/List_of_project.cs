@@ -15,16 +15,29 @@ namespace BugTracking
     {
         int project_id, user_id;
         string project_name, start_date, end_date, arthur;
-        Boolean updateFlag;
+        Boolean updateFlag, adminFlag;
+
+        public List_of_project(Boolean adminFlag)
+        {
+            this.adminFlag = adminFlag;
+            InitializeComponent();
+        }
 
         public List_of_project()
         {
+            this.adminFlag = false;
             InitializeComponent();
         }
 
         private void List_of_project_Load(object sender, EventArgs e)
         {
+            if (adminFlag == true)
+            {
+                btn_edit.Hide();
+                btn_update.Hide();
+            }
             loadData.loadUserData("select * from project;", data_view_project_list);
+            
         }
 
         private void btn_update_Click(object sender, EventArgs e)

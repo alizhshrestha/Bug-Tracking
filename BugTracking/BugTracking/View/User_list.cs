@@ -15,6 +15,7 @@ namespace BugTracking
     {
         int user_id;
         string first_name, last_name, address, sex, username, password, role;
+        Boolean updateFlag;
 
         public User_list()
         {
@@ -30,8 +31,9 @@ namespace BugTracking
 
         private void bnt_edit_Click(object sender, EventArgs e)
         {
+            this.updateFlag = true;
             this.Close();
-            Register_form register_form = new Register_form(user_id, first_name, last_name, address, sex, username, password, role);
+            Register_form register_form = new Register_form(user_id, first_name, last_name, address, sex, username, password, role, updateFlag);
             register_form.Show();
         }
 

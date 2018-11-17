@@ -16,6 +16,7 @@ namespace BugTracking
         Validation validation;
         string first_name, last_name, address, sex, username, password, role;
         int user_id;
+        Boolean updateFlag;
 
         private void btn_update_Click(object sender, EventArgs e)
         {
@@ -44,7 +45,7 @@ namespace BugTracking
             InitializeComponent();
         }
 
-        public Register_form(int user_id, string first_name, string last_name, string address, string sex, string username, string password, string role)
+        public Register_form(int user_id, string first_name, string last_name, string address, string sex, string username, string password, string role, Boolean updateFlag)
         {
             //btn_update.Show();
             this.user_id = user_id;
@@ -55,6 +56,7 @@ namespace BugTracking
             this.username = username;
             this.password = password;
             this.role = role;
+            this.updateFlag = updateFlag;
             validation = new Validation();
 
             InitializeComponent();
@@ -76,6 +78,18 @@ namespace BugTracking
         /// <param name="e"></param>
         private void Register_form_Load(object sender, EventArgs e)
         {
+
+            if (updateFlag==true)
+            {
+                this.btn_submit.Hide();
+                this.btn_update.Show();
+            }
+            else
+            {
+                this.btn_update.Hide();
+                this.btn_submit.Show();
+            }
+
             cmb_sex.DropDownHeight = 50;
             setComboSexItems();
             setComboRoleItems();

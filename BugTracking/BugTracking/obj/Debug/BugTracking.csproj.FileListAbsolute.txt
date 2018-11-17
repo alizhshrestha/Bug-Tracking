@@ -34,8 +34,9 @@ E:\Colz\ASE\ASE_Assessment_1\BugTracking\BugTracking\obj\Debug\BugTracking.Bug_r
 E:\Colz\ASE\ASE_Assessment_1\BugTracking\BugTracking\obj\Debug\BugTracking.Fix_report.resources
 E:\Colz\ASE\ASE_Assessment_1\BugTracking\BugTracking\obj\Debug\BugTracking.List_of_project.resources
 E:\Colz\ASE\ASE_Assessment_1\BugTracking\BugTracking\obj\Debug\BugTracking.User_list.resources
-E:\Colz\ASE\ASE_Assessment_1\BugTracking\BugTracking\obj\Debug\BugTracking.View.Dashboard.resources
 E:\Colz\ASE\ASE_Assessment_1\BugTracking\BugTracking\obj\Debug\BugTracking.View.Bug_list.resources
 E:\Colz\ASE\ASE_Assessment_1\BugTracking\BugTracking\obj\Debug\BugTracking.View.Bug_fix_list.resources
 E:\Colz\ASE\ASE_Assessment_1\BugTracking\BugTracking\bin\Debug\EntityFramework.dll
 E:\Colz\ASE\ASE_Assessment_1\BugTracking\BugTracking\bin\Debug\EntityFramework.xml
+E:\Colz\ASE\ASE_Assessment_1\BugTracking\BugTracking\obj\Debug\BugTracking.View.Dashboard.Admin_dashboard.resources
+E:\Colz\ASE\ASE_Assessment_1\BugTracking\BugTracking\obj\Debug\BugTracking.View.User_dashboard.resources
