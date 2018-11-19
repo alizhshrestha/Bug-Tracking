@@ -57,8 +57,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>bug_trackingDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Controller\BugController.cs" />
+    <Compile Include="Controller\BugFixController.cs" />
+    <Compile Include="Controller\DatabaseController.cs" />
+    <Compile Include="Controller\ProjectController.cs" />
+    <Compile Include="Controller\UserController.cs" />
     <Compile Include="DbConnection.cs" />
     <Compile Include="loadData.cs" />
+    <Compile Include="Model\Bug.cs" />
+    <Compile Include="Model\Bug_fix.cs" />
+    <Compile Include="Model\UserProject.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="View\Bug_fix_list.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -205,9 +214,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controller\" />
-    <Folder Include="Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

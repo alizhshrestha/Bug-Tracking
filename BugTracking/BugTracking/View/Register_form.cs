@@ -1,4 +1,6 @@
-﻿using MySql.Data.MySqlClient;
+﻿using BugTracking.Controller;
+using BugTracking.Model;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,14 +15,31 @@ namespace BugTracking
 {
     public partial class Register_form : Form
     {
-        Validation validation;
-        string first_name, last_name, address, sex, username, password, role;
-        int user_id;
+        Validation validation; //declares validation
+
+        //declares variable name
+        string first_name, last_name, address, sex, username, password, role; 
+        int user_id; 
         Boolean updateFlag;
 
+        //button click event
         private void btn_update_Click(object sender, EventArgs e)
         {
-            String update_query = "Update user set first_name='"+txt_first_name.Text+ "', last_name='" + txt_last_name.Text + "', address='" + txt_address.Text + "', sex='" + cmb_sex.Text + "', username='" + txt_username.Text + "', password='" + txt_password.Text + "', role='" + cmb_role.Text + "' where id='"+this.user_id+"'";
+            //Assign value to variable
+            int user_id = this.user_id;
+            String fname = txt_first_name.Text;
+            String lname = txt_last_name.Text;
+            String address = txt_address.Text;
+            String sex = cmb_sex.Text;
+            String username = txt_username.Text;
+            String password = txt_password.Text;
+            String role = cmb_role.Text;
+
+            //declares and call parameterised constructor
+            User user = new User(user_id, fname, lname, address, sex, username, password, role);
+            UserController.updateUserToDatabase(user);//updates user to database
+
+            /*String update_query = "Update user set first_name='"+txt_first_name.Text+ "', last_name='" + txt_last_name.Text + "', address='" + txt_address.Text + "', sex='" + cmb_sex.Text + "', username='" + txt_username.Text + "', password='" + txt_password.Text + "', role='" + cmb_role.Text + "' where id='"+this.user_id+"'";
             MySqlConnection conn = DbConnection.connectToDb();
             MySqlCommand command = new MySqlCommand(update_query, conn);
             try
@@ -32,15 +51,15 @@ namespace BugTracking
                 MessageBox.Show(ex.Message);
             }
 
-            command.ExecuteNonQuery();
+            command.ExecuteNonQuery();*/
             MessageBox.Show("Updated successfully!!");
-            conn.Close();
+            //conn.Close();
         }
 
         #region Constructor
         public Register_form()
         {
-            validation = new Validation();
+            validation = new Validation();//object creation
 
             InitializeComponent();
         }
@@ -48,6 +67,7 @@ namespace BugTracking
         public Register_form(int user_id, string first_name, string last_name, string address, string sex, string username, string password, string role, Boolean updateFlag)
         {
             //btn_update.Show();
+            //sets local variables value
             this.user_id = user_id;
             this.first_name = first_name;
             this.last_name = last_name;
@@ -57,7 +77,8 @@ namespace BugTracking
             this.password = password;
             this.role = role;
             this.updateFlag = updateFlag;
-            validation = new Validation();
+
+            validation = new Validation();//object creation
 
             InitializeComponent();
         }
@@ -78,7 +99,7 @@ namespace BugTracking
         /// <param name="e"></param>
         private void Register_form_Load(object sender, EventArgs e)
         {
-
+            //condition to see if data is to be updated or not
             if (updateFlag==true)
             {
                 this.btn_submit.Hide();
@@ -90,10 +111,13 @@ namespace BugTracking
                 this.btn_submit.Show();
             }
 
+            //sets combo-box items
             cmb_sex.DropDownHeight = 50;
             setComboSexItems();
             setComboRoleItems();
             //btn_update.Hide();
+
+            //sets value to text-box
             txt_first_name.Text = this.first_name;
             txt_last_name.Text = this.last_name;
             txt_address.Text = this.address;
@@ -125,6 +149,7 @@ namespace BugTracking
             cmb_role.Items.Add("Programmer");
             cmb_role.Items.Add("Developer");
             cmb_role.Items.Add("Tester");
+            cmb_role.Items.Add("Admin");
             cmb_role.Text = "Programmer";
         }
 
@@ -151,27 +176,43 @@ namespace BugTracking
                         {
                             if (validation.validateUserloginInfo(txt_password, "Password", lbl_validate) == true)
                             {
+                                //setting local variable value
+                                String fname = txt_first_name.Text;
+                                String lname = txt_last_name.Text;
+                                String address = txt_address.Text;
+                                String sex = cmb_sex.Text;
+                                String username = txt_username.Text;
+                                String password = txt_password.Text;
+                                String role = cmb_role.Text;
+
+                                //object creation
+                                User user = new User(fname,lname,address,sex,username,password,role);
+
+                                //inserting to user controller
+                                UserController.insertUserToDatabase(user);
+                                
+                                /*
                                 //data connection and data transfer
-                                string connString = "Data Source=localhost;port=3306;Initial Catalog=bug_tracking; User Id=root; password=''";
-                                MySqlConnection conn = new MySqlConnection(connString);
+                                MySqlConnection conn = DatabaseController.databaseConnection();
                                 MySqlCommand command = conn.CreateCommand();
                                 command.CommandText = "insert into User (first_name, last_name, sex, address, username, password, role) values('" + txt_first_name.Text + "','" + txt_last_name.Text + "','" + cmb_sex.Text + "'," +
-                                    "'" + txt_address.Text + "','" + txt_username.Text + "','" + txt_password.Text + "','" + cmb_role.Text + "')";
+                                  "'" + txt_address.Text + "','" + txt_username.Text + "','" + txt_password.Text + "','" + cmb_role.Text + "')";
 
                                 try
                                 {
-                                    conn.Open();
+                                   conn.Open();
                                 }
                                 catch (Exception ex)
                                 {
-                                    MessageBox.Show(ex.Message);
+                                   MessageBox.Show(ex.Message);
                                 }
 
                                 command.ExecuteNonQuery();
 
-
+    */
                                 MessageBox.Show("successfully registered");
 
+                                //create and display login form
                                 this.Close();
                                 Login_form login_frm = new Login_form();
                                 login_frm.Show();

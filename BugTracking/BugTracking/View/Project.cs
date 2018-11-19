@@ -1,4 +1,6 @@
-﻿using MySql.Data.MySqlClient;
+﻿using BugTracking.Controller;
+using BugTracking.Model;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,15 +15,31 @@ namespace BugTracking
 {
     public partial class Project : Form
     {
+        //creating the variables.
         int login_id, project_id, user_id;
         String project_name, start_date, end_date, arthur ;
         Boolean updateFlag;
 
+        //updating button action
         private void btn_update_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(Convert.ToString(this.project_id));
-            String update_query = "Update project set project_name='"+txt_project_name.Text+"', start_date='"+dtme_start.Text+"', end_date='"+dtme_end.Text+"', arthur='"+txt_arthur.Text+"' where id='"+this.project_id+"'";
-            MySqlConnection conn = DbConnection.connectToDb();
+            //assigning the values to local variable
+            //MessageBox.Show("Project Id:"+Convert.ToString(this.project_id));
+            this.project_name = txt_project_name.Text;
+            //MessageBox.Show("Project Name:" + Convert.ToString(this.project_name));
+            this.start_date = dtme_start.Text;
+            this.end_date = dtme_end.Text;
+            this.arthur = txt_arthur.Text;
+            //MessageBox.Show("User Id:" + Convert.ToString(this.user_id));
+
+            //creating the object for User Project class.
+            UserProject project = new UserProject(this.project_id, project_name, start_date, end_date, arthur, this.user_id);
+
+            //method for Updating project to database.
+            ProjectController.UpdateProjectToDatabase(project);
+            MessageBox.Show("Successfully updated");
+            //String update_query = "Update project set project_name='"+txt_project_name.Text+"', start_date='"+dtme_start.Text+"', end_date='"+dtme_end.Text+"', arthur='"+txt_arthur.Text+"' where id='"+this.project_id+"'";
+            /*MySqlConnection conn = DbConnection.connectToDb();
             MySqlCommand command = new MySqlCommand(update_query, conn);
             try
             {
@@ -33,23 +51,28 @@ namespace BugTracking
             }
 
             command.ExecuteNonQuery();
+            */
             MessageBox.Show("Updated successfully!!");
         }
 
         Validation validation;//defined validation class
 
         #region constructor
+
+        //method for project
         public Project(int login_id)
         {
             this.login_id = login_id;
             updateFlag = false;
-            validation = new Validation();//initialized validation class
+            validation = new Validation();//initializing object
             InitializeComponent();
             MessageBox.Show(Convert.ToString(login_id));
         }
 
+        //method for project
         public Project(int project_id, string project_name, string start_date, string end_date, string arthur, int user_id, Boolean updateFlag)
         {
+            //assigning value to local variables.
             this.project_id = project_id;
             this.updateFlag = updateFlag;
             this.project_name = project_name;
@@ -59,12 +82,14 @@ namespace BugTracking
             this.user_id = user_id;
             validation = new Validation();//initialized validation class
             InitializeComponent();
-            MessageBox.Show(Convert.ToString(login_id));
+            MessageBox.Show(Convert.ToString("From project: " +user_id));
         }
         #endregion
 
+        //Load data to project form
         private void Project_Load(object sender, EventArgs e)
         {
+            //checking the update status
             if (updateFlag==true)
             {
                 btn_submit.Hide();
@@ -74,6 +99,8 @@ namespace BugTracking
             {
                 btn_update.Hide();
             }
+
+            //assigning text box value
             txt_project_name.Text = this.project_name;
             dtme_start.Text = this.start_date;
             dtme_end.Text = this.end_date;
@@ -81,6 +108,8 @@ namespace BugTracking
         }
 
         #region button submit event
+
+        //submit button event
         private void btn_submit_Click(object sender, EventArgs e)
         {
             MessageBox.Show(Convert.ToString(login_id));
@@ -89,7 +118,53 @@ namespace BugTracking
             {
                 if (validation.validateUserInfo(txt_arthur, "ARTHUR NAME", lbl_validate) == true)
                 {
-                    project_name = txt_project_name.Text;
+                    //declaring and assigning the value 
+                    string project_name = txt_project_name.Text;
+                    string start_date = dtme_start.Text;
+                    string end_date = dtme_end.Text;
+                    string arthur = txt_arthur.Text;
+                    
+                    //creating object for UserProject
+                    UserProject project = new UserProject(project_name, start_date, end_date, arthur, this.login_id);
+
+                    //method to insert project in database 
+                    ProjectController.insertProjectToDatabase(project);
+                    MessageBox.Show("Successfully submited");
+                    //this.Close();
+
+                    //Establishing the connection to the database.
+                    MySqlConnection conn = DatabaseController.connectToDb();
+
+                    //opening the connection to the database.
+                    conn.Open();
+
+
+                    using (conn)
+                    {
+                        MessageBox.Show("Project Name: " + Convert.ToString(project_name));
+
+                        //assigning query to MySqlCommand
+                        MySqlCommand command2 = new MySqlCommand("select id from project where project_name = '" + txt_project_name.Text + "'", conn);
+                        MySqlDataReader reader = command2.ExecuteReader();
+                        using (reader)
+                        {
+                            while (reader.Read())
+                            {
+                                int id = (int)reader["id"];
+                                project_id = id;
+                            }
+                        }
+
+                    }
+
+                    //creating Bug_report object
+                    Bug_report bug_report = new Bug_report(project_id, project_name);
+                    Console.WriteLine(project_id);
+                    bug_report.ShowDialog();
+
+
+                    
+                    /*project_name = txt_project_name.Text;
                     //data connection and data transfer
                     MySqlConnection conn = DbConnection.connectToDb();
                     MySqlCommand command = conn.CreateCommand();
@@ -132,7 +207,7 @@ namespace BugTracking
                     bug_report.ShowDialog();
                     MessageBox.Show("Successfully submited");
 
-                    conn.Close();
+                    conn.Close();*/
                 }
             }
             

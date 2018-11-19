@@ -47,6 +47,8 @@
             this.btn_back = new System.Windows.Forms.Button();
             this.cmb_role = new System.Windows.Forms.ComboBox();
             this.lbl_validate = new System.Windows.Forms.Label();
+            this.txt_resolved_code = new System.Windows.Forms.RichTextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -97,7 +99,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(64, 244);
+            this.label6.Location = new System.Drawing.Point(64, 348);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(86, 13);
             this.label6.TabIndex = 5;
@@ -115,7 +117,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(64, 277);
+            this.label8.Location = new System.Drawing.Point(64, 381);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(32, 13);
             this.label8.TabIndex = 7;
@@ -158,7 +160,7 @@
             // 
             // txt_fixer
             // 
-            this.txt_fixer.Location = new System.Drawing.Point(195, 241);
+            this.txt_fixer.Location = new System.Drawing.Point(195, 345);
             this.txt_fixer.Name = "txt_fixer";
             this.txt_fixer.Size = new System.Drawing.Size(255, 20);
             this.txt_fixer.TabIndex = 13;
@@ -172,7 +174,7 @@
             // 
             // btn_update
             // 
-            this.btn_update.Location = new System.Drawing.Point(195, 341);
+            this.btn_update.Location = new System.Drawing.Point(195, 430);
             this.btn_update.Name = "btn_update";
             this.btn_update.Size = new System.Drawing.Size(100, 23);
             this.btn_update.TabIndex = 16;
@@ -182,7 +184,7 @@
             // 
             // btn_back
             // 
-            this.btn_back.Location = new System.Drawing.Point(350, 341);
+            this.btn_back.Location = new System.Drawing.Point(350, 430);
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(100, 23);
             this.btn_back.TabIndex = 17;
@@ -193,7 +195,7 @@
             // cmb_role
             // 
             this.cmb_role.FormattingEnabled = true;
-            this.cmb_role.Location = new System.Drawing.Point(195, 274);
+            this.cmb_role.Location = new System.Drawing.Point(195, 378);
             this.cmb_role.Name = "cmb_role";
             this.cmb_role.Size = new System.Drawing.Size(255, 21);
             this.cmb_role.TabIndex = 18;
@@ -201,16 +203,35 @@
             // lbl_validate
             // 
             this.lbl_validate.AutoSize = true;
-            this.lbl_validate.Location = new System.Drawing.Point(192, 308);
+            this.lbl_validate.Location = new System.Drawing.Point(192, 296);
             this.lbl_validate.Name = "lbl_validate";
             this.lbl_validate.Size = new System.Drawing.Size(0, 13);
             this.lbl_validate.TabIndex = 19;
+            // 
+            // txt_resolved_code
+            // 
+            this.txt_resolved_code.Location = new System.Drawing.Point(195, 233);
+            this.txt_resolved_code.Name = "txt_resolved_code";
+            this.txt_resolved_code.Size = new System.Drawing.Size(255, 96);
+            this.txt_resolved_code.TabIndex = 20;
+            this.txt_resolved_code.Text = "";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(64, 236);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(83, 13);
+            this.label9.TabIndex = 21;
+            this.label9.Text = "Resolved Code:";
             // 
             // Fix_report
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(481, 387);
+            this.ClientSize = new System.Drawing.Size(481, 484);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.txt_resolved_code);
             this.Controls.Add(this.lbl_validate);
             this.Controls.Add(this.cmb_role);
             this.Controls.Add(this.btn_back);
@@ -259,5 +280,7 @@
         private System.Windows.Forms.Button btn_back;
         private System.Windows.Forms.ComboBox cmb_role;
         private System.Windows.Forms.Label lbl_validate;
+        private System.Windows.Forms.RichTextBox txt_resolved_code;
+        private System.Windows.Forms.Label label9;
     }
 }

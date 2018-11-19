@@ -16,9 +16,13 @@ using System.Windows.Forms;
 
 namespace BugTracking
 {
+
+    //creating class
     public partial class Login_form : Form
     {
+        //declaring variables.
         int login_id;
+        string role;
 
         //location of the mysqlconnection linked
         MySqlConnection con = new MySqlConnection(@"Data Source=localhost;port=3306;Initial Catalog=bug_tracking; User Id=root; password=''");
@@ -91,26 +95,38 @@ namespace BugTracking
                 //con.Open();
                 using (con)
                 {
-                    MySqlCommand command = new MySqlCommand("select id from user where username = '" + txt_username.Text + "'", con);
+                    MySqlCommand command = new MySqlCommand("select role, id from user where username = '" + txt_username.Text + "'", con);
                     MySqlDataReader reader = command.ExecuteReader();
                     using (reader)
                     {
                         while (reader.Read())
                         {
+                            string role = Convert.ToString(reader["role"]);
                             int id = (int)reader["id"];
                             login_id = id;
+                            this.role = role;
                         }
                     }
 
                 }
+                if (this.role == "Admin")
+                {
+                    this.Hide();
+                    Admin_dashboard admin_dashboard = new Admin_dashboard(this.login_id);
+                    admin_dashboard.Show();
+                }
+                else
+                {
+                    this.Hide();
+                    User_dashboard user_dashboard = new User_dashboard(this.login_id);
+                    user_dashboard.Show();
+                }
                 con.Close();
 
 
-                this.Hide();
                 //Admin_dashboard admin_dashboard = new Admin_dashboard(login_id);
                 //admin_dashboard.ShowDialog();
-                User_dashboard user_dashboard = new User_dashboard(login_id);
-                user_dashboard.Show();
+                
                 //Fix_report fix_report = new Fix_report();
                 //fix_report.Show();
                 //Project project = new Project();

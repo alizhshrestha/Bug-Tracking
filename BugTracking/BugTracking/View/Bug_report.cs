@@ -1,4 +1,6 @@
-﻿using BugTracking.View;
+﻿using BugTracking.Controller;
+using BugTracking.Model;
+using BugTracking.View;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -35,8 +37,18 @@ namespace BugTracking
                                 {
                                     if (validate.validateUserInfo(txt_code_line, "CODE LINE", lbl_validate) == true)
                                     {
+                                        string bug_title = txt_bug_title.Text;
+                                        string source_file = txt_source_file.Text;
+                                        string class_name = txt_class_name.Text;
+                                        string method_line = txt_method_line.Text;
+                                        string code_line = txt_code_line.Text;
+
+                                        Console.WriteLine(this.project_id);
+                                        Bug bug = new Bug(bug_title, source_file, class_name, method_line, code_line, this.project_id);
+                                        BugController.insertBugToDatabase(bug);
+                                        MessageBox.Show("OK");
                                         //data connection and data transfer
-                                        MySqlConnection conn = DbConnection.connectToDb();
+                                        /*MySqlConnection conn = DbConnection.connectToDb();
                                         MySqlCommand command = conn.CreateCommand();
                                         command.CommandText = "insert into bug (bug_title, source_file, class, method_line, code_line, project_id) values('" + txt_bug_title.Text + "', '" + txt_source_file.Text + "', '" + txt_class_name.Text + "', '" + txt_method_line.Text + "', '" + txt_code_line.Text + "', @project_id)";
                                         command.Parameters.Add(new MySqlParameter("@project_id", project_id));
@@ -57,6 +69,7 @@ namespace BugTracking
                                         this.Close();
                                         Bug_list bug_list = new Bug_list();
                                         bug_list.ShowDialog();
+                                        */
                                     }
                                 }
                             }
