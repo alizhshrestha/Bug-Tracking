@@ -7,10 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MaterialSkin;
+using MaterialSkin.Controls;
 
 namespace BugTracking.View.Dashboard
 {
-    public partial class Admin_dashboard : Form
+    public partial class Admin_dashboard : MaterialForm
     {
         int login_id;
         Boolean adminFlag;
@@ -22,6 +24,7 @@ namespace BugTracking.View.Dashboard
 
         private void registerToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            MaterialSkin();
             Register_form register = new Register_form();
             register.ShowDialog();
         }
@@ -30,6 +33,23 @@ namespace BugTracking.View.Dashboard
         {
 
         }
+
+        public void MaterialSkin()
+        {
+            // Create a material theme manager and add the form to manage (this)
+            MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+
+            // Configure color schema
+            materialSkinManager.ColorScheme = new ColorScheme(
+                Primary.Blue400, Primary.Blue500,
+                Primary.Blue500, Accent.LightBlue200,
+                TextShade.WHITE
+            );
+        }
+
+
 
         private void newProjectToolStripMenuItem_Click(object sender, EventArgs e)
         {

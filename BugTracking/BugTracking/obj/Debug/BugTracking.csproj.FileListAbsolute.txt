@@ -48,7 +48,6 @@ E:\Colz\ASE\ASE_Assessment_1\Original\ase_assessment_1\BugTracking\BugTracking\b
 E:\Colz\ASE\ASE_Assessment_1\Original\ase_assessment_1\BugTracking\BugTracking\bin\Debug\Google.Protobuf.dll
 E:\Colz\ASE\ASE_Assessment_1\Original\ase_assessment_1\BugTracking\BugTracking\bin\Debug\EntityFramework.xml
 E:\Colz\ASE\ASE_Assessment_1\Original\ase_assessment_1\BugTracking\BugTracking\bin\Debug\MySql.Data.xml
-E:\Colz\ASE\ASE_Assessment_1\Original\ase_assessment_1\BugTracking\BugTracking\obj\Debug\BugTracking.csprojAssemblyReference.cache
 E:\Colz\ASE\ASE_Assessment_1\Original\ase_assessment_1\BugTracking\BugTracking\obj\Debug\BugTracking.View.Bug_fix_list.resources
 E:\Colz\ASE\ASE_Assessment_1\Original\ase_assessment_1\BugTracking\BugTracking\obj\Debug\BugTracking.View.Bug_list.resources
 E:\Colz\ASE\ASE_Assessment_1\Original\ase_assessment_1\BugTracking\BugTracking\obj\Debug\BugTracking.Bug_report.resources
@@ -67,3 +66,5 @@ E:\Colz\ASE\ASE_Assessment_1\Original\ase_assessment_1\BugTracking\BugTracking\o
 E:\Colz\ASE\ASE_Assessment_1\Original\ase_assessment_1\BugTracking\BugTracking\obj\Debug\BugTracking.csproj.CopyComplete
 E:\Colz\ASE\ASE_Assessment_1\Original\ase_assessment_1\BugTracking\BugTracking\obj\Debug\BugTracking.exe
 E:\Colz\ASE\ASE_Assessment_1\Original\ase_assessment_1\BugTracking\BugTracking\obj\Debug\BugTracking.pdb
+E:\Colz\ASE\ASE_Assessment_1\Original\ase_assessment_1\BugTracking\BugTracking\bin\Debug\MaterialSkin.dll
+E:\Colz\ASE\ASE_Assessment_1\Original\ase_assessment_1\BugTracking\BugTracking\obj\Debug\BugTracking.csprojAssemblyReference.cache

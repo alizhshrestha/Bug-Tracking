@@ -9,15 +9,73 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using MaterialSkin;
+using MaterialSkin.Controls;
+
+
 namespace BugTracking.View
 {
-    public partial class Bug_list : Form
+    public partial class Bug_list : MaterialForm
     {
         string project_name, bug_title, source_file, class_name, method_line, code_line, fix_status, resolved_code;
         string username;
         int project_id, bug_id;
 
         private void btn_update_fix_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void btn_fix_Click_1(object sender, EventArgs e)
+        {
+            MySqlConnection conn = DbConnection.connectToDb();
+            conn.Open();
+            using (conn)
+            {
+                MySqlCommand command = new MySqlCommand("select id from bug where bug_title = '" + this.bug_title + "'", conn);
+                MySqlDataReader reader = command.ExecuteReader();
+                using (reader)
+                {
+                    while (reader.Read())
+                    {
+                        int id = (int)reader["id"];
+                        this.bug_id = id;
+                    }
+                }
+            }
+            conn.Close();
+
+            this.Close();
+            Fix_report fix_report = new Fix_report(bug_title, source_file, class_name, method_line, code_line, project_id, bug_id, resolved_code, this.username);
+            fix_report.ShowDialog();
+        }
+
+        private void btn_update_Click_1(object sender, EventArgs e)
+        {
+            MySqlConnection conn = DbConnection.connectToDb();
+            conn.Open();
+            using (conn)
+            {
+                MySqlCommand command = new MySqlCommand("select id from bug where bug_title = '" + this.bug_title + "'", conn);
+                MySqlDataReader reader = command.ExecuteReader();
+                using (reader)
+                {
+                    while (reader.Read())
+                    {
+                        int id = (int)reader["id"];
+                        this.bug_id = id;
+
+                    }
+                }
+            }
+            conn.Close();
+
+            this.Close();
+            Bug_report bug_report = new Bug_report(bug_title, source_file, class_name, method_line, code_line, project_id, bug_id, true, this.username);
+            bug_report.ShowDialog();
+        }
+
+        private void btn_update_fix_Click_1(object sender, EventArgs e)
         {
             MySqlConnection conn = DbConnection.connectToDb();
             conn.Open();
@@ -47,7 +105,7 @@ namespace BugTracking.View
                     while (reader.Read())
                     {
                         string fixed_code = (string)reader["fixed_code"];
-                        
+
                         this.resolved_code = fixed_code;
 
                     }
@@ -61,39 +119,38 @@ namespace BugTracking.View
 
         private void btn_update_Click(object sender, EventArgs e)
         {
-            MySqlConnection conn = DbConnection.connectToDb();
-            conn.Open();
-            using (conn)
-            {
-                MySqlCommand command = new MySqlCommand("select id from bug where bug_title = '" + this.bug_title + "'", conn);
-                MySqlDataReader reader = command.ExecuteReader();
-                using (reader)
-                {
-                    while (reader.Read())
-                    {
-                        int id = (int)reader["id"];
-                        this.bug_id = id;
-                        
-                    }
-                }
-            }
-            conn.Close();
-
-            this.Close();
-            Bug_report bug_report = new Bug_report(bug_title, source_file, class_name, method_line, code_line, project_id, bug_id, true, this.username);
-            bug_report.ShowDialog();
+            
         }
 
         public Bug_list(string username)
         {
+            MaterialSkin();
             this.username = username;
             InitializeComponent();
         }
 
         public Bug_list()
         {
+            MaterialSkin();
             InitializeComponent();
         }
+
+        public void MaterialSkin()
+        {
+            // Create a material theme manager and add the form to manage (this)
+            MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+
+            // Configure color schema
+            materialSkinManager.ColorScheme = new ColorScheme(
+                Primary.Blue400, Primary.Blue500,
+                Primary.Blue500, Accent.LightBlue200,
+                TextShade.WHITE
+            );
+        }
+
+
 
         private void Bug_list_Load(object sender, EventArgs e)
         {
@@ -110,26 +167,7 @@ namespace BugTracking.View
 
         private void btn_fix_Click(object sender, EventArgs e)
         {
-            MySqlConnection conn = DbConnection.connectToDb();
-            conn.Open();
-            using (conn)
-            {
-                MySqlCommand command = new MySqlCommand("select id from bug where bug_title = '"+this.bug_title+"'", conn);
-                MySqlDataReader reader = command.ExecuteReader();
-                using (reader)
-                {
-                    while (reader.Read())
-                    {
-                        int id = (int)reader["id"];
-                        this.bug_id = id;
-                    }
-                }
-            }
-            conn.Close();
-
-            this.Close();
-            Fix_report fix_report = new Fix_report(bug_title, source_file, class_name, method_line, code_line, project_id,bug_id, resolved_code, this.username);
-            fix_report.ShowDialog();
+            
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

@@ -3,9 +3,13 @@ using BugTracking.Model;
 using System;
 using System.Windows.Forms;
 
+using MaterialSkin;
+using MaterialSkin.Controls;
+
 namespace BugTracking
 {
-    public partial class Register_form : Form
+    //combobox.selectedindex = 0
+    public partial class Register_form : MaterialForm
     {
         Validation validation; //declares validation
 
@@ -16,6 +20,68 @@ namespace BugTracking
 
         //button click event
         private void btn_update_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+
+        #region Constructor
+        public Register_form()
+        {
+            materialSkin();
+
+            validation = new Validation();//object creation
+
+            InitializeComponent();
+        }
+
+        public Register_form(int user_id, string first_name, string last_name, string address, string sex, string username, string password, string role, Boolean updateFlag)
+        {
+            materialSkin();
+
+            //btn_update.Show();
+            //sets local variables value
+            this.user_id = user_id;
+            this.first_name = first_name;
+            this.last_name = last_name;
+            this.address = address;
+            this.sex = sex;
+            this.username = username;
+            this.password = password;
+            this.role = role;
+            this.updateFlag = updateFlag;
+
+            validation = new Validation();//object creation
+
+            InitializeComponent();
+        }
+
+        private void lollipopLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public Register_form(string first_name, string last_name, string address, string sex, string username, string password, string role, Boolean updateFlag)
+        {
+            materialSkin();
+
+            //btn_update.Show();
+            //sets local variables value
+            this.first_name = first_name;
+            this.last_name = last_name;
+            this.address = address;
+            this.sex = sex;
+            this.username = username;
+            this.password = password;
+            this.role = role;
+            this.updateFlag = updateFlag;
+
+            validation = new Validation();//object creation
+
+            InitializeComponent();
+        }
+
+        private void btn_update_Click_1(object sender, EventArgs e)
         {
             //Assign value to variable
             int user_id = this.user_id;
@@ -38,51 +104,58 @@ namespace BugTracking
             //conn.Close();
         }
 
-        #region Constructor
-        public Register_form()
+        private void btn_submit_Click_1(object sender, EventArgs e)
         {
-            validation = new Validation();//object creation
+            ///sequentially validates forms if there is improper value or textbox is blank
+            if (validation.validateUserInfo(txt_first_name, "FIRST NAME", lbl_validate) == true)
+            {
+                if (validation.validateUserInfo(txt_last_name, "LAST NAME", lbl_validate) == true)
+                {
+                    if (validation.validateUserInfo(txt_address, "ADDRESS", lbl_validate) == true)
+                    {
+                        if (validation.validateUserloginInfo(txt_username, "Username", lbl_validate) == true)
+                        {
+                            if (validation.validateUserloginInfo(txt_password, "Password", lbl_validate) == true)
+                            {
+                                //setting local variable value
+                                String fname = txt_first_name.Text;
+                                String lname = txt_last_name.Text;
+                                String address = txt_address.Text;
+                                String sex = cmb_sex.Text;
+                                String username = txt_username.Text;
+                                String password = txt_password.Text;
+                                String role = cmb_role.Text;
 
-            InitializeComponent();
-        }
+                                //object creation
+                                User user = new User(fname, lname, address, sex, username, password, role);
 
-        public Register_form(int user_id, string first_name, string last_name, string address, string sex, string username, string password, string role, Boolean updateFlag)
-        {
-            //btn_update.Show();
-            //sets local variables value
-            this.user_id = user_id;
-            this.first_name = first_name;
-            this.last_name = last_name;
-            this.address = address;
-            this.sex = sex;
-            this.username = username;
-            this.password = password;
-            this.role = role;
-            this.updateFlag = updateFlag;
+                                //inserting to user controller
+                                UserController.insertUserToDatabase(user);
 
-            validation = new Validation();//object creation
-
-            InitializeComponent();
-        }
-
-        public Register_form(string first_name, string last_name, string address, string sex, string username, string password, string role, Boolean updateFlag)
-        {
-            //btn_update.Show();
-            //sets local variables value
-            this.first_name = first_name;
-            this.last_name = last_name;
-            this.address = address;
-            this.sex = sex;
-            this.username = username;
-            this.password = password;
-            this.role = role;
-            this.updateFlag = updateFlag;
-
-            validation = new Validation();//object creation
-
-            InitializeComponent();
+                                MessageBox.Show("successfully registered");
+                            }
+                        }
+                    }
+                }
+            }
         }
         #endregion
+
+        //Methods for materialSkin library
+        public void materialSkin()
+        {
+            // Create a material theme manager and add the form to manage (this)
+            MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+
+            // Configure color schema
+            materialSkinManager.ColorScheme = new ColorScheme(
+                Primary.Blue400, Primary.Blue500,
+                Primary.Blue500, Accent.LightBlue200,
+                TextShade.WHITE
+            );
+        }
 
         #region selected Index change event
         private void cmb_sex_SelectedIndexChanged(object sender, EventArgs e)
@@ -164,41 +237,8 @@ namespace BugTracking
         private void btn_submit_Click(object sender, EventArgs e)
         {
             
-            ///sequentially validates forms if there is improper value or textbox is blank
-            if (validation.validateUserInfo(txt_first_name, "FIRST NAME", lbl_validate) == true)
-            {
-                if (validation.validateUserInfo(txt_last_name, "LAST NAME", lbl_validate) == true)
-                {
-                    if (validation.validateUserInfo(txt_address, "ADDRESS", lbl_validate) == true)
-                    {
-                        if (validation.validateUserloginInfo(txt_username, "Username", lbl_validate) == true)
-                        {
-                            if (validation.validateUserloginInfo(txt_password, "Password", lbl_validate) == true)
-                            {
-                                //setting local variable value
-                                String fname = txt_first_name.Text;
-                                String lname = txt_last_name.Text;
-                                String address = txt_address.Text;
-                                String sex = cmb_sex.Text;
-                                String username = txt_username.Text;
-                                String password = txt_password.Text;
-                                String role = cmb_role.Text;
-
-                                //object creation
-                                User user = new User(fname,lname,address,sex,username,password,role);
-
-                                //inserting to user controller
-                                UserController.insertUserToDatabase(user);
-
-                                MessageBox.Show("successfully registered");
-                            }
-                        }
-                    }
-                }
-            }
         }
         #endregion
-
 
     }
 }

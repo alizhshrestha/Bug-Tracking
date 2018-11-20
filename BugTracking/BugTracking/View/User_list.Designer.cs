@@ -29,47 +29,53 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.bnt_edit = new System.Windows.Forms.Button();
-            this.btn_delete = new System.Windows.Forms.Button();
+            this.btn_edit = new LollipopButton();
+            this.btn_delete = new LollipopButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 73);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(1008, 373);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
-            // bnt_edit
+            // btn_edit
             // 
-            this.bnt_edit.Location = new System.Drawing.Point(318, 409);
-            this.bnt_edit.Name = "bnt_edit";
-            this.bnt_edit.Size = new System.Drawing.Size(75, 23);
-            this.bnt_edit.TabIndex = 1;
-            this.bnt_edit.Text = "EDIT";
-            this.bnt_edit.UseVisualStyleBackColor = true;
-            this.bnt_edit.Click += new System.EventHandler(this.bnt_edit_Click);
+            this.btn_edit.BackColor = System.Drawing.Color.Transparent;
+            this.btn_edit.BGColor = "#508ef5";
+            this.btn_edit.FontColor = "#ffffff";
+            this.btn_edit.Location = new System.Drawing.Point(386, 464);
+            this.btn_edit.Name = "btn_edit";
+            this.btn_edit.Size = new System.Drawing.Size(143, 41);
+            this.btn_edit.TabIndex = 3;
+            this.btn_edit.Text = "Edit";
+            this.btn_edit.Click += new System.EventHandler(this.btn_edit_Click);
             // 
             // btn_delete
             // 
-            this.btn_delete.Location = new System.Drawing.Point(422, 409);
+            this.btn_delete.BackColor = System.Drawing.Color.Transparent;
+            this.btn_delete.BGColor = "#508ef5";
+            this.btn_delete.FontColor = "#ffffff";
+            this.btn_delete.Location = new System.Drawing.Point(554, 464);
             this.btn_delete.Name = "btn_delete";
-            this.btn_delete.Size = new System.Drawing.Size(75, 23);
-            this.btn_delete.TabIndex = 2;
-            this.btn_delete.Text = "DELETE";
-            this.btn_delete.UseVisualStyleBackColor = true;
-            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
+            this.btn_delete.Size = new System.Drawing.Size(143, 41);
+            this.btn_delete.TabIndex = 4;
+            this.btn_delete.Text = "Delete";
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click_1);
             // 
             // User_list
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1032, 450);
+            this.ClientSize = new System.Drawing.Size(1032, 507);
             this.Controls.Add(this.btn_delete);
-            this.Controls.Add(this.bnt_edit);
+            this.Controls.Add(this.btn_edit);
             this.Controls.Add(this.dataGridView1);
             this.Name = "User_list";
             this.Text = "User_list";
@@ -82,7 +88,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button bnt_edit;
-        private System.Windows.Forms.Button btn_delete;
+        private LollipopButton btn_edit;
+        private LollipopButton btn_delete;
     }
 }

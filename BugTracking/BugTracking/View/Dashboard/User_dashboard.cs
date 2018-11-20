@@ -9,20 +9,41 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using MaterialSkin;
+using MaterialSkin.Controls;
+
 namespace BugTracking.View
 {
-    public partial class User_dashboard : Form
+    public partial class User_dashboard : MaterialForm
     {
         int login_id, project_id;
         string first_name, last_name, address, sex, role, username, password;
 
         public User_dashboard(int login_id, string first_name, string username)
         {
+            MaterialSkin();
             this.username = username;
             this.login_id = login_id;
             this.first_name = first_name;
             InitializeComponent();
         }
+
+        public void MaterialSkin()
+        {
+            // Create a material theme manager and add the form to manage (this)
+            MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+
+            // Configure color schema
+            materialSkinManager.ColorScheme = new ColorScheme(
+                Primary.Blue400, Primary.Blue500,
+                Primary.Blue500, Accent.LightBlue200,
+                TextShade.WHITE
+            );
+        }
+
+
 
         private void newProjectToolStripMenuItem_Click(object sender, EventArgs e)
         {

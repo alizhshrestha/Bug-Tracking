@@ -4,6 +4,10 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Data;
 using System.Windows.Forms;
+
+// Import the Material Skin
+using MaterialSkin;
+using MaterialSkin.Controls;
 //libgit2sharp
 
 
@@ -11,7 +15,7 @@ namespace BugTracking
 {
 
     //creating class
-    public partial class Login_form : Form
+    public partial class Login_form : MaterialForm
     {
         //declaring variables.
         int login_id;
@@ -25,33 +29,17 @@ namespace BugTracking
         public Login_form()
         {
             InitializeComponent();
-            /*
-            String[] myData = new string[100];
-            
+            // Create a material theme manager and add the form to manage (this)
+            MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
 
-            mySqlConnection = new SqlConnection("server=Localhost;user id=root;database=bug_tracking");
-
-            String selcmd = "SELECT USERNAME FROM LOGIN";
-
-            SqlCommand mySqlCommand = new SqlCommand(selcmd, mySqlConnection);
-
-            mySqlConnection.Open();
-
-            SqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
-
-            int i = 0;
-            while (mySqlDataReader.Read())
-            {
-                Console.WriteLine(mySqlDataReader["USERNAME"]); //reads a line of the query result at a time
-                myData[i++] = (String)mySqlDataReader["name"]; // store in an array too for use later
-
-            }
-
-            for(int j = 0; j<1; j++)
-            {
-                Console.WriteLine("Your username is: " + myData[j]);
-            }
-            */
+            // Configure color schema
+            materialSkinManager.ColorScheme = new ColorScheme(
+                Primary.Blue400, Primary.Blue500,
+                Primary.Blue500, Accent.LightBlue200,
+                TextShade.WHITE
+            );
         }
         #endregion  
 
@@ -63,20 +51,25 @@ namespace BugTracking
         #region Button Login click event
         private void btn_login_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void btnlop_login_Click(object sender, EventArgs e)
+        {
             this.username = txt_username.Text;
             i = 0;
 
             con.Open();
             MySqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "select * from User where username='"+txt_username.Text+"' and password='"+txt_password.Text+"'";
+            cmd.CommandText = "select * from User where username='" + txt_username.Text + "' and password='" + txt_password.Text + "'";
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
             MySqlDataAdapter da = new MySqlDataAdapter(cmd);
             da.Fill(dt);
             i = Convert.ToInt32(dt.Rows.Count.ToString());
 
-            if (i==0)
+            if (i == 0)
             {
                 lbl_invalid.Text = "you have entered invalid username and password";
                 con.Close();
@@ -116,9 +109,9 @@ namespace BugTracking
                 con.Close();
             }
 
-            
 
-            
+
+
         }
         #endregion
 

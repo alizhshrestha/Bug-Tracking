@@ -8,9 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using MaterialSkin;
+using MaterialSkin.Controls;
+
+
 namespace BugTracking.View
 {
-    public partial class Bug_fix_list : Form
+    public partial class Bug_fix_list : MaterialForm
     {
         string username;
         public Bug_fix_list()
@@ -20,9 +24,27 @@ namespace BugTracking.View
 
         public Bug_fix_list(string username)
         {
+            MaterialSkin();
             this.username = username;
             InitializeComponent();
         }
+
+        public void MaterialSkin()
+        {
+            // Create a material theme manager and add the form to manage (this)
+            MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+
+            // Configure color schema
+            materialSkinManager.ColorScheme = new ColorScheme(
+                Primary.Blue400, Primary.Blue500,
+                Primary.Blue500, Accent.LightBlue200,
+                TextShade.WHITE
+            );
+        }
+
+
 
         private void Bug_fix_list_Load(object sender, EventArgs e)
         {
