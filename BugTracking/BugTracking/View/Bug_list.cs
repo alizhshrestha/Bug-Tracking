@@ -13,8 +13,15 @@ namespace BugTracking.View
 {
     public partial class Bug_list : Form
     {
-        string bug_title, source_file, class_name, method_line, code_line, fix_status;
+        string project_name, bug_title, source_file, class_name, method_line, code_line, fix_status;
         int project_id, bug_id;
+
+        private void btn_update_fix_Click(object sender, EventArgs e)
+        {
+
+            Fix_report fix_report = new Fix_report();
+            fix_report.ShowDialog();
+        }
 
         private void btn_update_Click(object sender, EventArgs e)
         {
@@ -100,10 +107,13 @@ namespace BugTracking.View
                     if (Convert.ToBoolean(fix_status)==false)
                     {
                         btn_fix.Show();
+                        btn_update.Show();
+                        btn_update_fix.Hide();
                     }
                     else
                     {
                         btn_fix.Hide();
+                        btn_update.Hide();
                     }
 
 

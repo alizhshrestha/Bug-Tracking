@@ -158,9 +158,9 @@ namespace BugTracking
                     }
 
                     //creating Bug_report object
-                    Bug_report bug_report = new Bug_report(project_id, project_name);
+                    //Bug_report bug_report = new Bug_report(project_id, project_name);
                     Console.WriteLine(project_id);
-                    bug_report.ShowDialog();
+                    //bug_report.ShowDialog();
 
 
                     

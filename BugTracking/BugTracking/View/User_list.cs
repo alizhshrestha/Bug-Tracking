@@ -46,11 +46,11 @@ namespace BugTracking
         private void bnt_edit_Click(object sender, EventArgs e)
         {
             this.updateFlag = true;
-            this.Close();
+            this.Hide();
 
             //creating object for register form
             Register_form register_form = new Register_form(user_id, first_name, last_name, address, sex, username, password, role, updateFlag);
-            register_form.Show();
+            register_form.ShowDialog();
         }
 
         //selection change method whenever pointer is changed.

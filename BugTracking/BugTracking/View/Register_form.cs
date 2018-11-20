@@ -53,6 +53,9 @@ namespace BugTracking
 
             command.ExecuteNonQuery();*/
             MessageBox.Show("Updated successfully!!");
+            this.Hide();
+            User_list user_list = new User_list();
+            user_list.ShowDialog();
             //conn.Close();
         }
 
@@ -213,9 +216,9 @@ namespace BugTracking
                                 MessageBox.Show("successfully registered");
 
                                 //create and display login form
-                                this.Close();
+                                /*this.Close();
                                 Login_form login_frm = new Login_form();
-                                login_frm.Show();
+                                login_frm.Show();*/
                             }
                         }
                     }

@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using BugTracking.Controller;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,9 +16,44 @@ namespace BugTracking
     public partial class List_of_project : Form
     {
         //declaring the variables
-        int project_id, user_id;
+        int project_id, user_id, bug_id;
         string project_name, start_date, end_date, arthur;
+        string bug_title, source_file, class_name, method_line, code_line;
         Boolean updateFlag, adminFlag;
+
+        private void btn_open_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            MySqlConnection conn = DatabaseController.connectToDb();
+            try
+            {
+                conn.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            using (conn)
+            {
+                MySqlCommand cmd = new MySqlCommand("select * from bug where project_id='" + this.project_id + "'", conn);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                using (reader) {
+                    while (reader.Read())
+                    {
+                        this.bug_title = (string)reader["bug_title"];
+                        this.source_file = (string)reader["source_file"];
+                        this.class_name = (string)reader["source_file"];
+                        this.method_line = (string)reader["method_line"];
+                        this.code_line = (string)reader["code_line"];
+                        this.project_id = (int)reader["project_id"];
+                        this.bug_id = (int)reader["id"];
+                    }
+                }
+            }
+            Bug_report bug_report = new Bug_report(bug_title, source_file, class_name, method_line, code_line, project_id, bug_id, false);
+            bug_report.ShowDialog();
+        }
 
         //parameterized constructor for List_of_project
         public List_of_project(Boolean adminFlag)
@@ -39,7 +75,7 @@ namespace BugTracking
             //checks if admin has logged in or not
             if (adminFlag == true)
             {
-                btn_edit.Hide();
+                btn_open.Hide();
                 btn_update.Hide();
             }
             loadData.loadUserData("select * from project;", data_view_project_list);

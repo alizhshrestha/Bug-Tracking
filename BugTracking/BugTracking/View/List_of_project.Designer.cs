@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.data_view_project_list = new System.Windows.Forms.DataGridView();
-            this.btn_edit = new System.Windows.Forms.Button();
+            this.btn_open = new System.Windows.Forms.Button();
             this.btn_update = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.data_view_project_list)).BeginInit();
             this.SuspendLayout();
@@ -43,14 +43,15 @@
             this.data_view_project_list.TabIndex = 0;
             this.data_view_project_list.SelectionChanged += new System.EventHandler(this.data_view_project_list_SelectionChanged);
             // 
-            // btn_edit
+            // btn_open
             // 
-            this.btn_edit.Location = new System.Drawing.Point(279, 415);
-            this.btn_edit.Name = "btn_edit";
-            this.btn_edit.Size = new System.Drawing.Size(75, 23);
-            this.btn_edit.TabIndex = 1;
-            this.btn_edit.Text = "EDIT";
-            this.btn_edit.UseVisualStyleBackColor = true;
+            this.btn_open.Location = new System.Drawing.Point(279, 415);
+            this.btn_open.Name = "btn_open";
+            this.btn_open.Size = new System.Drawing.Size(75, 23);
+            this.btn_open.TabIndex = 1;
+            this.btn_open.Text = "OPEN";
+            this.btn_open.UseVisualStyleBackColor = true;
+            this.btn_open.Click += new System.EventHandler(this.btn_open_Click);
             // 
             // btn_update
             // 
@@ -68,7 +69,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btn_update);
-            this.Controls.Add(this.btn_edit);
+            this.Controls.Add(this.btn_open);
             this.Controls.Add(this.data_view_project_list);
             this.Name = "List_of_project";
             this.Text = "List_of_project";
@@ -81,7 +82,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView data_view_project_list;
-        private System.Windows.Forms.Button btn_edit;
+        private System.Windows.Forms.Button btn_open;
         private System.Windows.Forms.Button btn_update;
     }
 }

@@ -31,6 +31,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btn_fix = new System.Windows.Forms.Button();
             this.btn_update = new System.Windows.Forms.Button();
+            this.btn_update_fix = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,11 +65,22 @@
             this.btn_update.UseVisualStyleBackColor = true;
             this.btn_update.Click += new System.EventHandler(this.btn_update_Click);
             // 
+            // btn_update_fix
+            // 
+            this.btn_update_fix.Location = new System.Drawing.Point(564, 317);
+            this.btn_update_fix.Name = "btn_update_fix";
+            this.btn_update_fix.Size = new System.Drawing.Size(103, 23);
+            this.btn_update_fix.TabIndex = 3;
+            this.btn_update_fix.Text = "UPDATE FIX";
+            this.btn_update_fix.UseVisualStyleBackColor = true;
+            this.btn_update_fix.Click += new System.EventHandler(this.btn_update_fix_Click);
+            // 
             // Bug_list
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(876, 397);
+            this.Controls.Add(this.btn_update_fix);
             this.Controls.Add(this.btn_update);
             this.Controls.Add(this.btn_fix);
             this.Controls.Add(this.dataGridView1);
@@ -85,5 +97,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btn_fix;
         private System.Windows.Forms.Button btn_update;
+        private System.Windows.Forms.Button btn_update_fix;
     }
 }

@@ -65,6 +65,7 @@ namespace BugTracking.View
 
         private void userToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            
             User_list user_list = new User_list();
             user_list.ShowDialog();
         }
@@ -76,6 +77,11 @@ namespace BugTracking.View
         }
 
         private void MenuStripItem_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void bugToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
 
         }
