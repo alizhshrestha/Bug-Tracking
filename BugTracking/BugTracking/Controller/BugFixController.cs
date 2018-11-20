@@ -11,7 +11,7 @@ namespace BugTracking.Controller
     {
         public static void insertBugFixToDatabase(Bug_fix bf)
         {
-            string query = "INSERT INTO `bug_fix` (`id`, `fixer_name`, `fixed_code`, `bug_id`) VALUES(NULL, '"+bf.getFixerName()+"', '"+bf.getFixedCode()+"', '"+bf.getBugId()+"'); "; 
+            string query = "INSERT INTO `bug_fix` (`id`, `fixer_name`, `fixed_code`, `bug_id`,`reported_by`) VALUES(NULL, '"+bf.getFixerName()+"', '"+bf.getFixedCode()+"', '"+bf.getBugId()+ "' , '" + bf.getReportedBy() + "'); "; 
             DatabaseController.insertDataToForm(query);
         }
 

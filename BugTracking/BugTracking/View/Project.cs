@@ -27,7 +27,7 @@ namespace BugTracking
 
             //method for Updating project to database.
             ProjectController.UpdateProjectToDatabase(project);
-            MessageBox.Show("Successfully updated");
+            this.Hide();
             
 
             MessageBox.Show("Updated successfully!!");
@@ -60,7 +60,6 @@ namespace BugTracking
             this.user_id = user_id;
             validation = new Validation();//initialized validation class
             InitializeComponent();
-            MessageBox.Show(Convert.ToString("From project: " +user_id));
         }
         #endregion
 

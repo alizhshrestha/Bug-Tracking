@@ -10,7 +10,7 @@ namespace BugTracking
         //declaring the variables
         int user_id;
         string first_name, last_name, address, sex, username, password, role;
-        Boolean updateFlag;
+        Boolean updateFlag, userFlag;
 
         //event on delete button
         private void btn_delete_Click(object sender, EventArgs e)
@@ -27,10 +27,26 @@ namespace BugTracking
             InitializeComponent();
         }
 
+        public User_list(Boolean userFlag, string username)
+        {
+            this.userFlag = userFlag;
+            this.username = username;
+            InitializeComponent();
+        }
+
         //loading userlist in data grid view
         private void User_list_Load(object sender, EventArgs e)
         {
-            loadData.loadUserData("select * from user;", dataGridView1);
+            
+            if (this.userFlag == true)
+            {
+                btn_delete.Hide();
+                loadData.loadUserData("select * from user where username ='"+this.username+"';", dataGridView1);
+            }
+            else
+            {
+                loadData.loadUserData("select * from user;", dataGridView1);
+            }
 
             User_list user_list = new User_list();
             dataGridView1.Columns["first_name"].ReadOnly = true;

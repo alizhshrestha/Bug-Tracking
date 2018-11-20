@@ -12,7 +12,7 @@ namespace BugTracking
         //declares variable name
         string first_name, last_name, address, sex, username, password, role; 
         int user_id; 
-        Boolean updateFlag;
+        Boolean updateFlag, userFlag;
 
         //button click event
         private void btn_update_Click(object sender, EventArgs e)
@@ -32,7 +32,8 @@ namespace BugTracking
             UserController.updateUserToDatabase(user);//updates user to database
             MessageBox.Show("Updated successfully!!");
             this.Hide();
-            User_list user_list = new User_list();
+            MessageBox.Show(this.username);
+            User_list user_list = new User_list(true, this.username);
             user_list.ShowDialog();
             //conn.Close();
         }
@@ -50,6 +51,24 @@ namespace BugTracking
             //btn_update.Show();
             //sets local variables value
             this.user_id = user_id;
+            this.first_name = first_name;
+            this.last_name = last_name;
+            this.address = address;
+            this.sex = sex;
+            this.username = username;
+            this.password = password;
+            this.role = role;
+            this.updateFlag = updateFlag;
+
+            validation = new Validation();//object creation
+
+            InitializeComponent();
+        }
+
+        public Register_form(string first_name, string last_name, string address, string sex, string username, string password, string role, Boolean updateFlag)
+        {
+            //btn_update.Show();
+            //sets local variables value
             this.first_name = first_name;
             this.last_name = last_name;
             this.address = address;

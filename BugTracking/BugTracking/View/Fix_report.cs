@@ -13,7 +13,7 @@ namespace BugTracking
     {
         Validation validate; //declare validation class
         //declaring variables.
-        string bug_title, source_file, class_name, method_line, code_line, project_name, fixer_name, resolved_code;
+        string bug_title, source_file, class_name, method_line, code_line, project_name, fixer_name, resolved_code, username;
         int project_id, bug_id;
 
         //back button click event
@@ -39,6 +39,23 @@ namespace BugTracking
             this.project_id = project_id;
             this.bug_id = bug_id;
             this.resolved_code = resolved_code;
+            InitializeComponent();
+            validate = new Validation();
+        }
+
+        public Fix_report(string bug_title, string source_file, string class_name, string method_line,
+            string code_line, int project_id, int bug_id, string resolved_code, string username)
+        {
+            //txt_project_name.ReadOnly = true;
+            this.bug_title = bug_title;
+            this.source_file = source_file;
+            this.class_name = class_name;
+            this.method_line = method_line;
+            this.code_line = code_line;
+            this.project_id = project_id;
+            this.bug_id = bug_id;
+            this.resolved_code = resolved_code;
+            this.username = username;
             InitializeComponent();
             validate = new Validation();
         }
@@ -135,7 +152,7 @@ namespace BugTracking
                                         this.code_line = txt_code_line.Text;
                                         this.fixer_name = txt_fixer.Text;
                                         this.resolved_code = txt_resolved_code.Text;
-                                        Bug_fix bf = new Bug_fix(fixer_name, resolved_code, this.bug_id);
+                                        Bug_fix bf = new Bug_fix(fixer_name, resolved_code, this.bug_id, this.username);
                                         BugFixController.insertBugFixToDatabase(bf);
                                         
 
@@ -144,12 +161,11 @@ namespace BugTracking
                                         MySqlCommand command2 = new MySqlCommand(update_status_query, conn2);
                                         conn2.Open();
                                         command2.ExecuteNonQuery();
-                                        MessageBox.Show("status fixed" + Convert.ToString(this.bug_id));
                                         conn2.Close();
                                         
 
-                                        this.Close();
-                                        Bug_fix_list bug_fix_list = new Bug_fix_list();
+                                        this.Hide();
+                                        Bug_fix_list bug_fix_list = new Bug_fix_list(this.username);
                                         bug_fix_list.Show();
                                     }
                                 }

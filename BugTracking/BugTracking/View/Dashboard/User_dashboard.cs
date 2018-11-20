@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,11 +13,14 @@ namespace BugTracking.View
 {
     public partial class User_dashboard : Form
     {
-        int login_id;
+        int login_id, project_id;
+        string first_name, last_name, address, sex, role, username, password;
 
-        public User_dashboard(int login_id)
+        public User_dashboard(int login_id, string first_name, string username)
         {
+            this.username = username;
             this.login_id = login_id;
+            this.first_name = first_name;
             InitializeComponent();
         }
 
@@ -29,7 +33,7 @@ namespace BugTracking.View
 
         private void listProjectToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            List_of_project list_of_project = new List_of_project();
+            List_of_project list_of_project = new List_of_project(this.login_id, this.first_name, this.username);
             list_of_project.ShowDialog();
         }
 
@@ -47,13 +51,13 @@ namespace BugTracking.View
 
         private void bugToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Bug_list bug_list = new Bug_list();
+            Bug_list bug_list = new Bug_list(this.username);
             bug_list.ShowDialog();
         }
 
         private void fixToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Bug_fix_list bug_fix_list = new Bug_fix_list();
+            Bug_fix_list bug_fix_list = new Bug_fix_list(this.username);
             bug_fix_list.ShowDialog();
         }
 
@@ -83,6 +87,34 @@ namespace BugTracking.View
         private void bugToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void profileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MySqlConnection conn = DbConnection.connectToDb();
+            conn.Open();
+            using (conn)
+            {
+                MySqlCommand command = new MySqlCommand("select * from user where id = '"+this.login_id+"'", conn);
+                MySqlDataReader reader = command.ExecuteReader();
+                using (reader)
+                {
+                    while (reader.Read())
+                    {
+                        this.first_name = reader["first_name"].ToString();
+                        this.last_name = reader["last_name"].ToString();
+                        this.address = reader["address"].ToString();
+                        this.sex = reader["sex"].ToString();
+                        this.username = reader["username"].ToString();
+                        this.password = reader["password"].ToString();
+                        this.role = reader["role"].ToString();
+                    }
+                }
+            }
+            conn.Close();
+            MessageBox.Show(this.username);
+            Register_form register_form = new Register_form(first_name, last_name, address, sex, username, password, role, true);
+            register_form.Show();
         }
     }
 }

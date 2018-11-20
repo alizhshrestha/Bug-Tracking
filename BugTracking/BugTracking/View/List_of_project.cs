@@ -9,9 +9,15 @@ namespace BugTracking
     public partial class List_of_project : Form
     {
         //declaring the variables
-        int project_id, user_id, bug_id;
+        int project_id, user_id, bug_id, login_id;
         string project_name, start_date, end_date, arthur;
-        string bug_title, source_file, class_name, method_line, code_line;
+        string bug_title, source_file, class_name, method_line, code_line, first_name, username;
+
+        private void data_view_project_list_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
         Boolean updateFlag, adminFlag;
 
         private void btn_open_Click(object sender, EventArgs e)
@@ -44,7 +50,7 @@ namespace BugTracking
                     }
                 }
             }
-            Bug_report bug_report = new Bug_report(bug_title, source_file, class_name, method_line, code_line, project_id, bug_id, false);
+            Bug_report bug_report = new Bug_report(bug_title, source_file, class_name, method_line, code_line, project_id, bug_id, false, this.username);
             bug_report.ShowDialog();
         }
 
@@ -52,6 +58,14 @@ namespace BugTracking
         public List_of_project(Boolean adminFlag)
         {
             this.adminFlag = adminFlag;
+            InitializeComponent();
+        }
+
+        public List_of_project(int login_id, string first_name, string username)
+        {
+            this.first_name = first_name;
+            this.login_id = login_id;
+            this.username = username;
             InitializeComponent();
         }
 
@@ -71,7 +85,7 @@ namespace BugTracking
                 btn_open.Hide();
                 btn_update.Hide();
             }
-            loadData.loadUserData("select * from project;", data_view_project_list);
+            loadData.loadUserData("select * from project where arthur = '"+this.first_name + "';", data_view_project_list);
             //data_view_project_list.Columns["project_id"].ReadOnly = true;
             data_view_project_list.Columns["project_name"].ReadOnly = true;
             data_view_project_list.Columns["start_date"].ReadOnly = true;

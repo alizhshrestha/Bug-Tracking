@@ -15,7 +15,7 @@ namespace BugTracking
     {
         //declaring variables.
         int login_id;
-        string role;
+        string role, first_name, username;
 
         //location of the mysqlconnection linked
         MySqlConnection con = new MySqlConnection(@"Data Source=localhost;port=3306;Initial Catalog=bug_tracking; User Id=root; password=''");
@@ -63,7 +63,7 @@ namespace BugTracking
         #region Button Login click event
         private void btn_login_Click(object sender, EventArgs e)
         {
-
+            this.username = txt_username.Text;
             i = 0;
 
             con.Open();
@@ -85,15 +85,17 @@ namespace BugTracking
             {
                 using (con)
                 {
-                    MySqlCommand command = new MySqlCommand("select role, id from user where username = '" + txt_username.Text + "'", con);
+                    MySqlCommand command = new MySqlCommand("select first_name, role, id from user where username = '" + txt_username.Text + "'", con);
                     MySqlDataReader reader = command.ExecuteReader();
                     using (reader)
                     {
                         while (reader.Read())
                         {
                             string role = Convert.ToString(reader["role"]);
+                            string first_name = (string)reader["first_name"];
                             int id = (int)reader["id"];
                             login_id = id;
+                            this.first_name = first_name;
                             this.role = role;
                         }
                     }
@@ -108,7 +110,7 @@ namespace BugTracking
                 else
                 {
                     this.Hide();
-                    User_dashboard user_dashboard = new User_dashboard(this.login_id);
+                    User_dashboard user_dashboard = new User_dashboard(this.login_id, this.first_name, this.username);
                     user_dashboard.Show();
                 }
                 con.Close();

@@ -41,6 +41,7 @@
             this.data_view_project_list.Name = "data_view_project_list";
             this.data_view_project_list.Size = new System.Drawing.Size(776, 386);
             this.data_view_project_list.TabIndex = 0;
+            this.data_view_project_list.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.data_view_project_list_CellContentClick);
             this.data_view_project_list.SelectionChanged += new System.EventHandler(this.data_view_project_list_SelectionChanged);
             // 
             // btn_open

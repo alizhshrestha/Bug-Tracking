@@ -43,5 +43,11 @@ namespace BugTracking.View.Dashboard
             List_of_project list_of_project = new List_of_project(adminFlag);
             list_of_project.ShowDialog();
         }
+
+        private void usersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            User_list user_list = new User_list();
+            user_list.ShowDialog();
+        }
     }
 }

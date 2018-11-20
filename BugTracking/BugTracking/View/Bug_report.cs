@@ -12,7 +12,7 @@ namespace BugTracking
         Validation validate;//defined validation class
         #region constructor
         int project_id, bug_id;
-        string project_name, bug_title, source_file, class_name, method_line, code_line, arthur;
+        string project_name, bug_title, source_file, class_name, method_line, code_line, arthur, username;
 
         private void btn_submit_Click(object sender, EventArgs e)
         {
@@ -37,7 +37,7 @@ namespace BugTracking
                                         string code_line = txt_code_line.Text;
 
                                         Console.WriteLine(this.project_id);
-                                        Bug bug = new Bug(bug_title, source_file, class_name, method_line, code_line, this.project_id);
+                                        Bug bug = new Bug(bug_title, source_file, class_name, method_line, code_line, this.username ,this.project_id);
                                         BugController.insertBugToDatabase(bug);
                                         MessageBox.Show("Submitted Successfully");
                                     }
@@ -65,7 +65,7 @@ namespace BugTracking
             validate = new Validation();//initialized validation class
         }
 
-        public Bug_report(string bug_title, string source_file, string class_name, string method_line, string code_line, int project_id, int bug_id, Boolean updateFlag)
+        public Bug_report(string bug_title, string source_file, string class_name, string method_line, string code_line, int project_id, int bug_id, Boolean updateFlag, string username)
         {
             //txt_project_name.ReadOnly = true;
 
@@ -77,6 +77,7 @@ namespace BugTracking
             this.project_id = project_id;
             this.bug_id = bug_id;
             this.updateFlag = updateFlag;
+            this.username = username;
 
             InitializeComponent();
             validate = new Validation();//initialized validation class
@@ -145,7 +146,7 @@ namespace BugTracking
 
             command.ExecuteNonQuery();
             MessageBox.Show("Updated successfully!!");
-            Bug_list bug_list = new Bug_list();
+            Bug_list bug_list = new Bug_list(this.username);
             bug_list.ShowDialog();
             conn.Close();
 

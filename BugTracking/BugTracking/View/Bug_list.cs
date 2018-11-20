@@ -14,6 +14,7 @@ namespace BugTracking.View
     public partial class Bug_list : Form
     {
         string project_name, bug_title, source_file, class_name, method_line, code_line, fix_status, resolved_code;
+        string username;
         int project_id, bug_id;
 
         private void btn_update_fix_Click(object sender, EventArgs e)
@@ -54,8 +55,7 @@ namespace BugTracking.View
             }
             conn.Close();
             this.Hide();
-            MessageBox.Show(this.resolved_code);
-            Fix_report fix_report = new Fix_report(bug_title, source_file, class_name, method_line, code_line, project_id, bug_id, this.resolved_code);
+            Fix_report fix_report = new Fix_report(bug_title, source_file, class_name, method_line, code_line, project_id, bug_id, this.resolved_code, this.username);
             fix_report.ShowDialog();
         }
 
@@ -80,8 +80,14 @@ namespace BugTracking.View
             conn.Close();
 
             this.Close();
-            Bug_report bug_report = new Bug_report(bug_title, source_file, class_name, method_line, code_line, project_id, bug_id, true);
+            Bug_report bug_report = new Bug_report(bug_title, source_file, class_name, method_line, code_line, project_id, bug_id, true, this.username);
             bug_report.ShowDialog();
+        }
+
+        public Bug_list(string username)
+        {
+            this.username = username;
+            InitializeComponent();
         }
 
         public Bug_list()
@@ -91,7 +97,7 @@ namespace BugTracking.View
 
         private void Bug_list_Load(object sender, EventArgs e)
         {
-            loadData.loadUserData("select * from bug;", dataGridView1);
+            loadData.loadUserData("select * from bug where reported_by = '"+this.username+"';", dataGridView1);
             dataGridView1.Columns["fixed"].ReadOnly = true;
             dataGridView1.Columns["bug_title"].ReadOnly = true;
             dataGridView1.Columns["source_file"].ReadOnly = true;
@@ -122,7 +128,7 @@ namespace BugTracking.View
             conn.Close();
 
             this.Close();
-            Fix_report fix_report = new Fix_report(bug_title, source_file, class_name, method_line, code_line, project_id,bug_id);
+            Fix_report fix_report = new Fix_report(bug_title, source_file, class_name, method_line, code_line, project_id,bug_id, resolved_code, this.username);
             fix_report.ShowDialog();
         }
 
