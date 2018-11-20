@@ -3,13 +3,6 @@ using BugTracking.Model;
 using BugTracking.View;
 using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BugTracking
@@ -34,7 +27,24 @@ namespace BugTracking
         }
 
         #region Constructor
-        public Fix_report(string bug_title, string source_file, string class_name, string method_line, string code_line,int project_id, int bug_id)
+        public Fix_report(string bug_title, string source_file, string class_name, string method_line, 
+            string code_line,int project_id, int bug_id,string resolved_code)
+        {
+            //txt_project_name.ReadOnly = true;
+            this.bug_title = bug_title;
+            this.source_file = source_file;
+            this.class_name = class_name;
+            this.method_line = method_line;
+            this.code_line = code_line;
+            this.project_id = project_id;
+            this.bug_id = bug_id;
+            this.resolved_code = resolved_code;
+            InitializeComponent();
+            validate = new Validation();
+        }
+
+        public Fix_report(string bug_title, string source_file, string class_name, string method_line,
+            string code_line, int project_id, int bug_id)
         {
             //txt_project_name.ReadOnly = true;
             this.bug_title = bug_title;
@@ -47,6 +57,7 @@ namespace BugTracking
             InitializeComponent();
             validate = new Validation();
         }
+
 
         public Fix_report()
         {
@@ -72,7 +83,7 @@ namespace BugTracking
             txt_class_name.Text = class_name;
             txt_method_line.Text = method_line;
             txt_code_line.Text = code_line;
-
+            txt_resolved_code.Text = this.resolved_code;
             //Establishing connection with database.
             MySqlConnection conn = DbConnection.connectToDb();
             conn.Open();
@@ -126,15 +137,6 @@ namespace BugTracking
                                         this.resolved_code = txt_resolved_code.Text;
                                         Bug_fix bf = new Bug_fix(fixer_name, resolved_code, this.bug_id);
                                         BugFixController.insertBugFixToDatabase(bf);
-                                        /*
-                                         * String query = "insert into bug_fix (fixer_name, bug_id) values('"+txt_fixer.Text+"', '"+this.bug_id+"')";
-                                        MySqlConnection conn = DbConnection.connectToDb();
-                                        MySqlCommand command = new MySqlCommand(query, conn);
-                                        conn.Open();
-                                        command.ExecuteNonQuery();
-                                        conn.Close();
-                                        */
-
                                         
 
                                         String update_status_query = "update bug set fixed = true where id = '"+this.bug_id+"'";

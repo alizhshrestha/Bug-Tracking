@@ -1,14 +1,6 @@
 ﻿using BugTracking.Controller;
 using BugTracking.Model;
-using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BugTracking
@@ -26,6 +18,7 @@ namespace BugTracking
             MessageBox.Show("Delete Id: "+ Convert.ToInt32(this.user_id));
             User user = new User(this.user_id); //creating object for user
             UserController.deleteUserToDatabase(user); //method to delete user from the database
+            MessageBox.Show("Delete Successfully");
         }
 
         //constructor for the user class
@@ -38,7 +31,16 @@ namespace BugTracking
         private void User_list_Load(object sender, EventArgs e)
         {
             loadData.loadUserData("select * from user;", dataGridView1);
+
             User_list user_list = new User_list();
+            dataGridView1.Columns["first_name"].ReadOnly = true;
+            dataGridView1.Columns["last_name"].ReadOnly = true;
+            dataGridView1.Columns["address"].ReadOnly = true;
+            dataGridView1.Columns["sex"].ReadOnly = true;
+            dataGridView1.Columns["username"].ReadOnly = true;
+            dataGridView1.Columns["password"].ReadOnly = true;
+            dataGridView1.Columns["role"].ReadOnly = true;
+            
             Console.ReadLine();
         }
 

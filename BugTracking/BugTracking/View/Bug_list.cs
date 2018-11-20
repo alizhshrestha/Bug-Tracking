@@ -13,13 +13,49 @@ namespace BugTracking.View
 {
     public partial class Bug_list : Form
     {
-        string project_name, bug_title, source_file, class_name, method_line, code_line, fix_status;
+        string project_name, bug_title, source_file, class_name, method_line, code_line, fix_status, resolved_code;
         int project_id, bug_id;
 
         private void btn_update_fix_Click(object sender, EventArgs e)
         {
+            MySqlConnection conn = DbConnection.connectToDb();
+            conn.Open();
+            using (conn)
+            {
+                MySqlCommand command = new MySqlCommand("select id from bug where bug_title = '" + this.bug_title + "'", conn);
+                MySqlDataReader reader = command.ExecuteReader();
+                using (reader)
+                {
+                    while (reader.Read())
+                    {
+                        int id = (int)reader["id"];
+                        this.bug_id = id;
 
-            Fix_report fix_report = new Fix_report();
+                    }
+                }
+            }
+            conn.Close();
+
+            conn.Open();
+            using (conn)
+            {
+                MySqlCommand command = new MySqlCommand("select fixed_code from bug_fix where bug_id = '" + this.bug_id + "'", conn);
+                MySqlDataReader reader = command.ExecuteReader();
+                using (reader)
+                {
+                    while (reader.Read())
+                    {
+                        string fixed_code = (string)reader["fixed_code"];
+                        
+                        this.resolved_code = fixed_code;
+
+                    }
+                }
+            }
+            conn.Close();
+            this.Hide();
+            MessageBox.Show(this.resolved_code);
+            Fix_report fix_report = new Fix_report(bug_title, source_file, class_name, method_line, code_line, project_id, bug_id, this.resolved_code);
             fix_report.ShowDialog();
         }
 
@@ -44,7 +80,6 @@ namespace BugTracking.View
             conn.Close();
 
             this.Close();
-            MessageBox.Show(Convert.ToString(this.bug_id));
             Bug_report bug_report = new Bug_report(bug_title, source_file, class_name, method_line, code_line, project_id, bug_id, true);
             bug_report.ShowDialog();
         }
@@ -58,6 +93,13 @@ namespace BugTracking.View
         {
             loadData.loadUserData("select * from bug;", dataGridView1);
             dataGridView1.Columns["fixed"].ReadOnly = true;
+            dataGridView1.Columns["bug_title"].ReadOnly = true;
+            dataGridView1.Columns["source_file"].ReadOnly = true;
+            //dataGridView1.Columns["class_name"].ReadOnly = true;
+            dataGridView1.Columns["method_line"].ReadOnly = true;
+            dataGridView1.Columns["code_line"].ReadOnly = true;
+            dataGridView1.Columns["project_id"].ReadOnly = true;
+            //dataGridView1.Columns["fix_status"].ReadOnly = true;
         }
 
         private void btn_fix_Click(object sender, EventArgs e)
@@ -74,7 +116,6 @@ namespace BugTracking.View
                     {
                         int id = (int)reader["id"];
                         this.bug_id = id;
-                        MessageBox.Show(Convert.ToString(this.bug_id));
                     }
                 }
             }
@@ -103,7 +144,6 @@ namespace BugTracking.View
                     code_line = row.Cells[5].Value.ToString();
                     project_id = (int)row.Cells[6].Value;
                     fix_status = row.Cells[7].Value.ToString();
-                    MessageBox.Show(fix_status);
                     if (Convert.ToBoolean(fix_status)==false)
                     {
                         btn_fix.Show();
@@ -114,6 +154,7 @@ namespace BugTracking.View
                     {
                         btn_fix.Hide();
                         btn_update.Hide();
+                        btn_update_fix.Show();
                     }
 
 

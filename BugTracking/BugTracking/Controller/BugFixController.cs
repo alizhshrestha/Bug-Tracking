@@ -12,7 +12,6 @@ namespace BugTracking.Controller
         public static void insertBugFixToDatabase(Bug_fix bf)
         {
             string query = "INSERT INTO `bug_fix` (`id`, `fixer_name`, `fixed_code`, `bug_id`) VALUES(NULL, '"+bf.getFixerName()+"', '"+bf.getFixedCode()+"', '"+bf.getBugId()+"'); "; 
-            //Console.WriteLine(query);
             DatabaseController.insertDataToForm(query);
         }
 

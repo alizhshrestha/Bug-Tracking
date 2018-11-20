@@ -24,7 +24,6 @@ namespace BugTracking.View
         {
 
             Project project = new Project(this.login_id);
-            //project.MdiParent = this;
             project.Show();
         }
 
@@ -85,13 +84,5 @@ namespace BugTracking.View
         {
 
         }
-
-        //panel_item.Refresh();
-        //Project project = new Project();
-        //project.TopLevel = false;
-        //panel_item.Controls.Add(project);
-        //project.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-        //project.Dock = DockStyle.Fill;
-        //project.Show();
     }
 }

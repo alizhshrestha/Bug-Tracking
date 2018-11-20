@@ -20,6 +20,9 @@ namespace BugTracking.View
         private void Bug_fix_list_Load(object sender, EventArgs e)
         {
             loadData.loadUserData("select * from bug_fix;", dataGridView1);
+            dataGridView1.Columns["fixer_name"].ReadOnly = true;
+            dataGridView1.Columns["fixed_code"].ReadOnly = true;
+            dataGridView1.Columns["bug_id"].ReadOnly = true;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

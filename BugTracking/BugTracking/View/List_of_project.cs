@@ -1,13 +1,6 @@
 ﻿using BugTracking.Controller;
 using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BugTracking
@@ -79,7 +72,13 @@ namespace BugTracking
                 btn_update.Hide();
             }
             loadData.loadUserData("select * from project;", data_view_project_list);
-            
+            //data_view_project_list.Columns["project_id"].ReadOnly = true;
+            data_view_project_list.Columns["project_name"].ReadOnly = true;
+            data_view_project_list.Columns["start_date"].ReadOnly = true;
+            data_view_project_list.Columns["end_date"].ReadOnly = true;
+            data_view_project_list.Columns["arthur"].ReadOnly = true;
+            data_view_project_list.Columns["user_id"].ReadOnly = true;
+
         }
 
         //update button event handling
@@ -91,7 +90,6 @@ namespace BugTracking
 
             //creatingthe object for Project
             Project project = new Project(project_id, project_name, start_date, end_date, arthur, user_id, updateFlag);
-            MessageBox.Show(Convert.ToString("Project ID: " +user_id));
             project.ShowDialog();
         }
 
@@ -111,7 +109,6 @@ namespace BugTracking
                     this.end_date = row.Cells[3].Value.ToString();
                     this.arthur = row.Cells[4].Value.ToString();
                     this.user_id = Convert.ToInt32(row.Cells[5].Value);
-                    MessageBox.Show(Convert.ToString(user_id));
                 }
                 catch (Exception ex)
                 {

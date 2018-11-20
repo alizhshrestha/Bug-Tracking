@@ -2,14 +2,7 @@
 using BugTracking.View.Dashboard;
 using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 //libgit2sharp
 
@@ -90,9 +83,6 @@ namespace BugTracking
             }
             else
             {
-                
-
-                //con.Open();
                 using (con)
                 {
                     MySqlCommand command = new MySqlCommand("select role, id from user where username = '" + txt_username.Text + "'", con);
@@ -122,15 +112,6 @@ namespace BugTracking
                     user_dashboard.Show();
                 }
                 con.Close();
-
-
-                //Admin_dashboard admin_dashboard = new Admin_dashboard(login_id);
-                //admin_dashboard.ShowDialog();
-                
-                //Fix_report fix_report = new Fix_report();
-                //fix_report.Show();
-                //Project project = new Project();
-                //project.Show();
             }
 
             

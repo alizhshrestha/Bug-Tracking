@@ -13,7 +13,6 @@ namespace BugTracking.Controller
         {
             string query = "insert into bug(id, bug_title, source_file, class, method_line, code_line, project_id) " +
                 "values(NULL, '" + b.getBugTitle() + "','" + b.getSourceFile() + "','" + b.getClassName() + "','" + b.getMethodLine() + "','"+b.getCodeLine()+ "','" + b.getProjectId() + "')";
-            //Console.WriteLine(query);
             DatabaseController.insertDataToForm(query);
         }
 

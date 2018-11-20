@@ -1,14 +1,6 @@
 ﻿using BugTracking.Controller;
 using BugTracking.Model;
-using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BugTracking
@@ -38,20 +30,6 @@ namespace BugTracking
             //declares and call parameterised constructor
             User user = new User(user_id, fname, lname, address, sex, username, password, role);
             UserController.updateUserToDatabase(user);//updates user to database
-
-            /*String update_query = "Update user set first_name='"+txt_first_name.Text+ "', last_name='" + txt_last_name.Text + "', address='" + txt_address.Text + "', sex='" + cmb_sex.Text + "', username='" + txt_username.Text + "', password='" + txt_password.Text + "', role='" + cmb_role.Text + "' where id='"+this.user_id+"'";
-            MySqlConnection conn = DbConnection.connectToDb();
-            MySqlCommand command = new MySqlCommand(update_query, conn);
-            try
-            {
-                conn.Open();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-            command.ExecuteNonQuery();*/
             MessageBox.Show("Updated successfully!!");
             this.Hide();
             User_list user_list = new User_list();
@@ -118,7 +96,6 @@ namespace BugTracking
             cmb_sex.DropDownHeight = 50;
             setComboSexItems();
             setComboRoleItems();
-            //btn_update.Hide();
 
             //sets value to text-box
             txt_first_name.Text = this.first_name;
@@ -193,32 +170,8 @@ namespace BugTracking
 
                                 //inserting to user controller
                                 UserController.insertUserToDatabase(user);
-                                
-                                /*
-                                //data connection and data transfer
-                                MySqlConnection conn = DatabaseController.databaseConnection();
-                                MySqlCommand command = conn.CreateCommand();
-                                command.CommandText = "insert into User (first_name, last_name, sex, address, username, password, role) values('" + txt_first_name.Text + "','" + txt_last_name.Text + "','" + cmb_sex.Text + "'," +
-                                  "'" + txt_address.Text + "','" + txt_username.Text + "','" + txt_password.Text + "','" + cmb_role.Text + "')";
 
-                                try
-                                {
-                                   conn.Open();
-                                }
-                                catch (Exception ex)
-                                {
-                                   MessageBox.Show(ex.Message);
-                                }
-
-                                command.ExecuteNonQuery();
-
-    */
                                 MessageBox.Show("successfully registered");
-
-                                //create and display login form
-                                /*this.Close();
-                                Login_form login_frm = new Login_form();
-                                login_frm.Show();*/
                             }
                         }
                     }
