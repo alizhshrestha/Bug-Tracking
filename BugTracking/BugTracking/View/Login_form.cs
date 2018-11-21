@@ -71,7 +71,7 @@ namespace BugTracking
 
             if (i == 0)
             {
-                lbl_invalid.Text = "you have entered invalid username and password";
+                lbl_invalid.Text = "!!Please input correct username and password!!";
                 con.Close();
             }
             else

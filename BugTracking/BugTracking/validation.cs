@@ -34,6 +34,22 @@ namespace BugTracking
             return true;
         }
 
+        public bool validateUserInfo(RichTextBox txt, String label, Label lbl_validate)
+        {
+            lbl_validate.Hide();
+            lbl_validate.ForeColor = Color.Red;
+
+            string value = txt.Text;
+            if (string.IsNullOrWhiteSpace(value) || value.Any(Char.IsDigit))
+            {
+                lbl_validate.Text = "PLEASE ENTER VALID " + label;
+                lbl_validate.Show();
+                txt.Select();
+                return false;
+            }
+            return true;
+        }
+
         /// <summary>
         /// validates login credential info
         /// </summary>

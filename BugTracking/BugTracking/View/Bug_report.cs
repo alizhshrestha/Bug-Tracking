@@ -63,6 +63,7 @@ namespace BugTracking
                                         Bug bug = new Bug(bug_title, source_file, class_name, method_line, code_line, this.username, this.project_id);
                                         BugController.insertBugToDatabase(bug);
                                         MessageBox.Show("Submitted Successfully");
+                                        this.Hide();
                                     }
                                 }
                             }
@@ -89,9 +90,13 @@ namespace BugTracking
 
             command.ExecuteNonQuery();
             MessageBox.Show("Updated successfully!!");
-            Bug_list bug_list = new Bug_list(this.username);
-            bug_list.ShowDialog();
+            this.Hide();
             conn.Close();
+        }
+
+        private void btn_back_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
         }
 
         Boolean updateFlag;
@@ -157,6 +162,7 @@ namespace BugTracking
         private void Bug_report_Load(object sender, EventArgs e)
         {
             btn_update.Hide();
+            txt_project_name.ReadOnly = true;
             txt_project_name.Text = this.project_name;
             txt_bug_title.Text = bug_title;
             txt_source_file.Text = source_file;

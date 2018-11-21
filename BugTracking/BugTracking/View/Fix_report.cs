@@ -34,32 +34,35 @@ namespace BugTracking
                             {
                                 if (validate.validateUserInfo(txt_method_line, "METHOD LINE", lbl_validate) == true)
                                 {
-                                    if (validate.validateUserInfo(txt_fixer, "FIXER NAME", lbl_validate) == true)
+                                    if (validate.validateUserInfo(txt_resolved_code, "RESOLVE CODE", lbl_validate) == true)
                                     {
+                                        if (validate.validateUserInfo(txt_fixer, "FIXER NAME", lbl_validate) == true)
+                                        {
 
-                                        this.bug_title = txt_bug.Text;
-                                        this.source_file = txt_source_file.Text;
-                                        this.class_name = txt_class_name.Text;
-                                        this.method_line = txt_method_line.Text;
-                                        this.code_line = txt_code_line.Text;
-                                        this.fixer_name = txt_fixer.Text;
-                                        this.resolved_code = txt_resolved_code.Text;
-                                        Bug_fix bf = new Bug_fix(fixer_name, resolved_code, this.bug_id, this.username);
-                                        BugFixController.insertBugFixToDatabase(bf);
-
-
-                                        String update_status_query = "update bug set fixed = true where id = '" + this.bug_id + "'";
-                                        MySqlConnection conn2 = DbConnection.connectToDb();
-                                        MySqlCommand command2 = new MySqlCommand(update_status_query, conn2);
-                                        conn2.Open();
-                                        command2.ExecuteNonQuery();
-                                        conn2.Close();
+                                            this.bug_title = txt_bug.Text;
+                                            this.source_file = txt_source_file.Text;
+                                            this.class_name = txt_class_name.Text;
+                                            this.method_line = txt_method_line.Text;
+                                            this.code_line = txt_code_line.Text;
+                                            this.fixer_name = txt_fixer.Text;
+                                            this.resolved_code = txt_resolved_code.Text;
+                                            Bug_fix bf = new Bug_fix(fixer_name, resolved_code, this.bug_id, this.username);
+                                            BugFixController.insertBugFixToDatabase(bf);
 
 
-                                        this.Hide();
-                                        Bug_fix_list bug_fix_list = new Bug_fix_list(this.username);
-                                        bug_fix_list.Show();
+                                            String update_status_query = "update bug set fixed = true where id = '" + this.bug_id + "'";
+                                            MySqlConnection conn2 = DbConnection.connectToDb();
+                                            MySqlCommand command2 = new MySqlCommand(update_status_query, conn2);
+                                            conn2.Open();
+                                            command2.ExecuteNonQuery();
+                                            conn2.Close();
+
+
+                                            this.Hide();
+                                            MessageBox.Show("Submitted successfully");
+                                        }
                                     }
+                                    
                                 }
                             }
                         }

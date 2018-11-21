@@ -48,14 +48,14 @@
             this.dtme_start.Location = new System.Drawing.Point(20, 149);
             this.dtme_start.Name = "dtme_start";
             this.dtme_start.Size = new System.Drawing.Size(209, 20);
-            this.dtme_start.TabIndex = 8;
+            this.dtme_start.TabIndex = 1;
             // 
             // dtme_end
             // 
             this.dtme_end.Location = new System.Drawing.Point(20, 192);
             this.dtme_end.Name = "dtme_end";
             this.dtme_end.Size = new System.Drawing.Size(209, 20);
-            this.dtme_end.TabIndex = 9;
+            this.dtme_end.TabIndex = 2;
             // 
             // eventLog1
             // 
@@ -77,7 +77,7 @@
             this.btn_submit.Location = new System.Drawing.Point(20, 294);
             this.btn_submit.Name = "btn_submit";
             this.btn_submit.Size = new System.Drawing.Size(94, 41);
-            this.btn_submit.TabIndex = 13;
+            this.btn_submit.TabIndex = 4;
             this.btn_submit.Text = "Submit";
             this.btn_submit.Click += new System.EventHandler(this.btn_submit_Click_1);
             // 
@@ -85,11 +85,11 @@
             // 
             this.lollipopLabel1.AutoSize = true;
             this.lollipopLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.lollipopLabel1.Font = new System.Drawing.Font("Roboto Medium", 10F);
+            this.lollipopLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lollipopLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
             this.lollipopLabel1.Location = new System.Drawing.Point(17, 81);
             this.lollipopLabel1.Name = "lollipopLabel1";
-            this.lollipopLabel1.Size = new System.Drawing.Size(110, 18);
+            this.lollipopLabel1.Size = new System.Drawing.Size(108, 17);
             this.lollipopLabel1.TabIndex = 14;
             this.lollipopLabel1.Text = "Name of project";
             // 
@@ -104,7 +104,7 @@
             this.txt_project_name.Name = "txt_project_name";
             this.txt_project_name.ReadOnly = false;
             this.txt_project_name.Size = new System.Drawing.Size(209, 24);
-            this.txt_project_name.TabIndex = 15;
+            this.txt_project_name.TabIndex = 0;
             this.txt_project_name.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_project_name.UseSystemPasswordChar = false;
             // 
@@ -143,7 +143,7 @@
             this.txt_arthur.Name = "txt_arthur";
             this.txt_arthur.ReadOnly = false;
             this.txt_arthur.Size = new System.Drawing.Size(209, 24);
-            this.txt_arthur.TabIndex = 22;
+            this.txt_arthur.TabIndex = 3;
             this.txt_arthur.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_arthur.UseSystemPasswordChar = false;
             // 
@@ -167,7 +167,7 @@
             this.btn_update.Location = new System.Drawing.Point(140, 294);
             this.btn_update.Name = "btn_update";
             this.btn_update.Size = new System.Drawing.Size(89, 41);
-            this.btn_update.TabIndex = 23;
+            this.btn_update.TabIndex = 5;
             this.btn_update.Text = "Update";
             this.btn_update.Click += new System.EventHandler(this.btn_update_Click_1);
             // 
@@ -188,6 +188,7 @@
             this.Controls.Add(this.dtme_end);
             this.Controls.Add(this.dtme_start);
             this.Name = "Project";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Project";
             this.Load += new System.EventHandler(this.Project_Load);
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).EndInit();

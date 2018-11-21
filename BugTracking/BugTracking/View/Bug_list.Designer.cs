@@ -54,7 +54,7 @@
             this.btn_update_fix.Location = new System.Drawing.Point(558, 381);
             this.btn_update_fix.Name = "btn_update_fix";
             this.btn_update_fix.Size = new System.Drawing.Size(143, 41);
-            this.btn_update_fix.TabIndex = 6;
+            this.btn_update_fix.TabIndex = 2;
             this.btn_update_fix.Text = "Update fix";
             this.btn_update_fix.Click += new System.EventHandler(this.btn_update_fix_Click_1);
             // 
@@ -66,7 +66,7 @@
             this.btn_fix.Location = new System.Drawing.Point(217, 381);
             this.btn_fix.Name = "btn_fix";
             this.btn_fix.Size = new System.Drawing.Size(143, 41);
-            this.btn_fix.TabIndex = 5;
+            this.btn_fix.TabIndex = 0;
             this.btn_fix.Text = "Fix";
             this.btn_fix.Click += new System.EventHandler(this.btn_fix_Click_1);
             // 
@@ -78,7 +78,7 @@
             this.btn_update.Location = new System.Drawing.Point(390, 381);
             this.btn_update.Name = "btn_update";
             this.btn_update.Size = new System.Drawing.Size(143, 41);
-            this.btn_update.TabIndex = 4;
+            this.btn_update.TabIndex = 1;
             this.btn_update.Text = "Update";
             this.btn_update.Click += new System.EventHandler(this.btn_update_Click_1);
             // 
@@ -92,6 +92,7 @@
             this.Controls.Add(this.btn_update);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Bug_list";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bug_list";
             this.Load += new System.EventHandler(this.Bug_list_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

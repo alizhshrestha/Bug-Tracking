@@ -137,7 +137,7 @@ namespace BugTracking
             }
             else
             {
-                loadData.loadUserData("select * from project where arthur = '" + this.first_name + "';", data_view_project_list);
+                loadData.loadUserData("select * from project where arthur = '" + this.username + "';", data_view_project_list);
             }
             //data_view_project_list.Columns["project_id"].ReadOnly = true;
             data_view_project_list.Columns["project_name"].ReadOnly = true;

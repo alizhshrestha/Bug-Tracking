@@ -18,7 +18,14 @@ namespace BugTracking.View.Dashboard
         Boolean adminFlag;
         public Admin_dashboard(int login_id)
         {
+            MaterialSkin();
             this.login_id = login_id;
+            InitializeComponent();
+        }
+
+        public Admin_dashboard()
+        {
+            MaterialSkin();
             InitializeComponent();
         }
 
@@ -68,6 +75,13 @@ namespace BugTracking.View.Dashboard
         {
             User_list user_list = new User_list();
             user_list.ShowDialog();
+        }
+
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Login_form login_form = new Login_form();
+            login_form.Show();
         }
     }
 }

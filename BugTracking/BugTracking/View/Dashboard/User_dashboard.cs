@@ -76,6 +76,13 @@ namespace BugTracking.View
             bug_list.ShowDialog();
         }
 
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Login_form login_form = new Login_form();
+            login_form.Show();
+        }
+
         private void fixToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Bug_fix_list bug_fix_list = new Bug_fix_list(this.username);
@@ -133,7 +140,6 @@ namespace BugTracking.View
                 }
             }
             conn.Close();
-            MessageBox.Show(this.username);
             Register_form register_form = new Register_form(first_name, last_name, address, sex, username, password, role, true);
             register_form.Show();
         }

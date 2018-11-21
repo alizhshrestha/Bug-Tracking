@@ -53,7 +53,7 @@
             this.btn_update.Location = new System.Drawing.Point(409, 461);
             this.btn_update.Name = "btn_update";
             this.btn_update.Size = new System.Drawing.Size(143, 41);
-            this.btn_update.TabIndex = 4;
+            this.btn_update.TabIndex = 1;
             this.btn_update.Text = "Update";
             this.btn_update.Click += new System.EventHandler(this.btn_update_Click_1);
             // 
@@ -65,7 +65,7 @@
             this.btn_open.Location = new System.Drawing.Point(247, 461);
             this.btn_open.Name = "btn_open";
             this.btn_open.Size = new System.Drawing.Size(143, 41);
-            this.btn_open.TabIndex = 5;
+            this.btn_open.TabIndex = 0;
             this.btn_open.Text = "Open";
             this.btn_open.Click += new System.EventHandler(this.btn_open_Click_1);
             // 
@@ -78,6 +78,7 @@
             this.Controls.Add(this.btn_update);
             this.Controls.Add(this.data_view_project_list);
             this.Name = "List_of_project";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "List_of_project";
             this.Load += new System.EventHandler(this.List_of_project_Load);
             ((System.ComponentModel.ISupportInitialize)(this.data_view_project_list)).EndInit();

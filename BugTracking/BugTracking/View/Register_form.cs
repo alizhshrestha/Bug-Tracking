@@ -5,6 +5,7 @@ using System.Windows.Forms;
 
 using MaterialSkin;
 using MaterialSkin.Controls;
+using BugTracking.View.Dashboard;
 
 namespace BugTracking
 {
@@ -98,9 +99,6 @@ namespace BugTracking
             UserController.updateUserToDatabase(user);//updates user to database
             MessageBox.Show("Updated successfully!!");
             this.Hide();
-            MessageBox.Show(this.username);
-            User_list user_list = new User_list(true, this.username);
-            user_list.ShowDialog();
             //conn.Close();
         }
 
@@ -133,6 +131,7 @@ namespace BugTracking
                                 UserController.insertUserToDatabase(user);
 
                                 MessageBox.Show("successfully registered");
+                                this.Hide();
                             }
                         }
                     }

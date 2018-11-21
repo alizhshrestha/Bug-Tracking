@@ -80,7 +80,7 @@
             this.btn_update.Location = new System.Drawing.Point(128, 447);
             this.btn_update.Name = "btn_update";
             this.btn_update.Size = new System.Drawing.Size(102, 41);
-            this.btn_update.TabIndex = 35;
+            this.btn_update.TabIndex = 8;
             this.btn_update.Text = "Update";
             this.btn_update.Click += new System.EventHandler(this.btn_update_Click_1);
             // 
@@ -95,7 +95,7 @@
             this.txt_last_name.Name = "txt_last_name";
             this.txt_last_name.ReadOnly = false;
             this.txt_last_name.Size = new System.Drawing.Size(208, 24);
-            this.txt_last_name.TabIndex = 34;
+            this.txt_last_name.TabIndex = 1;
             this.txt_last_name.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_last_name.UseSystemPasswordChar = false;
             // 
@@ -134,7 +134,7 @@
             this.txt_address.Name = "txt_address";
             this.txt_address.ReadOnly = false;
             this.txt_address.Size = new System.Drawing.Size(208, 24);
-            this.txt_address.TabIndex = 30;
+            this.txt_address.TabIndex = 3;
             this.txt_address.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_address.UseSystemPasswordChar = false;
             // 
@@ -161,7 +161,7 @@
             this.txt_username.Name = "txt_username";
             this.txt_username.ReadOnly = false;
             this.txt_username.Size = new System.Drawing.Size(208, 24);
-            this.txt_username.TabIndex = 28;
+            this.txt_username.TabIndex = 4;
             this.txt_username.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_username.UseSystemPasswordChar = false;
             // 
@@ -188,7 +188,7 @@
             this.txt_password.Name = "txt_password";
             this.txt_password.ReadOnly = false;
             this.txt_password.Size = new System.Drawing.Size(208, 24);
-            this.txt_password.TabIndex = 26;
+            this.txt_password.TabIndex = 5;
             this.txt_password.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_password.UseSystemPasswordChar = false;
             // 
@@ -224,7 +224,7 @@
             this.btn_submit.Location = new System.Drawing.Point(19, 447);
             this.btn_submit.Name = "btn_submit";
             this.btn_submit.Size = new System.Drawing.Size(103, 41);
-            this.btn_submit.TabIndex = 22;
+            this.btn_submit.TabIndex = 7;
             this.btn_submit.Text = "Submit";
             this.btn_submit.Click += new System.EventHandler(this.btn_submit_Click_1);
             // 
@@ -239,7 +239,7 @@
             this.txt_first_name.Name = "txt_first_name";
             this.txt_first_name.ReadOnly = false;
             this.txt_first_name.Size = new System.Drawing.Size(208, 24);
-            this.txt_first_name.TabIndex = 21;
+            this.txt_first_name.TabIndex = 0;
             this.txt_first_name.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_first_name.UseSystemPasswordChar = false;
             // 
@@ -279,6 +279,7 @@
             this.Controls.Add(this.cmb_role);
             this.Controls.Add(this.cmb_sex);
             this.Name = "Register_form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register_form";
             this.Load += new System.EventHandler(this.Register_form_Load);
             this.ResumeLayout(false);

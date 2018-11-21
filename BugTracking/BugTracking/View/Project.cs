@@ -75,6 +75,7 @@ namespace BugTracking
 
                     //creating Bug_report object
                     Console.WriteLine(project_id);
+                    this.Hide();
                 }
             }
 

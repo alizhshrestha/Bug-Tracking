@@ -65,7 +65,7 @@
             this.btn_submit.Location = new System.Drawing.Point(15, 467);
             this.btn_submit.Name = "btn_submit";
             this.btn_submit.Size = new System.Drawing.Size(83, 41);
-            this.btn_submit.TabIndex = 20;
+            this.btn_submit.TabIndex = 7;
             this.btn_submit.Text = "Submit";
             this.btn_submit.Click += new System.EventHandler(this.btn_submit_Click_1);
             // 
@@ -73,11 +73,11 @@
             // 
             this.lollipopLabel1.AutoSize = true;
             this.lollipopLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.lollipopLabel1.Font = new System.Drawing.Font("Roboto Medium", 10F);
+            this.lollipopLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lollipopLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
             this.lollipopLabel1.Location = new System.Drawing.Point(12, 68);
             this.lollipopLabel1.Name = "lollipopLabel1";
-            this.lollipopLabel1.Size = new System.Drawing.Size(134, 18);
+            this.lollipopLabel1.Size = new System.Drawing.Size(132, 17);
             this.lollipopLabel1.TabIndex = 21;
             this.lollipopLabel1.Text = "Name of the project";
             // 
@@ -92,7 +92,7 @@
             this.txt_project_name.Name = "txt_project_name";
             this.txt_project_name.ReadOnly = false;
             this.txt_project_name.Size = new System.Drawing.Size(251, 24);
-            this.txt_project_name.TabIndex = 22;
+            this.txt_project_name.TabIndex = 0;
             this.txt_project_name.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_project_name.UseSystemPasswordChar = false;
             // 
@@ -107,7 +107,7 @@
             this.txt_bug_title.Name = "txt_bug_title";
             this.txt_bug_title.ReadOnly = false;
             this.txt_bug_title.Size = new System.Drawing.Size(251, 24);
-            this.txt_bug_title.TabIndex = 24;
+            this.txt_bug_title.TabIndex = 1;
             this.txt_bug_title.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_bug_title.UseSystemPasswordChar = false;
             // 
@@ -134,7 +134,7 @@
             this.txt_arthur.Name = "txt_arthur";
             this.txt_arthur.ReadOnly = false;
             this.txt_arthur.Size = new System.Drawing.Size(251, 24);
-            this.txt_arthur.TabIndex = 26;
+            this.txt_arthur.TabIndex = 2;
             this.txt_arthur.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_arthur.UseSystemPasswordChar = false;
             // 
@@ -161,7 +161,7 @@
             this.txt_source_file.Name = "txt_source_file";
             this.txt_source_file.ReadOnly = false;
             this.txt_source_file.Size = new System.Drawing.Size(251, 24);
-            this.txt_source_file.TabIndex = 28;
+            this.txt_source_file.TabIndex = 3;
             this.txt_source_file.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_source_file.UseSystemPasswordChar = false;
             this.txt_source_file.TextChanged += new System.EventHandler(this.lollipopTextBox4_TextChanged);
@@ -189,7 +189,7 @@
             this.txt_method_line.Name = "txt_method_line";
             this.txt_method_line.ReadOnly = false;
             this.txt_method_line.Size = new System.Drawing.Size(251, 24);
-            this.txt_method_line.TabIndex = 30;
+            this.txt_method_line.TabIndex = 5;
             this.txt_method_line.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_method_line.UseSystemPasswordChar = false;
             // 
@@ -216,7 +216,7 @@
             this.txt_class_name.Name = "txt_class_name";
             this.txt_class_name.ReadOnly = false;
             this.txt_class_name.Size = new System.Drawing.Size(251, 24);
-            this.txt_class_name.TabIndex = 32;
+            this.txt_class_name.TabIndex = 4;
             this.txt_class_name.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_class_name.UseSystemPasswordChar = false;
             // 
@@ -244,7 +244,7 @@
             this.txt_code_line.Name = "txt_code_line";
             this.txt_code_line.ReadOnly = false;
             this.txt_code_line.Size = new System.Drawing.Size(251, 24);
-            this.txt_code_line.TabIndex = 34;
+            this.txt_code_line.TabIndex = 6;
             this.txt_code_line.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_code_line.UseSystemPasswordChar = false;
             // 
@@ -280,7 +280,7 @@
             this.btn_update.Location = new System.Drawing.Point(104, 467);
             this.btn_update.Name = "btn_update";
             this.btn_update.Size = new System.Drawing.Size(80, 41);
-            this.btn_update.TabIndex = 36;
+            this.btn_update.TabIndex = 8;
             this.btn_update.Text = "Update";
             this.btn_update.Click += new System.EventHandler(this.btn_update_Click_1);
             // 
@@ -292,8 +292,9 @@
             this.btn_back.Location = new System.Drawing.Point(190, 467);
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(76, 41);
-            this.btn_back.TabIndex = 37;
+            this.btn_back.TabIndex = 9;
             this.btn_back.Text = "Back";
+            this.btn_back.Click += new System.EventHandler(this.btn_back_Click_1);
             // 
             // Bug_report
             // 
@@ -320,6 +321,7 @@
             this.Controls.Add(this.btn_submit);
             this.Controls.Add(this.lbl_validate);
             this.Name = "Bug_report";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bug_report";
             this.Load += new System.EventHandler(this.Bug_report_Load);
             this.ResumeLayout(false);

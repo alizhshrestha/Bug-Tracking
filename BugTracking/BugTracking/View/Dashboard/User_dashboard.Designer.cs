@@ -39,6 +39,7 @@
             this.form_panel = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnl_menu_item = new System.Windows.Forms.Panel();
+            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuStripItem.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -49,7 +50,8 @@
             this.MenuStripItem.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.listToolStripMenuItem,
-            this.editToolStripMenuItem});
+            this.editToolStripMenuItem,
+            this.logOutToolStripMenuItem});
             this.MenuStripItem.Location = new System.Drawing.Point(0, 0);
             this.MenuStripItem.Name = "MenuStripItem";
             this.MenuStripItem.Size = new System.Drawing.Size(483, 24);
@@ -134,7 +136,14 @@
             this.pnl_menu_item.Location = new System.Drawing.Point(3, 27);
             this.pnl_menu_item.Name = "pnl_menu_item";
             this.pnl_menu_item.Size = new System.Drawing.Size(480, 304);
-            this.pnl_menu_item.TabIndex = 2;
+            this.pnl_menu_item.TabIndex = 1;
+            // 
+            // logOutToolStripMenuItem
+            // 
+            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.logOutToolStripMenuItem.Text = "Log out";
+            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
             // User_dashboard
             // 
@@ -144,6 +153,7 @@
             this.Controls.Add(this.panel1);
             this.MainMenuStrip = this.MenuStripItem;
             this.Name = "User_dashboard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "User_dashboard";
             this.Load += new System.EventHandler(this.Dashboard_Load);
             this.MenuStripItem.ResumeLayout(false);
@@ -167,5 +177,6 @@
         private System.Windows.Forms.Panel pnl_menu_item;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem profileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
     }
 }

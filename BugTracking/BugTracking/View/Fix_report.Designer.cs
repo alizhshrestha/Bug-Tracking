@@ -57,7 +57,7 @@
             this.cmb_role.Location = new System.Drawing.Point(16, 546);
             this.cmb_role.Name = "cmb_role";
             this.cmb_role.Size = new System.Drawing.Size(177, 21);
-            this.cmb_role.TabIndex = 18;
+            this.cmb_role.TabIndex = 8;
             // 
             // lbl_validate
             // 
@@ -72,7 +72,7 @@
             this.txt_resolved_code.Location = new System.Drawing.Point(16, 380);
             this.txt_resolved_code.Name = "txt_resolved_code";
             this.txt_resolved_code.Size = new System.Drawing.Size(177, 96);
-            this.txt_resolved_code.TabIndex = 20;
+            this.txt_resolved_code.TabIndex = 6;
             this.txt_resolved_code.Text = "";
             // 
             // btn_update
@@ -83,7 +83,7 @@
             this.btn_update.Location = new System.Drawing.Point(16, 605);
             this.btn_update.Name = "btn_update";
             this.btn_update.Size = new System.Drawing.Size(89, 41);
-            this.btn_update.TabIndex = 22;
+            this.btn_update.TabIndex = 9;
             this.btn_update.Text = "Submit";
             this.btn_update.Click += new System.EventHandler(this.btn_update_Click_1);
             // 
@@ -91,11 +91,11 @@
             // 
             this.lollipopLabel1.AutoSize = true;
             this.lollipopLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.lollipopLabel1.Font = new System.Drawing.Font("Roboto Medium", 10F);
+            this.lollipopLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lollipopLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
             this.lollipopLabel1.Location = new System.Drawing.Point(12, 76);
             this.lollipopLabel1.Name = "lollipopLabel1";
-            this.lollipopLabel1.Size = new System.Drawing.Size(134, 18);
+            this.lollipopLabel1.Size = new System.Drawing.Size(132, 17);
             this.lollipopLabel1.TabIndex = 23;
             this.lollipopLabel1.Text = "Name of the project";
             // 
@@ -110,7 +110,7 @@
             this.txt_project_name.Name = "txt_project_name";
             this.txt_project_name.ReadOnly = false;
             this.txt_project_name.Size = new System.Drawing.Size(178, 24);
-            this.txt_project_name.TabIndex = 24;
+            this.txt_project_name.TabIndex = 0;
             this.txt_project_name.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_project_name.UseSystemPasswordChar = false;
             // 
@@ -125,7 +125,7 @@
             this.txt_bug.Name = "txt_bug";
             this.txt_bug.ReadOnly = false;
             this.txt_bug.Size = new System.Drawing.Size(178, 24);
-            this.txt_bug.TabIndex = 26;
+            this.txt_bug.TabIndex = 1;
             this.txt_bug.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_bug.UseSystemPasswordChar = false;
             // 
@@ -152,7 +152,7 @@
             this.txt_source_file.Name = "txt_source_file";
             this.txt_source_file.ReadOnly = false;
             this.txt_source_file.Size = new System.Drawing.Size(178, 24);
-            this.txt_source_file.TabIndex = 28;
+            this.txt_source_file.TabIndex = 2;
             this.txt_source_file.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_source_file.UseSystemPasswordChar = false;
             // 
@@ -179,7 +179,7 @@
             this.txt_class_name.Name = "txt_class_name";
             this.txt_class_name.ReadOnly = false;
             this.txt_class_name.Size = new System.Drawing.Size(178, 24);
-            this.txt_class_name.TabIndex = 30;
+            this.txt_class_name.TabIndex = 3;
             this.txt_class_name.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_class_name.UseSystemPasswordChar = false;
             // 
@@ -206,7 +206,7 @@
             this.txt_code_line.Name = "txt_code_line";
             this.txt_code_line.ReadOnly = false;
             this.txt_code_line.Size = new System.Drawing.Size(178, 24);
-            this.txt_code_line.TabIndex = 32;
+            this.txt_code_line.TabIndex = 4;
             this.txt_code_line.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_code_line.UseSystemPasswordChar = false;
             // 
@@ -233,7 +233,7 @@
             this.txt_method_line.Name = "txt_method_line";
             this.txt_method_line.ReadOnly = false;
             this.txt_method_line.Size = new System.Drawing.Size(178, 24);
-            this.txt_method_line.TabIndex = 34;
+            this.txt_method_line.TabIndex = 5;
             this.txt_method_line.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_method_line.UseSystemPasswordChar = false;
             // 
@@ -273,7 +273,7 @@
             this.txt_fixer.Name = "txt_fixer";
             this.txt_fixer.ReadOnly = false;
             this.txt_fixer.Size = new System.Drawing.Size(178, 24);
-            this.txt_fixer.TabIndex = 38;
+            this.txt_fixer.TabIndex = 7;
             this.txt_fixer.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_fixer.UseSystemPasswordChar = false;
             // 
@@ -309,7 +309,7 @@
             this.btn_back.Location = new System.Drawing.Point(116, 605);
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(78, 41);
-            this.btn_back.TabIndex = 41;
+            this.btn_back.TabIndex = 10;
             this.btn_back.Text = "Back";
             this.btn_back.Click += new System.EventHandler(this.btn_back_Click_1);
             // 
@@ -340,6 +340,7 @@
             this.Controls.Add(this.lbl_validate);
             this.Controls.Add(this.cmb_role);
             this.Name = "Fix_report";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Fix_report";
             this.Load += new System.EventHandler(this.Fix_report_Load);
             this.ResumeLayout(false);

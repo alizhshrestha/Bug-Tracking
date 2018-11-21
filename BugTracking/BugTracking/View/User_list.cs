@@ -118,6 +118,7 @@ namespace BugTracking
                 try
                 {
                     //assigning the values from selection index.
+                    MessageBox.Show("Selected -1 row"+(String)row.Cells[-1].Value);
                     user_id = Convert.ToInt32(row.Cells[0].Value);
                     first_name = row.Cells[1].Value.ToString();
                     last_name = row.Cells[2].Value.ToString();
