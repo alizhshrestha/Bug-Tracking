@@ -317,7 +317,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(212, 658);
+            this.ClientSize = new System.Drawing.Size(213, 658);
             this.Controls.Add(this.btn_back);
             this.Controls.Add(this.lollipopLabel9);
             this.Controls.Add(this.txt_fixer);

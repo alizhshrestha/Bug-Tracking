@@ -11,8 +11,9 @@ namespace BugTracking.Controller
     {
         public static void insertBugToDatabase(Bug b)
         {
-            string query = "insert into bug(id, bug_title, source_file, class, method_line, code_line, project_id, reported_by) " +
-                "values(NULL, '" + b.getBugTitle() + "','" + b.getSourceFile() + "','" + b.getClassName() + "','" + b.getMethodLine() + "','"+b.getCodeLine()+ "','" + b.getProjectId() + "','" + b.getReportedBy() + "')";
+            string query = "insert into bug(id, bug_title, source_file, class, method_line, code_line, project_id, reported_by, source_code, screenshot) " +
+                "values(NULL, '" + b.getBugTitle() + "','" + b.getSourceFile() + "','" + b.getClassName() + "','" + b.getMethodLine() + "','"+b.getCodeLine()+ "'," +
+                "'" + b.getProjectId() + "','" + b.getReportedBy() + "','" + b.getSourceCode() + "','" + b.getScreenShot() + "')";
             DatabaseController.insertDataToForm(query);
         }
 

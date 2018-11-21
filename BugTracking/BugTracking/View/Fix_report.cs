@@ -80,6 +80,7 @@ namespace BugTracking
             bug_list.Show();
         }
 
+
         private void lollipopLabel6_Click(object sender, EventArgs e)
         {
 

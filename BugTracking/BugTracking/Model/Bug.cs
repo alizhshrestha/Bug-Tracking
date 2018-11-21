@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,10 +10,12 @@ namespace BugTracking.Model
     class Bug
     {
         int id, project_id;
-        string bug_title, source_file, class_name, method_line, code_line, reported_by;
+        string bug_title, source_file, class_name, method_line, code_line, reported_by, source_code;
+        Image screenshot;
         bool fix;
 
-        public Bug(string bug_title, string source_file, string class_name, string method_line, string code_line, int project_id, string reported_by, bool fix)
+        public Bug(string bug_title, string source_file, string class_name, string method_line, string code_line, 
+            int project_id, string reported_by, bool fix)
         {
             this.bug_title = bug_title;
             this.source_file = source_file;
@@ -25,8 +28,21 @@ namespace BugTracking.Model
 
         }
 
-        public Bug(string bug_title, string source_file, string class_name, string method_line, string code_line, string reported_by, int project_id)
+        public Bug(string bug_title, string source_file, string class_name, string method_line, string code_line, int project_id)
         {
+            this.bug_title = bug_title;
+            this.source_file = source_file;
+            this.class_name = class_name;
+            this.method_line = method_line;
+            this.code_line = code_line;
+            this.project_id = project_id;
+        }
+
+
+        public Bug(string bug_title, string source_file, string class_name, string method_line, 
+            string code_line, string reported_by, int project_id, string source_code, Image screenshot)
+        {
+
             this.bug_title = bug_title;
             this.source_file = source_file;
             this.class_name = class_name;
@@ -34,6 +50,8 @@ namespace BugTracking.Model
             this.code_line = code_line;
             this.reported_by = reported_by;
             this.project_id = project_id;
+            this.source_code = source_code;
+            this.screenshot = screenshot;
 
         }
 
@@ -125,6 +143,26 @@ namespace BugTracking.Model
         public bool getFixed()
         {
             return this.fix;
+        }
+
+        public void setSourceCode(string source_code)
+        {
+            this.source_code = source_code;
+        }
+
+        public string getSourceCode()
+        {
+            return this.source_code;
+        }
+
+        public void setScreenShot(Image screenshot)
+        {
+            this.screenshot = screenshot;
+        }
+
+        public Image getScreenShot()
+        {
+            return this.screenshot;
         }
 
     }

@@ -11,15 +11,16 @@ using System.Windows.Forms;
 
 using MaterialSkin;
 using MaterialSkin.Controls;
-
+using System.IO;
 
 namespace BugTracking.View
 {
     public partial class Bug_list : MaterialForm
     {
-        string project_name, bug_title, source_file, class_name, method_line, code_line, fix_status, resolved_code;
+        string project_name, bug_title, source_file, class_name, method_line, code_line, fix_status, resolved_code, source_code, reported_by;
         string username;
         int project_id, bug_id;
+        Image screenshot;
 
         private void btn_update_fix_Click(object sender, EventArgs e)
         {
@@ -71,7 +72,7 @@ namespace BugTracking.View
             conn.Close();
 
             this.Close();
-            Bug_report bug_report = new Bug_report(bug_title, source_file, class_name, method_line, code_line, project_id, bug_id, true, this.username);
+            Bug_report bug_report = new Bug_report(bug_title, source_file, class_name, method_line, code_line, project_id, bug_id, true, this.username, this.source_code);
             bug_report.ShowDialog();
         }
 
@@ -154,7 +155,7 @@ namespace BugTracking.View
 
         private void Bug_list_Load(object sender, EventArgs e)
         {
-            loadData.loadUserData("select * from bug where reported_by = '"+this.username+"';", dataGridView1);
+            loadData.loadUserData("select id, bug_title, source_file, class, method_line, code_line, project_id, fixed, reported_by, source_code from bug where reported_by = '"+this.username+"';", dataGridView1);
             dataGridView1.Columns["fixed"].ReadOnly = true;
             dataGridView1.Columns["bug_title"].ReadOnly = true;
             dataGridView1.Columns["source_file"].ReadOnly = true;
@@ -188,6 +189,8 @@ namespace BugTracking.View
                     code_line = row.Cells[5].Value.ToString();
                     project_id = (int)row.Cells[6].Value;
                     fix_status = row.Cells[7].Value.ToString();
+                    reported_by = row.Cells[8].Value.ToString();
+                    source_code = row.Cells[9].Value.ToString();
                     if (Convert.ToBoolean(fix_status)==false)
                     {
                         btn_fix.Show();

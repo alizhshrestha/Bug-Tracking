@@ -66,7 +66,7 @@
             this.btn_open.Name = "btn_open";
             this.btn_open.Size = new System.Drawing.Size(143, 41);
             this.btn_open.TabIndex = 0;
-            this.btn_open.Text = "Open";
+            this.btn_open.Text = "Add";
             this.btn_open.Click += new System.EventHandler(this.btn_open_Click_1);
             // 
             // List_of_project
