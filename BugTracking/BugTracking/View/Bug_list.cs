@@ -57,13 +57,15 @@ namespace BugTracking.View
             conn.Open();
             using (conn)
             {
-                MySqlCommand command = new MySqlCommand("select id from bug where bug_title = '" + this.bug_title + "'", conn);
+                MySqlCommand command = new MySqlCommand("select id, screenshot from bug where bug_title = '" + this.bug_title + "'", conn);
                 MySqlDataReader reader = command.ExecuteReader();
                 using (reader)
                 {
                     while (reader.Read())
                     {
                         int id = (int)reader["id"];
+                        string screenshot = Convert.ToString(reader["screenshot"]);
+                        MessageBox.Show(screenshot);
                         this.bug_id = id;
 
                     }

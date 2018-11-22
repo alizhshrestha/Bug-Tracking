@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LibGit2Sharp;
 
 using MaterialSkin;
 using MaterialSkin.Controls;
@@ -81,6 +82,16 @@ namespace BugTracking.View
             this.Close();
             Login_form login_form = new Login_form();
             login_form.Show();
+        }
+
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void fileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void fixToolStripMenuItem1_Click(object sender, EventArgs e)

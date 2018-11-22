@@ -34,6 +34,20 @@ namespace BugTracking
             return true;
         }
 
+        public bool validateUserInfo(PictureBox picture, String label, Label lbl_validate)
+        {
+            bool isNullOrEmpty = picture == null || picture.Image == null;
+            if (isNullOrEmpty==true)
+            {
+                lbl_validate.Text = "PLEASE CHOOSE IMAGE FILE";
+                lbl_validate.Show();
+                picture.Select();
+                return false;
+            }
+            return true;
+        }
+
+
         public bool validateUserInfo(RichTextBox txt, String label, Label lbl_validate)
         {
             lbl_validate.Hide();

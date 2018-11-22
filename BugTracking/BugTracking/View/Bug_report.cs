@@ -24,7 +24,8 @@ namespace BugTracking
         string project_name, bug_title, source_file, class_name, method_line, 
             code_line, arthur, username, source_code;
         string colorizedSourceCode, fileLocation;
-        Image screenshot;
+        String path;
+        string screenshot;
 
 
 
@@ -64,19 +65,22 @@ namespace BugTracking
                                 {
                                     if (validate.validateUserInfo(txt_code_line, "CODE LINE", lbl_validate) == true)
                                     {
-                                        string bug_title = txt_bug_title.Text;
-                                        string source_file = txt_source_file.Text;
-                                        string class_name = txt_class_name.Text;
-                                        string method_line = txt_method_line.Text;
-                                        string code_line = txt_code_line.Text;
-                                        string source_code = rtxt_source_code.Text;
-                                        Image screenshot = picture_screen_shot.Image;
+                                        if (validate.validateUserInfo(picture_screen_shot, "PICTURE", lbl_validate) == true)
+                                        {
+                                            string bug_title = txt_bug_title.Text;
+                                            string source_file = txt_source_file.Text;
+                                            string class_name = txt_class_name.Text;
+                                            string method_line = txt_method_line.Text;
+                                            string code_line = txt_code_line.Text;
+                                            string source_code = rtxt_source_code.Text;
+                                            Image screenshot = picture_screen_shot.Image;
 
-                                        Console.WriteLine(this.project_id);
-                                        Bug bug = new Bug(bug_title, source_file, class_name, method_line, code_line, this.username, this.project_id, source_code, screenshot);
-                                        BugController.insertBugToDatabase(bug);
-                                        MessageBox.Show("Submitted Successfully");
-                                        this.Hide();
+                                            Console.WriteLine(this.project_id);
+                                            Bug bug = new Bug(bug_title, source_file, class_name, method_line, code_line, this.username, this.project_id, source_code, path);
+                                            BugController.insertBugToDatabase(bug);
+                                            MessageBox.Show("Submitted Successfully");
+                                            this.Hide();
+                                        }
                                     }
                                 }
                             }
@@ -116,16 +120,21 @@ namespace BugTracking
 
         private void btn_choose_Click(object sender, EventArgs e)
         {
-            openFileDiaglog(openFileDialog2, "bmp files (*.bmp)|*.bmp");
             try
             {
-                picture_screen_shot.Image = new Bitmap(fileLocation);
+                OpenFileDialog op = new OpenFileDialog();
+                op.Filter = "Choose Image(*.jpg; *.png; *.gif)| *.jpg; *.png; *.gif";
+                if (op.ShowDialog() == DialogResult.OK)
+                {
+                    path = op.FileName;
+                    Bug b = new Bug();
+                    picture_screen_shot.Image = new Bitmap(op.FileName);
+                }
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                MessageBox.Show(ex.Message);
             }
-            
 
         }
 
@@ -144,8 +153,7 @@ namespace BugTracking
             {
                 Console.WriteLine(ex.Message);
             }
-            
-            
+
         }
 
         public void openFileDiaglog(OpenFileDialog openFileDialogtool, String filterFile)
@@ -170,16 +178,48 @@ namespace BugTracking
             validate = new Validation();//initialized validation class
         }
 
+        public Bug_report(int project_id, String project_name, String username)
+        {
+            MaterialSkin();
+            this.project_id = project_id;
+            this.project_name = project_name;
+            this.username = username;
+
+            InitializeComponent();
+            validate = new Validation();//initialized validation class
+        }
+
         public Bug_report()
         {
-
-
             MaterialSkin();
             InitializeComponent();
             validate = new Validation();//initialized validation class
         }
 
-        public Bug_report(string bug_title, string source_file, string class_name, string method_line, string code_line, int project_id, int bug_id, Boolean updateFlag, string username, string source_code)
+        public Bug_report(string bug_title, string source_file, string class_name, string method_line, string code_line, 
+            int project_id, int bug_id, Boolean updateFlag, string username, string source_code)
+        {
+            //txt_project_name.ReadOnly = true;
+            MaterialSkin();
+
+            this.bug_title = bug_title;
+            this.source_file = source_file;
+            this.class_name = class_name;
+            this.method_line = method_line;
+            this.code_line = code_line;
+            this.project_id = project_id;
+            this.bug_id = bug_id;
+            this.updateFlag = updateFlag;
+            this.username = username;
+            this.source_code = source_code;
+            //this.screenshot = screenshot;
+
+            InitializeComponent();
+            validate = new Validation();//initialized validation class
+        }
+
+        public Bug_report(string bug_title, string source_file, string class_name, string method_line, string code_line,
+            int project_id, int bug_id, Boolean updateFlag, string username, string source_code, string screenshot)
         {
             //txt_project_name.ReadOnly = true;
             MaterialSkin();
@@ -200,7 +240,8 @@ namespace BugTracking
             validate = new Validation();//initialized validation class
         }
 
-        public Bug_report(string bug_title, string source_file, string class_name, string method_line, string code_line, int project_id, int bug_id, Boolean updateFlag, string username)
+        public Bug_report(string bug_title, string source_file, string class_name, string method_line, string code_line, 
+            int project_id, int bug_id, Boolean updateFlag, string username)
         {
             //txt_project_name.ReadOnly = true;
             MaterialSkin();
@@ -245,6 +286,30 @@ namespace BugTracking
 
         private void Bug_report_Load(object sender, EventArgs e)
         {
+
+            //For retrieving image from database
+            try
+            {
+                MySqlConnection con = DatabaseController.connectToDb();
+                con.Open();
+                byte[] getImg = new byte[0];
+                MySqlCommand cmd = new MySqlCommand("select screenshot from bug where id = '" + this.bug_id + "'", con);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    getImg = (byte[])dr["screenshot"];
+                }
+
+                byte[] imgData = getImg;
+                MemoryStream stream = new MemoryStream(imgData);
+                picture_screen_shot.Image = Image.FromStream(stream);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
             /*MySqlConnection conn2 = DbConnection.connectToDb();
             conn2.Open();

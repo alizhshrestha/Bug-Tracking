@@ -17,7 +17,7 @@ namespace BugTracking.Controller
             return conn;
         }
 
-        public static void insertDataToForm(string query)
+        public static void insertDataToForm(string query, byte[] Image)
         {
             MySqlConnection conn = connectToDb();
             MySqlCommand cmd = new MySqlCommand(query,conn);
@@ -25,6 +25,7 @@ namespace BugTracking.Controller
             try
             {
                 conn.Open();
+                cmd.Parameters.AddWithValue("screenshot", Image);
             }
             catch (Exception ex)
             {
@@ -34,6 +35,24 @@ namespace BugTracking.Controller
             cmd.ExecuteNonQuery();
 
             conn.Close();
+        }
+
+        public static void insertDataToForm(string query)
+        {
+            MySqlConnection conn = connectToDb();
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            try
+            {
+                conn.Open();
+                Console.WriteLine(query);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+           
         }
 
         public static void updateDataToForm(string query)

@@ -1,20 +1,40 @@
 ﻿using BugTracking.Model;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace BugTracking.Controller
 {
     class BugController
     {
+
         public static void insertBugToDatabase(Bug b)
         {
-            string query = "insert into bug(id, bug_title, source_file, class, method_line, code_line, project_id, reported_by, source_code, screenshot) " +
-                "values(NULL, '" + b.getBugTitle() + "','" + b.getSourceFile() + "','" + b.getClassName() + "','" + b.getMethodLine() + "','"+b.getCodeLine()+ "'," +
-                "'" + b.getProjectId() + "','" + b.getReportedBy() + "','" + b.getSourceCode() + "','" + b.getScreenShot() + "')";
-            DatabaseController.insertDataToForm(query);
+            try
+            {
+                byte[] Image;
+                FileStream fileStream = new FileStream(b.getScreenShot(), FileMode.Open, FileAccess.Read);
+                BinaryReader bReader = new BinaryReader(fileStream);
+                Image = bReader.ReadBytes((int)fileStream.Length);
+
+                MessageBox.Show(b.getReportedBy());
+                string query = "insert into bug(id, bug_title, source_file, class, method_line, code_line, project_id, reported_by, source_code, screenshot) " +
+                    "values(NULL, '" + b.getBugTitle() + "','" + b.getSourceFile() + "','" + b.getClassName() + "','" + b.getMethodLine() + "','" + b.getCodeLine() + "'," +
+                    "'" + b.getProjectId() + "','" + b.getReportedBy() + "','" + b.getSourceCode() + "',@screenshot)";
+                DatabaseController.insertDataToForm(query, Image);
+
+                bReader.Close();
+                fileStream.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         public static void UpdateBugToDatabase(Bug b)

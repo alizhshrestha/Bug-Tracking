@@ -29,7 +29,6 @@ namespace BugTracking
 
         private void btn_open_Click_1(object sender, EventArgs e)
         {
-
             this.Hide();
             MySqlConnection conn = DatabaseController.connectToDb();
             try
@@ -59,7 +58,7 @@ namespace BugTracking
                     }
                 }
             }
-            Bug_report bug_report = new Bug_report(bug_title, source_file, class_name, method_line, code_line, project_id, bug_id, false, this.username);
+            Bug_report bug_report = new Bug_report(project_id, project_name, this.username);
             bug_report.ShowDialog();
         }
 
