@@ -36,6 +36,7 @@
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.chatboxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,10 +49,11 @@
             this.fileToolStripMenuItem,
             this.registerToolStripMenuItem,
             this.viewToolStripMenuItem,
-            this.logOutToolStripMenuItem});
+            this.logOutToolStripMenuItem,
+            this.chatboxToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(9, 64);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(214, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(397, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -107,6 +109,13 @@
             this.logOutToolStripMenuItem.Text = "Log out";
             this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
+            // chatboxToolStripMenuItem
+            // 
+            this.chatboxToolStripMenuItem.Name = "chatboxToolStripMenuItem";
+            this.chatboxToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
+            this.chatboxToolStripMenuItem.Text = "ChatBox";
+            this.chatboxToolStripMenuItem.Click += new System.EventHandler(this.chatboxToolStripMenuItem_Click);
+            // 
             // Admin_dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -135,5 +144,6 @@
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem chatboxToolStripMenuItem;
     }
 }

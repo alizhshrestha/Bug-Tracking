@@ -181,3 +181,4 @@ E:\Colz\ASE\ASE_Assessment_1\Original\ase_assessment_1\BugTracking\BugTracking\b
 E:\Colz\ASE\ASE_Assessment_1\Original\ase_assessment_1\BugTracking\BugTracking\bin\Debug\LibGit2Sharp.dll
 E:\Colz\ASE\ASE_Assessment_1\Original\ase_assessment_1\BugTracking\BugTracking\bin\Debug\LibGit2Sharp.pdb
 E:\Colz\ASE\ASE_Assessment_1\Original\ase_assessment_1\BugTracking\BugTracking\bin\Debug\LibGit2Sharp.xml
+E:\Colz\ASE\ASE_Assessment_1\Original\ase_assessment_1\BugTracking\BugTracking\obj\Debug\BugTracking.View.Chatbox.resources

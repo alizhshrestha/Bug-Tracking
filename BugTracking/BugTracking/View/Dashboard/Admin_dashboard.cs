@@ -15,10 +15,12 @@ namespace BugTracking.View.Dashboard
     public partial class Admin_dashboard : MaterialForm
     {
         int login_id;
+        string username;
         Boolean adminFlag;
-        public Admin_dashboard(int login_id)
+        public Admin_dashboard(int login_id, string username)
         {
             MaterialSkin();
+            this.username = username;
             this.login_id = login_id;
             InitializeComponent();
         }
@@ -82,6 +84,12 @@ namespace BugTracking.View.Dashboard
             this.Close();
             Login_form login_form = new Login_form();
             login_form.Show();
+        }
+
+        private void chatboxToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Chatbox chatbox = new Chatbox(this.username);
+            chatbox.Show();
         }
     }
 }

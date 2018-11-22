@@ -94,6 +94,12 @@ namespace BugTracking.View
 
         }
 
+        private void chatBoxToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Chatbox chatbox = new Chatbox(this.username);
+            chatbox.Show();
+        }
+
         private void fixToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Bug_fix_list bug_fix_list = new Bug_fix_list(this.username);

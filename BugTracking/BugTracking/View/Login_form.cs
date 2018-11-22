@@ -97,7 +97,7 @@ namespace BugTracking
                 if (this.role == "Admin")
                 {
                     this.Hide();
-                    Admin_dashboard admin_dashboard = new Admin_dashboard(this.login_id);
+                    Admin_dashboard admin_dashboard = new Admin_dashboard(this.login_id ,this.username);
                     admin_dashboard.Show();
                 }
                 else

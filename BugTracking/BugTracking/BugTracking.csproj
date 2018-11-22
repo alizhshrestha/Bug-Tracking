@@ -72,6 +72,7 @@
     </Compile>
     <Compile Include="Controller\BugController.cs" />
     <Compile Include="Controller\BugFixController.cs" />
+    <Compile Include="Controller\ChatBoxController.cs" />
     <Compile Include="Controller\DatabaseController.cs" />
     <Compile Include="Controller\ProjectController.cs" />
     <Compile Include="Controller\UserController.cs" />
@@ -115,6 +116,7 @@
     <Compile Include="loadData.cs" />
     <Compile Include="Model\Bug.cs" />
     <Compile Include="Model\Bug_fix.cs" />
+    <Compile Include="Model\ChatBox.cs" />
     <Compile Include="Model\UserProject.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="UIManagers\DrawHelper.cs" />
@@ -138,6 +140,12 @@
       <DependentUpon>Bug_report.cs</DependentUpon>
     </Compile>
     <Compile Include="Class1.cs" />
+    <Compile Include="View\Chatbox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Chatbox.Designer.cs">
+      <DependentUpon>Chatbox.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Dashboard\User_dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -203,6 +211,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Bug_report.resx">
       <DependentUpon>Bug_report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Chatbox.resx">
+      <DependentUpon>Chatbox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Dashboard\Admin_dashboard.resx">
       <DependentUpon>Admin_dashboard.cs</DependentUpon>
