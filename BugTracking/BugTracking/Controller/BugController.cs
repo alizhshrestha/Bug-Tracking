@@ -22,9 +22,9 @@ namespace BugTracking.Controller
                 Image = bReader.ReadBytes((int)fileStream.Length);
 
                 MessageBox.Show(b.getReportedBy());
-                string query = "insert into bug(id, bug_title, source_file, class, method_line, code_line, project_id, reported_by, source_code, screenshot) " +
+                string query = "insert into bug(id, bug_title, source_file, class, method_line, code_line, project_id, reported_by, source_code, screenshot, reported_at) " +
                     "values(NULL, '" + b.getBugTitle() + "','" + b.getSourceFile() + "','" + b.getClassName() + "','" + b.getMethodLine() + "','" + b.getCodeLine() + "'," +
-                    "'" + b.getProjectId() + "','" + b.getReportedBy() + "','" + b.getSourceCode() + "',@screenshot)";
+                    "'" + b.getProjectId() + "','" + b.getReportedBy() + "','" + b.getSourceCode() + "',@screenshot,'"+b.getReportedAt()+"')";
                 DatabaseController.insertDataToForm(query, Image);
 
                 bReader.Close();

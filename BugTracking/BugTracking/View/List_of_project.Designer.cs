@@ -40,7 +40,7 @@
             this.data_view_project_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.data_view_project_list.Location = new System.Drawing.Point(12, 69);
             this.data_view_project_list.Name = "data_view_project_list";
-            this.data_view_project_list.Size = new System.Drawing.Size(776, 386);
+            this.data_view_project_list.Size = new System.Drawing.Size(1008, 373);
             this.data_view_project_list.TabIndex = 0;
             this.data_view_project_list.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.data_view_project_list_CellContentClick);
             this.data_view_project_list.SelectionChanged += new System.EventHandler(this.data_view_project_list_SelectionChanged);
@@ -73,7 +73,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 514);
+            this.ClientSize = new System.Drawing.Size(1036, 516);
             this.Controls.Add(this.btn_open);
             this.Controls.Add(this.btn_update);
             this.Controls.Add(this.data_view_project_list);

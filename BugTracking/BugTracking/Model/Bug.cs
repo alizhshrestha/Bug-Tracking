@@ -10,7 +10,7 @@ namespace BugTracking.Model
     class Bug
     {
         int id, project_id;
-        string bug_title, source_file, class_name, method_line, code_line, reported_by, source_code;
+        string bug_title, source_file, class_name, method_line, code_line, reported_by, source_code, reported_at;
         string screenshotfile;
         bool fix;
 
@@ -45,7 +45,7 @@ namespace BugTracking.Model
 
 
         public Bug(string bug_title, string source_file, string class_name, string method_line, 
-            string code_line, string reported_by, int project_id, string source_code, string screenshotfile)
+            string code_line, string reported_by, int project_id, string source_code, string screenshotfile, string reported_at)
         {
 
             this.bug_title = bug_title;
@@ -57,6 +57,7 @@ namespace BugTracking.Model
             this.project_id = project_id;
             this.source_code = source_code;
             this.screenshotfile = screenshotfile;
+            this.reported_at = reported_at;
 
         }
 
@@ -88,6 +89,17 @@ namespace BugTracking.Model
         public string getBugTitle()
         {
             return this.bug_title;
+        }
+
+
+        public void setReportedAt(string reported_at)
+        {
+            this.reported_at = reported_at;
+        }
+
+        public string getReportedAt()
+        {
+            return this.reported_at;
         }
 
         public void setReportedBy(string reported_by)

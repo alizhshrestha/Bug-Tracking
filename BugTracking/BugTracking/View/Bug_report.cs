@@ -73,10 +73,11 @@ namespace BugTracking
                                             string method_line = txt_method_line.Text;
                                             string code_line = txt_code_line.Text;
                                             string source_code = rtxt_source_code.Text;
+                                            string reported_at = dtme_reported_at.Text;
                                             Image screenshot = picture_screen_shot.Image;
 
                                             Console.WriteLine(this.project_id);
-                                            Bug bug = new Bug(bug_title, source_file, class_name, method_line, code_line, this.username, this.project_id, source_code, path);
+                                            Bug bug = new Bug(bug_title, source_file, class_name, method_line, code_line, this.username, this.project_id, source_code, path, reported_at);
                                             BugController.insertBugToDatabase(bug);
                                             MessageBox.Show("Submitted Successfully");
                                             this.Hide();
@@ -93,7 +94,7 @@ namespace BugTracking
         private void btn_update_Click_1(object sender, EventArgs e)
         {
             String update_query = "Update bug set bug_title='" + txt_bug_title.Text + "', source_file='" + txt_source_file.Text + "', class='" + txt_class_name.Text + "'," +
-                " method_line='" + txt_method_line.Text + "', code_line='" + txt_code_line.Text + "' where id='" + this.bug_id + "'";
+                " method_line='" + txt_method_line.Text + "', code_line='" + txt_code_line.Text + "', reported_at='"+dtme_reported_at.Text+"' where id='" + this.bug_id + "'";
             MySqlConnection conn = DbConnection.connectToDb();
             MySqlCommand command = new MySqlCommand(update_query, conn);
             try
@@ -138,8 +139,8 @@ namespace BugTracking
 
         }
 
-        private void btn_open_Click(object sender, EventArgs e)
-        {
+        //color coding
+        /*
             openFileDiaglog(openFileDialog1, "txt files (*.txt)|*.txt|All files (*.*)|*.*");
             try
             {
@@ -153,8 +154,7 @@ namespace BugTracking
             {
                 Console.WriteLine(ex.Message);
             }
-
-        }
+            */
 
         public void openFileDiaglog(OpenFileDialog openFileDialogtool, String filterFile)
         {

@@ -47,23 +47,22 @@
             this.lollipopLabel8 = new LollipopLabel();
             this.btn_update = new LollipopButton();
             this.btn_back = new LollipopButton();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
-            this.rtxt_whole_code = new System.Windows.Forms.RichTextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.btn_open = new LollipopButton();
             this.lollipopLabel9 = new LollipopLabel();
             this.rtxt_source_code = new System.Windows.Forms.RichTextBox();
             this.lollipopLabel10 = new LollipopLabel();
             this.picture_screen_shot = new System.Windows.Forms.PictureBox();
             this.btn_choose = new LollipopButton();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
+            this.lollipopLabel11 = new LollipopLabel();
+            this.dtme_reported_at = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.picture_screen_shot)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_validate
             // 
             this.lbl_validate.AutoSize = true;
-            this.lbl_validate.Location = new System.Drawing.Point(12, 440);
+            this.lbl_validate.Location = new System.Drawing.Point(12, 495);
             this.lbl_validate.Name = "lbl_validate";
             this.lbl_validate.Size = new System.Drawing.Size(0, 13);
             this.lbl_validate.TabIndex = 18;
@@ -73,7 +72,7 @@
             this.btn_submit.BackColor = System.Drawing.Color.Transparent;
             this.btn_submit.BGColor = "#508ef5";
             this.btn_submit.FontColor = "#ffffff";
-            this.btn_submit.Location = new System.Drawing.Point(15, 467);
+            this.btn_submit.Location = new System.Drawing.Point(12, 530);
             this.btn_submit.Name = "btn_submit";
             this.btn_submit.Size = new System.Drawing.Size(83, 41);
             this.btn_submit.TabIndex = 7;
@@ -288,7 +287,7 @@
             this.btn_update.BackColor = System.Drawing.Color.Transparent;
             this.btn_update.BGColor = "#508ef5";
             this.btn_update.FontColor = "#ffffff";
-            this.btn_update.Location = new System.Drawing.Point(104, 467);
+            this.btn_update.Location = new System.Drawing.Point(101, 530);
             this.btn_update.Name = "btn_update";
             this.btn_update.Size = new System.Drawing.Size(80, 41);
             this.btn_update.TabIndex = 8;
@@ -300,44 +299,16 @@
             this.btn_back.BackColor = System.Drawing.Color.Transparent;
             this.btn_back.BGColor = "#508ef5";
             this.btn_back.FontColor = "#ffffff";
-            this.btn_back.Location = new System.Drawing.Point(190, 467);
+            this.btn_back.Location = new System.Drawing.Point(187, 530);
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(76, 41);
             this.btn_back.TabIndex = 9;
             this.btn_back.Text = "Back";
             this.btn_back.Click += new System.EventHandler(this.btn_back_Click_1);
             // 
-            // webBrowser1
-            // 
-            this.webBrowser1.Location = new System.Drawing.Point(704, 89);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(250, 250);
-            this.webBrowser1.TabIndex = 36;
-            // 
-            // rtxt_whole_code
-            // 
-            this.rtxt_whole_code.Location = new System.Drawing.Point(722, 357);
-            this.rtxt_whole_code.Name = "rtxt_whole_code";
-            this.rtxt_whole_code.Size = new System.Drawing.Size(232, 96);
-            this.rtxt_whole_code.TabIndex = 37;
-            this.rtxt_whole_code.Text = "";
-            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // btn_open
-            // 
-            this.btn_open.BackColor = System.Drawing.Color.Transparent;
-            this.btn_open.BGColor = "#508ef5";
-            this.btn_open.FontColor = "#ffffff";
-            this.btn_open.Location = new System.Drawing.Point(722, 467);
-            this.btn_open.Name = "btn_open";
-            this.btn_open.Size = new System.Drawing.Size(76, 41);
-            this.btn_open.TabIndex = 38;
-            this.btn_open.Text = "Open";
-            this.btn_open.Click += new System.EventHandler(this.btn_open_Click);
             // 
             // lollipopLabel9
             // 
@@ -397,19 +368,37 @@
             // 
             this.openFileDialog2.FileName = "openFileDialog2";
             // 
+            // lollipopLabel11
+            // 
+            this.lollipopLabel11.AutoSize = true;
+            this.lollipopLabel11.BackColor = System.Drawing.Color.Transparent;
+            this.lollipopLabel11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lollipopLabel11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.lollipopLabel11.Location = new System.Drawing.Point(12, 431);
+            this.lollipopLabel11.Name = "lollipopLabel11";
+            this.lollipopLabel11.Size = new System.Drawing.Size(83, 17);
+            this.lollipopLabel11.TabIndex = 45;
+            this.lollipopLabel11.Text = "Reported at";
+            // 
+            // dtme_reported_at
+            // 
+            this.dtme_reported_at.Location = new System.Drawing.Point(15, 452);
+            this.dtme_reported_at.Name = "dtme_reported_at";
+            this.dtme_reported_at.Size = new System.Drawing.Size(248, 20);
+            this.dtme_reported_at.TabIndex = 46;
+            // 
             // Bug_report
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(996, 532);
+            this.ClientSize = new System.Drawing.Size(624, 583);
+            this.Controls.Add(this.dtme_reported_at);
+            this.Controls.Add(this.lollipopLabel11);
             this.Controls.Add(this.btn_choose);
             this.Controls.Add(this.picture_screen_shot);
             this.Controls.Add(this.lollipopLabel10);
             this.Controls.Add(this.rtxt_source_code);
             this.Controls.Add(this.lollipopLabel9);
-            this.Controls.Add(this.btn_open);
-            this.Controls.Add(this.rtxt_whole_code);
-            this.Controls.Add(this.webBrowser1);
             this.Controls.Add(this.btn_back);
             this.Controls.Add(this.btn_update);
             this.Controls.Add(this.lollipopLabel8);
@@ -459,15 +448,14 @@
         private LollipopLabel lollipopLabel8;
         private LollipopButton btn_update;
         private LollipopButton btn_back;
-        private System.Windows.Forms.WebBrowser webBrowser1;
-        private System.Windows.Forms.RichTextBox rtxt_whole_code;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private LollipopButton btn_open;
         private LollipopLabel lollipopLabel9;
         private System.Windows.Forms.RichTextBox rtxt_source_code;
         private LollipopLabel lollipopLabel10;
         private System.Windows.Forms.PictureBox picture_screen_shot;
         private LollipopButton btn_choose;
         private System.Windows.Forms.OpenFileDialog openFileDialog2;
+        private LollipopLabel lollipopLabel11;
+        private System.Windows.Forms.DateTimePicker dtme_reported_at;
     }
 }

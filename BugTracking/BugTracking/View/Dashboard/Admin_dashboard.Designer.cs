@@ -49,8 +49,8 @@
             this.fileToolStripMenuItem,
             this.registerToolStripMenuItem,
             this.viewToolStripMenuItem,
-            this.logOutToolStripMenuItem,
-            this.chatboxToolStripMenuItem});
+            this.chatboxToolStripMenuItem,
+            this.logOutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(9, 64);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(397, 24);
