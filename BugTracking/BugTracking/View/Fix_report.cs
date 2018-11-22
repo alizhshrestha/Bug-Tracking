@@ -16,7 +16,7 @@ namespace BugTracking
     {
         Validation validate; //declare validation class
         //declaring variables.
-        string bug_title, source_file, class_name, method_line, code_line, project_name, fixer_name, resolved_code, username;
+        string bug_title, source_file, class_name, method_line, code_line, project_name, fixer_name, resolved_code, username, source_code;
         int project_id, bug_id;
 
         private void btn_update_Click_1(object sender, EventArgs e)
@@ -46,7 +46,9 @@ namespace BugTracking
                                             this.code_line = txt_code_line.Text;
                                             this.fixer_name = txt_fixer.Text;
                                             this.resolved_code = txt_resolved_code.Text;
-                                            Bug_fix bf = new Bug_fix(fixer_name, resolved_code, this.bug_id, this.username);
+                                            this.source_code = rtxt_source_code.Text;
+                                            Bug_fix bf = new Bug_fix(fixer_name, resolved_code, this.bug_id, this.username, this.bug_title, this.source_file, 
+                                                this.class_name, this.method_line, this.code_line, this.source_code);
                                             BugFixController.insertBugFixToDatabase(bf);
 
 
@@ -92,6 +94,8 @@ namespace BugTracking
             
         }
 
+
+
         #region Constructor
         public Fix_report(string bug_title, string source_file, string class_name, string method_line, 
             string code_line,int project_id, int bug_id,string resolved_code)
@@ -127,6 +131,26 @@ namespace BugTracking
             InitializeComponent();
             validate = new Validation();
         }
+
+        public Fix_report(string bug_title, string source_file, string class_name, string method_line,
+            string code_line, int project_id, int bug_id, string resolved_code, string username, string source_code)
+        {
+            MaterialSkin();
+            //txt_project_name.ReadOnly = true;
+            this.bug_title = bug_title;
+            this.source_file = source_file;
+            this.class_name = class_name;
+            this.method_line = method_line;
+            this.code_line = code_line;
+            this.project_id = project_id;
+            this.bug_id = bug_id;
+            this.resolved_code = resolved_code;
+            this.username = username;
+            this.source_code = source_code;
+            InitializeComponent();
+            validate = new Validation();
+        }
+
 
         public Fix_report(string bug_title, string source_file, string class_name, string method_line,
             string code_line, int project_id, int bug_id)
@@ -186,6 +210,7 @@ namespace BugTracking
             txt_method_line.Text = method_line;
             txt_code_line.Text = code_line;
             txt_resolved_code.Text = this.resolved_code;
+            rtxt_source_code.Text = this.source_code;
             //Establishing connection with database.
             MySqlConnection conn = DbConnection.connectToDb();
             conn.Open();

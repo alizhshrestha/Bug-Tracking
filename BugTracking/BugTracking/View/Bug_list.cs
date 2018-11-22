@@ -47,7 +47,7 @@ namespace BugTracking.View
             conn.Close();
 
             this.Close();
-            Fix_report fix_report = new Fix_report(bug_title, source_file, class_name, method_line, code_line, project_id, bug_id, resolved_code, this.username);
+            Fix_report fix_report = new Fix_report(bug_title, source_file, class_name, method_line, code_line, project_id, bug_id, resolved_code, this.username, this.source_code);
             fix_report.ShowDialog();
         }
 
@@ -116,7 +116,7 @@ namespace BugTracking.View
             }
             conn.Close();
             this.Hide();
-            Fix_report fix_report = new Fix_report(bug_title, source_file, class_name, method_line, code_line, project_id, bug_id, this.resolved_code, this.username);
+            Fix_report fix_report = new Fix_report(bug_title, source_file, class_name, method_line, code_line, project_id, bug_id, this.resolved_code, this.username, this.source_code);
             fix_report.ShowDialog();
         }
 

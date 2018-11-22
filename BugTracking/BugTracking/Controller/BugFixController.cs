@@ -11,7 +11,10 @@ namespace BugTracking.Controller
     {
         public static void insertBugFixToDatabase(Bug_fix bf)
         {
-            string query = "INSERT INTO `bug_fix` (`id`, `fixer_name`, `fixed_code`, `bug_id`,`reported_by`) VALUES(NULL, '"+bf.getFixerName()+"', '"+bf.getFixedCode()+"', '"+bf.getBugId()+ "' , '" + bf.getReportedBy() + "'); "; 
+            //string query2 = "INSERT INTO `bug_fix` (`id`, `fixer_name`, `fixed_code`, `bug_id`,`reported_by`) VALUES(NULL, '"+bf.getFixerName()+"', '"+bf.getFixedCode()+"', '"+bf.getBugId()+ "' , '" + bf.getReportedBy() + "'); ";
+            string query = "INSERT INTO `bug_fix` (`id`, `fixer_name`, `fixed_code`, `bug_id`, `reported_by`, `bug_title`, `source_file`, `class_name`, `method_line`, `code_line`, `source_code`) " +
+                "VALUES(NULL,'" + bf.getFixerName() + "','" + bf.getFixedCode() + "', '" + bf.getBugId() + "', '" + bf.getReportedBy() + "', '" + bf.getBugTitle() + "','" + bf.getSourceFile() + "', '" + bf.getClassName() + "', " +
+                "'" + bf.getMethodLine() + "', '" + bf.getCodeLine() + "','" + bf.getSourceCode() + "');";
             DatabaseController.insertDataToForm(query);
         }
 

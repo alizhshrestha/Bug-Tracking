@@ -49,12 +49,14 @@
             this.lollipopLabel8 = new LollipopLabel();
             this.lollipopLabel9 = new LollipopLabel();
             this.btn_back = new LollipopButton();
+            this.lollipopLabel10 = new LollipopLabel();
+            this.rtxt_source_code = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // cmb_role
             // 
             this.cmb_role.FormattingEnabled = true;
-            this.cmb_role.Location = new System.Drawing.Point(16, 546);
+            this.cmb_role.Location = new System.Drawing.Point(16, 437);
             this.cmb_role.Name = "cmb_role";
             this.cmb_role.Size = new System.Drawing.Size(177, 21);
             this.cmb_role.TabIndex = 8;
@@ -62,14 +64,14 @@
             // lbl_validate
             // 
             this.lbl_validate.AutoSize = true;
-            this.lbl_validate.Location = new System.Drawing.Point(13, 570);
+            this.lbl_validate.Location = new System.Drawing.Point(13, 461);
             this.lbl_validate.Name = "lbl_validate";
             this.lbl_validate.Size = new System.Drawing.Size(0, 13);
             this.lbl_validate.TabIndex = 19;
             // 
             // txt_resolved_code
             // 
-            this.txt_resolved_code.Location = new System.Drawing.Point(16, 380);
+            this.txt_resolved_code.Location = new System.Drawing.Point(209, 218);
             this.txt_resolved_code.Name = "txt_resolved_code";
             this.txt_resolved_code.Size = new System.Drawing.Size(177, 96);
             this.txt_resolved_code.TabIndex = 6;
@@ -80,7 +82,7 @@
             this.btn_update.BackColor = System.Drawing.Color.Transparent;
             this.btn_update.BGColor = "#508ef5";
             this.btn_update.FontColor = "#ffffff";
-            this.btn_update.Location = new System.Drawing.Point(16, 605);
+            this.btn_update.Location = new System.Drawing.Point(15, 500);
             this.btn_update.Name = "btn_update";
             this.btn_update.Size = new System.Drawing.Size(89, 41);
             this.btn_update.TabIndex = 9;
@@ -256,7 +258,7 @@
             this.lollipopLabel7.BackColor = System.Drawing.Color.Transparent;
             this.lollipopLabel7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lollipopLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
-            this.lollipopLabel7.Location = new System.Drawing.Point(13, 360);
+            this.lollipopLabel7.Location = new System.Drawing.Point(206, 198);
             this.lollipopLabel7.Name = "lollipopLabel7";
             this.lollipopLabel7.Size = new System.Drawing.Size(102, 17);
             this.lollipopLabel7.TabIndex = 35;
@@ -267,7 +269,7 @@
             this.txt_fixer.FocusedColor = "#508ef5";
             this.txt_fixer.FontColor = "#999999";
             this.txt_fixer.IsEnabled = true;
-            this.txt_fixer.Location = new System.Drawing.Point(16, 499);
+            this.txt_fixer.Location = new System.Drawing.Point(16, 390);
             this.txt_fixer.MaxLength = 32767;
             this.txt_fixer.Multiline = false;
             this.txt_fixer.Name = "txt_fixer";
@@ -283,7 +285,7 @@
             this.lollipopLabel8.BackColor = System.Drawing.Color.Transparent;
             this.lollipopLabel8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lollipopLabel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
-            this.lollipopLabel8.Location = new System.Drawing.Point(13, 479);
+            this.lollipopLabel8.Location = new System.Drawing.Point(13, 370);
             this.lollipopLabel8.Name = "lollipopLabel8";
             this.lollipopLabel8.Size = new System.Drawing.Size(111, 17);
             this.lollipopLabel8.TabIndex = 37;
@@ -295,7 +297,7 @@
             this.lollipopLabel9.BackColor = System.Drawing.Color.Transparent;
             this.lollipopLabel9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lollipopLabel9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
-            this.lollipopLabel9.Location = new System.Drawing.Point(13, 526);
+            this.lollipopLabel9.Location = new System.Drawing.Point(13, 417);
             this.lollipopLabel9.Name = "lollipopLabel9";
             this.lollipopLabel9.Size = new System.Drawing.Size(37, 17);
             this.lollipopLabel9.TabIndex = 39;
@@ -306,18 +308,40 @@
             this.btn_back.BackColor = System.Drawing.Color.Transparent;
             this.btn_back.BGColor = "#508ef5";
             this.btn_back.FontColor = "#ffffff";
-            this.btn_back.Location = new System.Drawing.Point(116, 605);
+            this.btn_back.Location = new System.Drawing.Point(115, 500);
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(78, 41);
             this.btn_back.TabIndex = 10;
             this.btn_back.Text = "Back";
             this.btn_back.Click += new System.EventHandler(this.btn_back_Click_1);
             // 
+            // lollipopLabel10
+            // 
+            this.lollipopLabel10.AutoSize = true;
+            this.lollipopLabel10.BackColor = System.Drawing.Color.Transparent;
+            this.lollipopLabel10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lollipopLabel10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.lollipopLabel10.Location = new System.Drawing.Point(220, 76);
+            this.lollipopLabel10.Name = "lollipopLabel10";
+            this.lollipopLabel10.Size = new System.Drawing.Size(88, 17);
+            this.lollipopLabel10.TabIndex = 41;
+            this.lollipopLabel10.Text = "Source code";
+            // 
+            // rtxt_source_code
+            // 
+            this.rtxt_source_code.Location = new System.Drawing.Point(205, 96);
+            this.rtxt_source_code.Name = "rtxt_source_code";
+            this.rtxt_source_code.Size = new System.Drawing.Size(177, 96);
+            this.rtxt_source_code.TabIndex = 40;
+            this.rtxt_source_code.Text = "";
+            // 
             // Fix_report
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(213, 658);
+            this.ClientSize = new System.Drawing.Size(422, 727);
+            this.Controls.Add(this.lollipopLabel10);
+            this.Controls.Add(this.rtxt_source_code);
             this.Controls.Add(this.btn_back);
             this.Controls.Add(this.lollipopLabel9);
             this.Controls.Add(this.txt_fixer);
@@ -370,5 +394,7 @@
         private LollipopLabel lollipopLabel8;
         private LollipopLabel lollipopLabel9;
         private LollipopButton btn_back;
+        private LollipopLabel lollipopLabel10;
+        private System.Windows.Forms.RichTextBox rtxt_source_code;
     }
 }
